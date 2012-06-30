@@ -9,6 +9,7 @@ tags:
 - electronics
 - gadgeteer
 - hardware
+published: false
 ---
 
 <p>
@@ -21,14 +22,13 @@ tags:
 
 <h2>What is Microsoft .NET Gadgeteer?</h2> 
 
-<p> 
-	<p>
-		Really cool plug’n’play style hardware for <em>programmers</em>. 
-	</p> 
-	<p>
-		Starting with a mainboard and a power module, you can connect an awesome array of modular components to form some cool little electronic projects. Check out the <a title="Gadgeteer Homepage" href="http://www.netmf.com/gadgeteer/" target="_blank">Gadgeteer Homepage</a> for examples of cool projects, the latest news and more delicious Gadgeteer related information.
-	</p> 
-	
+<p>
+Really cool plug’n’play style hardware for <em>programmers</em>. 
+</p> 
+<p>
+	Starting with a mainboard and a power module, you can connect an awesome array of 		modular components to form some cool little electronic projects. Check out the <a 	title="Gadgeteer Homepage" href="http://www.netmf.com/gadgeteer/" target="_blank">Gadgeteer 	Homepage</a> for examples of cool projects, the latest news and more delicious Gadgeteer 	related information.
+</p> 
+        
 <h2>What do I buy?</h2> 
 
 <p>I bought the <a title="FEZ Spider Starter Kit from GHI Electronics" href="http://www.ghielectronics.com/catalog/product/297" target="_blank">FEZ Spider Starter Kit from GHI Electronics</a> which includes a wide range of goodies including:<a href="/wp-content/uploads/2012/02/297-1_large.jpg">
@@ -82,3 +82,4 @@ tags:
 </p> 
 
 <p>Once I’ve created something, I’ll post about my adventures to get there.</p>
+
