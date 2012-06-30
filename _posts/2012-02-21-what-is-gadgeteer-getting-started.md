@@ -9,7 +9,7 @@ tags:
 - electronics
 - gadgeteer
 - hardware
-published: false
+published: true
 ---
 
 <p>
@@ -82,4 +82,5 @@ Really cool plug’n’play style hardware for <em>programmers</em>.
 </p> 
 
 <p>Once I’ve created something, I’ll post about my adventures to get there.</p>
+
 
