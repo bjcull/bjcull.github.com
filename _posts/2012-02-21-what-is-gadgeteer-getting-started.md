@@ -50,8 +50,8 @@ Really cool plug’n’play style hardware for <em>programmers</em>.
 	<li>
 		<a href="http://www.ghielectronics.com/catalog/product/310">Assorted IDC Cable Pack</a>:  
 		<ul> 
-			<li>4x 5cm IDC cables  
-			<li>3x 20cm IDC cables  
+			<li>4x 5cm IDC cables</li>
+			<li>3x 20cm IDC cables</li>
 			<li>1x 50cm IDC cable</li>
 		</ul>
 	</li>
