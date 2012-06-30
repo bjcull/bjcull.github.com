@@ -65,6 +65,6 @@ published: true
 	Also please note the actual storyboards have come from the awesome guys at Clarity Consulting. There is an <a title="Clarity Consulting Page Transitions Sample" href="http://blogs.claritycon.com/kevinmarshall/2010/10/13/wp7-page-transitions-sample/" target="_blank">especially useful post about transitions you should go read right now</a>.
 </p>
 
-<script src="http://gist.github.com/1345156.js"></script>
+<script src="https://gist.github.com/1345156.js?file=ContinuumTransition.cs"></script>
 
 <p>Welcome to the bottom of the post, please spread the word about this transition to better the Windows Phone platform for everyone :)</p>
