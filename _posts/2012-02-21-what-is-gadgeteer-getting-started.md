@@ -35,18 +35,18 @@ Really cool plug’n’play style hardware for <em>programmers</em>.
 <img style="background-image: none; border-bottom: 0px; border-left: 0px; padding-left: 0px; padding-right: 0px; display: inline; float: right; border-top: 0px; border-right: 0px; padding-top: 0px" title="FEZ Spider Starter Kit" border="0" alt="FEZ Spider Starter Kit" align="right" src="/wp-content/uploads/2012/02/297-1_large_thumb.jpg" width="244" height="168">
 </a></p> 
 <ul style="list-style-type: disc"> 
-	<li><a href="http://www.ghielectronics.com/catalog/product/269">FEZ Spider Mainboard</a>  
-	<li><a href="http://www.ghielectronics.com/catalog/product/276">Display T35 Module</a> (3.5" with touchscreen)  
-	<li><a href="http://www.ghielectronics.com/catalog/product/280">USB Client DP Module</a> (with USB cable)  
-	<li><a href="http://www.ghielectronics.com/catalog/product/283">Camera Module</a>  
-	<li>2x <a href="http://www.ghielectronics.com/catalog/product/272">Multicolor LED Module </a>(DaisyLink)  
-	<li>2x <a href="http://www.ghielectronics.com/catalog/product/274">Button Module</a>  
-	<li><a href="http://www.ghielectronics.com/catalog/product/284">Ethernet J11D Module</a> 
-	<li><a href="http://www.ghielectronics.com/catalog/product/271">SD Card Module</a>  
-	<li><a href="http://www.ghielectronics.com/catalog/product/270">USB Host Module</a>  
-	<li><a href="http://www.ghielectronics.com/catalog/product/273">Extender Module</a>  
-	<li><a href="http://www.ghielectronics.com/catalog/product/299">Joystick Module</a>  
-	<li><a href="http://www.ghielectronics.com/catalog/product/279">10cm IDC cables</a> (included with modules). 
+	<li><a href="http://www.ghielectronics.com/catalog/product/269">FEZ Spider Mainboard</a></li>
+	<li><a href="http://www.ghielectronics.com/catalog/product/276">Display T35 Module</a> (3.5" with touchscreen)</li>
+	<li><a href="http://www.ghielectronics.com/catalog/product/280">USB Client DP Module</a> (with USB cable)</li>
+	<li><a href="http://www.ghielectronics.com/catalog/product/283">Camera Module</a></li>
+	<li>2x <a href="http://www.ghielectronics.com/catalog/product/272">Multicolor LED Module </a>(DaisyLink)</li>
+	<li>2x <a href="http://www.ghielectronics.com/catalog/product/274">Button Module</a></li>
+	<li><a href="http://www.ghielectronics.com/catalog/product/284">Ethernet J11D Module</a></li>
+	<li><a href="http://www.ghielectronics.com/catalog/product/271">SD Card Module</a></li>
+	<li><a href="http://www.ghielectronics.com/catalog/product/270">USB Host Module</a></li>
+	<li><a href="http://www.ghielectronics.com/catalog/product/273">Extender Module</a></li>
+	<li><a href="http://www.ghielectronics.com/catalog/product/299">Joystick Module</a></li>
+	<li><a href="http://www.ghielectronics.com/catalog/product/279">10cm IDC cables</a> (included with modules).</li>
 	<li>
 		<a href="http://www.ghielectronics.com/catalog/product/310">Assorted IDC Cable Pack</a>:  
 		<ul> 
