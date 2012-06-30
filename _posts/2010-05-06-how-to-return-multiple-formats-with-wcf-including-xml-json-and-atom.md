@@ -11,7 +11,7 @@ tags:
 - Xml
 ---
 
-<p>One of the cooler features of WCF web services is the ability to return your data in a range of different formats such as XML, JSON and ATOM, but what really sets it apart is just how easy it is to achieve.</p>  <h2>A Complete Example</h2>  <p>Here’s a cut down, but working example from one of my project’s <a title="Promote.fm" href="http://promote.fm">promote.fm</a>. We’ll break it down below.</p>  <pre class="brush: csharp; ruler: true;">        [WebInvoke(
+<p>One of the cooler features of WCF web services is the ability to return your data in a range of different formats such as XML, JSON and ATOM, but what really sets it apart is just how easy it is to achieve.</p>  <h2>A Complete Example</h2>  <p>Here’s a cut down, but working example from one of my project’s <a title="Promote.fm" href="http://promote.fm">promote.fm</a>. We’ll break it down below.</p>  <pre class="prettyprint">        [WebInvoke(
             Method = &quot;GET&quot;,
             UriTemplate = &quot;search?format={format}&quot;)]
         [ServiceKnownType(typeof(Atom10FeedFormatter))]
@@ -71,7 +71,7 @@ tags:
 
 <p>You may have noticed that my method signature is returning an “object” instead of anything meaningful. This needs to occur to return two different types from the one method. Which types will it return then? We define these in attributes just above the constructor like so:</p>
 
-<pre class="brush: csharp; ruler: true;">[ServiceKnownType(typeof(Atom10FeedFormatter))]
+<pre class="prettyprint">[ServiceKnownType(typeof(Atom10FeedFormatter))]
 [ServiceKnownType(typeof(List&lt;Gig&gt;))]</pre>
 
 <p>This shows that we are returning either an ATOM feed, or a List of type Gig. For now lets look at the how we built the ATOM feed.</p>
@@ -86,7 +86,7 @@ tags:
 
 <p>Now we can finally return the feed using the following two lines of code:</p>
 
-<pre class="brush: csharp; ruler: true;">WebOperationContext.Current.OutgoingResponse.ContentType = ContentTypes.Atom;
+<pre class="prettyprint">WebOperationContext.Current.OutgoingResponse.ContentType = ContentTypes.Atom;
 return feed.GetAtom10Formatter();</pre>
 
 <p>The first line simply lets the browser know that an ATOM feed is coming their way, and the second line delivers.</p>
@@ -97,11 +97,11 @@ return feed.GetAtom10Formatter();</pre>
 
 <p>For JSON:</p>
 
-<pre class="brush: csharp; ruler: true;">WebOperationContext.Current.OutgoingResponse.Format = WebMessageFormat.Json;</pre>
+<pre class="prettyprint">WebOperationContext.Current.OutgoingResponse.Format = WebMessageFormat.Json;</pre>
 
 <p>For XML:</p>
 
-<pre class="brush: csharp; ruler: true;">WebOperationContext.Current.OutgoingResponse.Format = WebMessageFormat.Xml;</pre>
+<pre class="prettyprint">WebOperationContext.Current.OutgoingResponse.Format = WebMessageFormat.Xml;</pre>
 
 <h2>More Help with WCF</h2>
 

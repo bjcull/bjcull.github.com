@@ -20,13 +20,13 @@ Quickly and simply validate your credit card fields by adding this attribute to 
 	<li>Start by downloading the <a title="Super Amazing Credit Card Validator Attribute Class" href="https://gist.github.com/662078" target="_blank">CreditCardAttribute class</a> and including it in your project somewhere. (Code shown below)</li>
 	<li>Decorate your data model with the attribute like so:</li>
 </ol>
-<pre class="brush: csharp; ruler: true;">        [CreditCard(ErrorMessage="Please enter a valid credit card number")]
+<pre class="prettyprint")]
         public string CreditCardNumber { get; set; }
 </pre>
 You're Done! If you would like to know a little more, read on, but that's enough to get you going.
 <h2>But what about card types?</h2>
 You can specify which cards you would like to accept using the AcceptedCardTypes named parameter. Do it like so:
-<pre class="brush: csharp">        [CreditCard(ErrorMessage="Please enter a valid credit card number",
+<pre class="prettyprint",
             AcceptedCardTypes=CreditCardAttribute.CardType.Visa | CreditCardAttribute.CardType.MasterCard)]
         public string CreditCardNumber { get; set; }
 </pre>
@@ -34,7 +34,7 @@ You can use as many or as little of the card types as you like, making sure to u
 <h2>I'm interested in how you've created this validator. Can you breakdown the code?</h2>
 Yes. Yes I can. But first the code.
 
-<pre class="brush: csharp">
+<pre class="prettyprint">
     /// ASP.NET MVC 3 Credit Card Validator Attribute
     /// by Ben Cull - 4 November 2010
     ///
@@ -139,7 +139,7 @@ Yes. Yes I can. But first the code.
 </pre>
 
 The first thing to notice is that I have inherited from the ValidationAttribute. This takes care of most the work, allowing me to quickly and easily implement the actual validation. ValidationAttribute is just the default, you can also inherit from other classes within the System.ComponentModel.DataAnnotations namespace. The most useful of which is the RegularExpressionAttribute. Check it out, a simple currency validator:
-<pre class="brush: csharp">    public class CurrencyAttribute : RegularExpressionAttribute
+<pre class="prettyprint">    public class CurrencyAttribute : RegularExpressionAttribute
     {
         public CurrencyAttribute() : base("^\\$?(\\d{1,3},?(\\d{3},?)*\\d{3}(\\.\\d{1,3})?|\\d{1,3}(\\.\\d{2})?)$")
         {
@@ -149,7 +149,7 @@ The first thing to notice is that I have inherited from the ValidationAttribute.
 That's all you need to do to implement your own regular expression based validator.
 
 Back to our Credit Card Validator, we'll take a look at the only manditory method for creating a custom validator, the IsValid method.
-<pre class="brush: csharp">        public override bool IsValid(object value)
+<pre class="prettyprint">        public override bool IsValid(object value)
         {
             var number = Convert.ToString(value);
 

@@ -98,15 +98,14 @@ strong, th { font-weight: bold; }
 td, td img { vertical-align: top; } 
 sub { vertical-align: sub; font-size: smaller; }
 sup { vertical-align: super; font-size: smaller; }
-pre { 
-  
-  background-color: #252525;
-  border: 1px solid black;
-	color: #e6e0db;
-	padding:3px 5px;
-	font-size: 12px;
-	line-height: 14px;
+pre {   
+    background-color: #eee;
+    border:0 !important;
+	padding:10px !important;
+	font-size: 14px;
+	line-height: 18px;
 	margin:12px 0 20px 0;  
+    overflow:auto;
 }
 
 

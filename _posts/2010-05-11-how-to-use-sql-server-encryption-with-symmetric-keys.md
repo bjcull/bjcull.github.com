@@ -9,11 +9,11 @@ tags:
 - sql
 ---
 
-<p>You can quickly and securely encrypt data in SQL Server 2005+ by using the native Symmetric Keys functionality. The most common encryption algorithms symmetric key encryption supports are Des, Triple Des, RC4 128bit, AES 128bit and AES 256bit.</p>  <h2>Setup your database</h2>  <p>To create a symmetric key, we first need to setup our database with a master key and a certificate, which act as protectors of our symmetric key store.</p>  <p><strong>Create a Database Master Key</strong></p>  <pre class="brush: sql;">CREATE MASTER KEY ENCRYPTION BY PASSWORD = 'myStrongPassword'</pre>
+<p>You can quickly and securely encrypt data in SQL Server 2005+ by using the native Symmetric Keys functionality. The most common encryption algorithms symmetric key encryption supports are Des, Triple Des, RC4 128bit, AES 128bit and AES 256bit.</p>  <h2>Setup your database</h2>  <p>To create a symmetric key, we first need to setup our database with a master key and a certificate, which act as protectors of our symmetric key store.</p>  <p><strong>Create a Database Master Key</strong></p>  <pre class="prettyprint">CREATE MASTER KEY ENCRYPTION BY PASSWORD = 'myStrongPassword'</pre>
 
 <p><strong>Create a Certificate</strong></p>
 
-<pre class="brush: sql;">CREATE CERTIFICATE MyCertificateName
+<pre class="prettyprint">CREATE CERTIFICATE MyCertificateName
 WITH SUBJECT = 'A label for this certificate'</pre>
 
 <h2>Create your Symmetric Key</h2>
@@ -22,7 +22,7 @@ WITH SUBJECT = 'A label for this certificate'</pre>
 
 <p><strong>Create a Symmetric Key</strong></p>
 
-<pre class="brush: sql;">CREATE SYMMETRIC KEY MySymmetricKeyName WITH
+<pre class="prettyprint">CREATE SYMMETRIC KEY MySymmetricKeyName WITH
 IDENTITY_VALUE = 'a fairly secure name',
 ALGORITHM = AES_256,
 KEY_SOURCE = 'a very secure strong password or phrase'
@@ -40,14 +40,14 @@ ENCRYPTION BY CERTIFICATE MyCertificateName;</pre>
 
 <p>Before you can start encrypting or decrypting data, you must first initialize the key. This is done with the following piece of code.</p>
 
-<pre class="brush: sql;">OPEN SYMMETRIC KEY MySymmetricKeyName
+<pre class="prettyprint">OPEN SYMMETRIC KEY MySymmetricKeyName
 DECRYPTION BY CERTIFICATE MyCertificateName</pre>
 
 <p><strong>Encrypting data</strong></p>
 
 <p>You can encrypt data by using the EncryptByKey function, like so:</p>
 
-<pre class="brush: sql;"><p>DECLARE @Result varbinary(256) <p>SET @Result = EncryptByKey(Key_GUID('MySymmetricKeyName'), @ValueToEncrypt) <p>&#160;</p></pre>
+<pre class="prettyprint"><p>DECLARE @Result varbinary(256) <p>SET @Result = EncryptByKey(Key_GUID('MySymmetricKeyName'), @ValueToEncrypt) <p>&#160;</p></pre>
 
 <p>Note that the result of the above encryption is of type varbinary(256), and if you would like to store the value in a column to use this type.</p>
 
@@ -55,7 +55,7 @@ DECRYPTION BY CERTIFICATE MyCertificateName</pre>
 
 <p>You can decrypt data by using the DecryptByKey function, like so:</p>
 
-<pre class="brush: sql;">DECLARE @Result varchar(max)
+<pre class="prettyprint">DECLARE @Result varchar(max)
 SET @Result = DecryptByKey(@ValueToDecrypt)</pre>
 
 <p>Make sure you decrypt to the same type that you encrypted in the first place. In my example I encrypted a varchar(max), so I also decrypted to a varchar(max).</p>
@@ -66,7 +66,7 @@ SET @Result = DecryptByKey(@ValueToDecrypt)</pre>
 
 <p><strong>The OpenKeys Stored Procedure</strong></p>
 
-<pre class="brush: sql;">CREATE PROCEDURE OpenKeys
+<pre class="prettyprint">CREATE PROCEDURE OpenKeys
 AS
 BEGIN
     SET NOCCOUNT ON;
@@ -82,7 +82,7 @@ END</pre>
 
 <p><strong>The Encrypt Function</strong></p>
 
-<pre class="brush: sql;">CREATE FUNCTION Encrypt
+<pre class="prettyprint">CREATE FUNCTION Encrypt
 (
     @ValueToEncrypt varchar(max)
 )
@@ -100,7 +100,7 @@ END</pre>
 
 <p><strong>The Decrypt Function</strong></p>
 
-<pre class="brush: sql;">CREATE FUNCTION Decrypt
+<pre class="prettyprint">CREATE FUNCTION Decrypt
 (
     @ValueToDecrypt varbinary(256)
 )
@@ -118,7 +118,7 @@ END</pre>
 
 <p><strong>An Example of How to Use Symmetric Keys in a Function</strong></p>
 
-<pre class="brush: sql;">EXEC OpenKeys
+<pre class="prettyprint">EXEC OpenKeys
 
 -- Encrypting
 SELECT Encrypt(myColumn) FROM myTable

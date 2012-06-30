@@ -17,7 +17,7 @@ tags:
 <strong>UPDATE: I've created a jQuery plugin version of this code which I've <a title="jQax jQuery plugin – The jQuery plugin version of the jQax ajax wrapper" href="http://benjii.me/2010/08/jqax-jquery-plugin-the-jquery-plugin-version-of-the-jqax-ajax-wrapper/">blogged about here</a>!</strong>
 <h2>Yeah, Yeah, What do I copy?</h2>
 The full code is below:
-<pre class="brush: js; ruler: true;">// jQax.js - A wrapper for jQuery ajax functionality aimed at .NET services and page methods
+<pre class="prettyprint">// jQax.js - A wrapper for jQuery ajax functionality aimed at .NET services and page methods
 // Ben Cull - 12 August 2010
 
 function jQax() {
@@ -104,7 +104,7 @@ function jQax() {
 jQax = new jQax();</pre>
 <h2>That’s all well and good, but how do I use it?</h2>
 Well Its quite simple, if you have a page method or web service you call It like so (the call using the GET method is much the same):
-<pre class="brush: js; ruler: true;">jQax.CallWebServiceWithJSON(
+<pre class="prettyprint">jQax.CallWebServiceWithJSON(
     "MyPage.aspx/MyMethod",
     {
         parameterName: "parameterValue",
@@ -130,7 +130,7 @@ If you want to use page methods with your fancy new ajax wrapper, you need to en
 	<li>Your page methods are decorated with the [WebMethod] attribute, found in the System.Web.Services namespace</li>
 </ul>
 Like so:
-<pre class="brush: csharp; ruler: true;">[WebMethod]
+<pre class="prettyprint">[WebMethod]
 public static string MyMethod(string parameterName, string horses)
 {
     // Keep in mind, everything comes in and goes out as a string

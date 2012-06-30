@@ -12,7 +12,7 @@ tags:
 - sql
 ---
 
-<p><a href="/wp-content/uploads/2011/07/starting-a-blog-how-do-you-measure-success.jpg"><img style="background-image: none; border-bottom: 0px; border-left: 0px; padding-left: 0px; padding-right: 0px; display: inline; float: right; border-top: 0px; border-right: 0px; padding-top: 0px" title="Notice how the success sign points at the title?" border="0" alt="Notice how the success sign points at the title?" align="right" src="/wp-content/uploads/2011/07/starting-a-blog-how-do-you-measure-success_thumb.jpg" width="244" height="183" /></a>The MVC Mini Profiler is an awesome tool that can help you reduce your page load times by showing you exactly how long each action, database query, view and even partial view took to load. It can be a little tricky to get right, especially using Entity Framework, but if you follow these steps you should be up and running in no time.</p>  <h2>Step 1: Nuget it Baby</h2>  <p>       <a href="http://nuget.org/List/Packages/MiniProfiler"><img style="background-image: none; border-right-width: 0px; padding-left: 0px; padding-right: 0px; display: inline; border-top-width: 0px; border-bottom-width: 0px; border-left-width: 0px; padding-top: 0px" title="Mini Profiler Nuget Package" border="0" alt="PM&gt; Install-Package MiniProfiler" src="/wp-content/uploads/2011/07/image_5.png" width="445" height="92" /></a></p>  <p>If you haven’t used Nuget yet, now would be an excellent time to start as it makes adding references to third party assemblies a breeze. Click the link above to go to the package page to find out more.</p>  <p>By the time you’re done with this step, you should end up with a reference to the mini profiler in your project.</p>  <h2>Step 2: Hook it up</h2>  <p>To get the profiler profiling all we need to do is add the following to our Global.asax.cs:</p>  <pre class="brush: csharp; ruler: true;">protected void Application_BeginRequest()
+<p><a href="/wp-content/uploads/2011/07/starting-a-blog-how-do-you-measure-success.jpg"><img style="background-image: none; border-bottom: 0px; border-left: 0px; padding-left: 0px; padding-right: 0px; display: inline; float: right; border-top: 0px; border-right: 0px; padding-top: 0px" title="Notice how the success sign points at the title?" border="0" alt="Notice how the success sign points at the title?" align="right" src="/wp-content/uploads/2011/07/starting-a-blog-how-do-you-measure-success_thumb.jpg" width="244" height="183" /></a>The MVC Mini Profiler is an awesome tool that can help you reduce your page load times by showing you exactly how long each action, database query, view and even partial view took to load. It can be a little tricky to get right, especially using Entity Framework, but if you follow these steps you should be up and running in no time.</p>  <h2>Step 1: Nuget it Baby</h2>  <p>       <a href="http://nuget.org/List/Packages/MiniProfiler"><img style="background-image: none; border-right-width: 0px; padding-left: 0px; padding-right: 0px; display: inline; border-top-width: 0px; border-bottom-width: 0px; border-left-width: 0px; padding-top: 0px" title="Mini Profiler Nuget Package" border="0" alt="PM&gt; Install-Package MiniProfiler" src="/wp-content/uploads/2011/07/image_5.png" width="445" height="92" /></a></p>  <p>If you haven’t used Nuget yet, now would be an excellent time to start as it makes adding references to third party assemblies a breeze. Click the link above to go to the package page to find out more.</p>  <p>By the time you’re done with this step, you should end up with a reference to the mini profiler in your project.</p>  <h2>Step 2: Hook it up</h2>  <p>To get the profiler profiling all we need to do is add the following to our Global.asax.cs:</p>  <pre class="prettyprint">protected void Application_BeginRequest()
 {
     if (Request.IsLocal)
     {
@@ -29,7 +29,7 @@ protected void Application_EndRequest()
 
 <p>Add this quick line of code to your _layout view or at the end of your head section. This adds the necessary javascript and css to keep it neat and tidy in the corner.</p>
 
-<pre class="brush: csharp; ruler: true;">@MvcMiniProfiler.MiniProfiler.RenderIncludes()</pre>
+<pre class="prettyprint">@MvcMiniProfiler.MiniProfiler.RenderIncludes()</pre>
 
 <p>By this point you can fire up your web pages and watch the pretty profiler in action, however it will be a bit bare. Read on to add extra bits and pieces to your fancy new profiler.</p>
 
@@ -37,7 +37,7 @@ protected void Application_EndRequest()
 
 <p>Very good sir, the profiler supports quite a number of database providers. I’m going to focus on using Entity Framework, as that’s where I had the most trouble. Luckily the good community at Stack Overflow have done the leg work here so we can benefit from their genius. Simply use the following code to retrieve your DB context:</p>
 
-<pre class="brush: csharp; ruler: true;">public static T GetProfiledContext&lt;T&gt;() where T : System.Data.Objects.ObjectContext
+<pre class="prettyprint">public static T GetProfiledContext&lt;T&gt;() where T : System.Data.Objects.ObjectContext
 {
     var conn = ProfiledDbConnection.Get(GetStoreConnection&lt;T&gt;());
     return ObjectContextUtils.CreateObjectContext&lt;T&gt;(conn);
@@ -87,11 +87,11 @@ public static DbConnection GetStoreConnection(string entityConnectionString)
 
 <p>Just call the GetProfiledContext Method with your entities class like so:</p>
 
-<pre class="brush: csharp; ruler: true;">var context = GetProfiledContext&lt;MyModelEntities&gt;();</pre>
+<pre class="prettyprint">var context = GetProfiledContext&lt;MyModelEntities&gt;();</pre>
 
 <p>Finally, we need to add this snippet to our web.config to allow for the DbProviderFactories class to do it’s job properly:</p>
 
-<pre class="brush:xml; ruler: true;">&lt;system.data&gt;
+<pre class="prettyprint">&lt;system.data&gt;
     &lt;dbproviderfactories&gt;
         &lt;remove invariant=&quot;MvcMiniProfiler.Data.ProfiledDbProvider&quot; /&gt;
         &lt;add description=&quot;MvcMiniProfiler.Data.ProfiledDbProvider&quot; invariant=&quot;MvcMiniProfiler.Data.ProfiledDbProvider&quot; type=&quot;MvcMiniProfiler.Data.ProfiledDbProviderFactory, MvcMiniProfiler, Version=1.6.0.0, Culture=neutral, PublicKeyToken=b44f9351044011a3&quot; name=&quot;MvcMiniProfiler.Data.ProfiledDbProvider&quot; /&gt;
@@ -108,7 +108,7 @@ public static DbConnection GetStoreConnection(string entityConnectionString)
 
 <p>ProfilingActionFilter.cs</p>
 
-<pre class="brush: csharp; ruler: true;">public class ProfilingActionFilter : ActionFilterAttribute
+<pre class="prettyprint">public class ProfilingActionFilter : ActionFilterAttribute
 {
     const string stackKey = &quot;ProfilingActionFilterStack&quot;;
 
@@ -144,7 +144,7 @@ public static DbConnection GetStoreConnection(string entityConnectionString)
 
 <p>ProfilingViewEngine.cs</p>
 
-<pre class="brush: csharp; ruler: true;">public class ProfilingViewEngine : IViewEngine
+<pre class="prettyprint">public class ProfilingViewEngine : IViewEngine
 {
     class WrappedView : IView
     {
@@ -203,7 +203,7 @@ public static DbConnection GetStoreConnection(string entityConnectionString)
 
 <p>Finally, add this snippet of code to your Global.asax.cs - Application_Start() method to hook it up:</p>
 
-<pre class="brush: csharp; ruler: true;">// Add Profiling Action Filter (mvc mini profiler)
+<pre class="prettyprint">// Add Profiling Action Filter (mvc mini profiler)
 GlobalFilters.Filters.Add(new ProfilingActionFilter());
 
 // Add Profiling View Engine (mvc mini profiler)

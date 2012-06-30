@@ -9,7 +9,7 @@ tags:
 - Tutorial
 ---
 
-<p>This tutorial mini series will take us through the steps of setting up push notifications for your windows phone 7 app.</p>  <h4>Posts in the series:</h4>  <ol>   <li><strong>Code on the device</strong> - This will handle everything you need to put into your wp7 app </li>    <li><a href="http://benjii.me/2011/01/push-notifications-in-windows-phone-7-2-code-on-the-server/"><strong>Code on the server</strong> - This will handle receiving and storing your user's device URIs on the server</a> </li>    <li><a title="Push Notifications in Windows Phone 7 – #3 Push that Notification" href="http://benjii.me/2011/04/push-notifications-in-windows-phone-7-3-push-that-notification/" target="_blank"><strong>Push that Notification</strong> - This will handle actually pushing notifications</a></li> </ol>  <p>First things first, we need to put code into our app that identifies the device and sends the info to our server. For now, the main page code behind file will do. Also note I’ve used a variable called _settings that contains various properties relevant to the user and application; these are mostly constants.</p>  <p>&#160;</p>  <h2>Step 1: Open the Channel</h2>  <p>First we need to open the HttpNotificationChannel. This will give us the URI to send our push notifications to.</p>  <pre class="brush: csharp; ruler: true;">private HttpNotificationChannel httpChannel;
+<p>This tutorial mini series will take us through the steps of setting up push notifications for your windows phone 7 app.</p>  <h4>Posts in the series:</h4>  <ol>   <li><strong>Code on the device</strong> - This will handle everything you need to put into your wp7 app </li>    <li><a href="http://benjii.me/2011/01/push-notifications-in-windows-phone-7-2-code-on-the-server/"><strong>Code on the server</strong> - This will handle receiving and storing your user's device URIs on the server</a> </li>    <li><a title="Push Notifications in Windows Phone 7 – #3 Push that Notification" href="http://benjii.me/2011/04/push-notifications-in-windows-phone-7-3-push-that-notification/" target="_blank"><strong>Push that Notification</strong> - This will handle actually pushing notifications</a></li> </ol>  <p>First things first, we need to put code into our app that identifies the device and sends the info to our server. For now, the main page code behind file will do. Also note I’ve used a variable called _settings that contains various properties relevant to the user and application; these are mostly constants.</p>  <p>&#160;</p>  <h2>Step 1: Open the Channel</h2>  <p>First we need to open the HttpNotificationChannel. This will give us the URI to send our push notifications to.</p>  <pre class="prettyprint">private HttpNotificationChannel httpChannel;
 
 private void RegisterDevice()
 {
@@ -43,7 +43,7 @@ private void RegisterDevice()
 
 <p>This method sets up our event handlers so we can be notified when Microsoft has sent us the device’s URI. We will also setup handlers for when a push notification arrives, a raw notification arrives and if an exception occurs with push notifications.</p>
 
-<pre class="brush: csharp; ruler: true;">private void SubscribeToChannelEvents()
+<pre class="prettyprint">private void SubscribeToChannelEvents()
 {
     //Register to UriUpdated event - occurs when channel successfully opens   
     httpChannel.ChannelUriUpdated += new EventHandler&lt;NotificationChannelUriEventArgs&gt;(httpChannel_ChannelUriUpdated);     
@@ -60,7 +60,7 @@ private void RegisterDevice()
 
 <p>Here are the methods referred to above.</p>
 
-<pre class="brush: csharp; ruler: true;">void httpChannel_ChannelUriUpdated(object sender, NotificationChannelUriEventArgs e)
+<pre class="prettyprint">void httpChannel_ChannelUriUpdated(object sender, NotificationChannelUriEventArgs e)
 {
     // Optionally save the URI locally here - e.ChannelUri.ToString();
 
@@ -100,7 +100,7 @@ void httpChannel_ShellToastNotificationReceived(object sender, NotificationEvent
 
 <p>Copy this bad boy from <a title="http://adventuresinsoftware.com/blog/?p=569" href="http://adventuresinsoftware.com/blog/?p=569">http://adventuresinsoftware.com/blog/?p=569</a></p>
 
-<pre class="brush: csharp; ruler: true;">public string ParseANID(string anid)
+<pre class="prettyprint">public string ParseANID(string anid)
 {
     if (!String.IsNullOrEmpty(anid))
     {
@@ -118,7 +118,7 @@ void httpChannel_ShellToastNotificationReceived(object sender, NotificationEvent
 
 <p>You can now get the anonymous id by using the following code: (It will look similar to this &quot;2E434B328BC68118DB640915FFFFFFFF&quot;)</p>
 
-<pre class="brush: csharp; ruler: true;">string id = ParseANID(UserExtendedProperties.GetValue(&quot;ANID&quot;) as string);</pre>
+<pre class="prettyprint">string id = ParseANID(UserExtendedProperties.GetValue(&quot;ANID&quot;) as string);</pre>
 
 <p>&#160;</p>
 
@@ -126,7 +126,7 @@ void httpChannel_ShellToastNotificationReceived(object sender, NotificationEvent
 
 <p>The first part of this method is important; you must ask your users to allow push notifications before binding to them for the first time. It is also important to include your privacy policy in the message. Once you’ve asked once, you don’t need to ask them again, so just bind straight to the toast notification service.</p>
 
-<pre class="brush: csharp; ruler: true;">private void BindingANotificationsChannelToAToastNotification()
+<pre class="prettyprint">private void BindingANotificationsChannelToAToastNotification()
 {
     if (!_settings.UserHasBeenWarned)
     {
@@ -158,7 +158,7 @@ void httpChannel_ShellToastNotificationReceived(object sender, NotificationEvent
 
 <p>Reference the RestSharp and Newtonsoft dlls to continue; you can get them <a title="Restsharp and Newtonsoft for Windows Phone 7" href="/wp-content/uploads/2010/12/Restsharp.zip" target="_blank">conveniently from here</a> or get fresh dlls from <a title="http://restsharp.org/" href="http://restsharp.org/">http://restsharp.org/</a></p>
 
-<pre class="brush: csharp; ruler: true;">private void SubscribeToService()
+<pre class="prettyprint">private void SubscribeToService()
 {
     if (!NetworkInterface.GetIsNetworkAvailable())
     {
@@ -200,7 +200,7 @@ void httpChannel_ShellToastNotificationReceived(object sender, NotificationEvent
 
 <p>Start the ball rolling by calling the RegisterDevice method in your OnNavigatedTo method:</p>
 
-<pre class="brush: csharp; ruler: true;">protected override void OnNavigatedTo(System.Windows.Navigation.NavigationEventArgs e)
+<pre class="prettyprint">protected override void OnNavigatedTo(System.Windows.Navigation.NavigationEventArgs e)
 {
     // Register for push notifications
     RegisterDevice();

@@ -12,7 +12,7 @@ tags:
 - Push Notifications
 ---
 
-<p>Finally we arrive at the thrilling conclusion to my push notifications miniseries. This time we will actually push a notification to a device we have previously recorded.</p>  <h4>Posts in the series:</h4>  <ol>   <li><a href="http://benjii.me/2010/12/push-notifications-in-windows-phone-7-1-code-on-the-device/"><strong>Code on the device</strong> – This will handle everything you need to put into your wp7 app</a></li>    <li><a href="http://benjii.me/2011/01/push-notifications-in-windows-phone-7-2-code-on-the-server/" target="_blank"><strong>Code on the server</strong> – This will handle receiving and storing your user’s device URIs on the server</a> </li>    <li><strong>Push that Notification</strong> – This will handle actually pushing notifications</li> </ol>  <p>&#160;</p>  <h2>Step 1 – Create a Project to do the Pushing</h2>  <p>When we left off, we had created a WP7 App Project and a WCF Rest Service Project. Now we need to create a Windows Service or Console Application to run on the server, pushing notifications when it is necessary. So that we can see the results of our pushing easily, I’ve opted to create a Console Application.</p>  <p>&#160;</p>  <h2>Step 2 - Copy this Super Useful Notifications Class</h2>  <p>If you take a quick look at this code, you’ll see that we are simply sending some XML to a URI given to us by Microsoft. We picked up the URI in my last post, so read back if you haven’t got one yet. Regardless, here’s the code:</p>  <pre class="brush: csharp; ruler: true;">public class PushNotifications
+<p>Finally we arrive at the thrilling conclusion to my push notifications miniseries. This time we will actually push a notification to a device we have previously recorded.</p>  <h4>Posts in the series:</h4>  <ol>   <li><a href="http://benjii.me/2010/12/push-notifications-in-windows-phone-7-1-code-on-the-device/"><strong>Code on the device</strong> – This will handle everything you need to put into your wp7 app</a></li>    <li><a href="http://benjii.me/2011/01/push-notifications-in-windows-phone-7-2-code-on-the-server/" target="_blank"><strong>Code on the server</strong> – This will handle receiving and storing your user’s device URIs on the server</a> </li>    <li><strong>Push that Notification</strong> – This will handle actually pushing notifications</li> </ol>  <p>&#160;</p>  <h2>Step 1 – Create a Project to do the Pushing</h2>  <p>When we left off, we had created a WP7 App Project and a WCF Rest Service Project. Now we need to create a Windows Service or Console Application to run on the server, pushing notifications when it is necessary. So that we can see the results of our pushing easily, I’ve opted to create a Console Application.</p>  <p>&#160;</p>  <h2>Step 2 - Copy this Super Useful Notifications Class</h2>  <p>If you take a quick look at this code, you’ll see that we are simply sending some XML to a URI given to us by Microsoft. We picked up the URI in my last post, so read back if you haven’t got one yet. Regardless, here’s the code:</p>  <pre class="prettyprint">public class PushNotifications
 {
     public string SendToast(string uri, string text1, string text2)
     {
@@ -110,7 +110,7 @@ tags:
 
 <p>Just as an example, I’m going to setup our console app so that it pushes a notification to the last device added to our database whenever you press “P”. Check out the code:</p>
 
-<pre class="brush: csharp; ruler: true;">public class Program
+<pre class="prettyprint">public class Program
 {
     static void Main(string[] args)
     {

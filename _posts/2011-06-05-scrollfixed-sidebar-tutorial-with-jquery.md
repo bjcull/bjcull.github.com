@@ -8,7 +8,7 @@ tags:
 - CSS
 ---
 
-<p>With the unveiling of my brand new blog theme, you may notice a cool little quirk that appears every time you scroll past the header. That’s right not only does the sidebar follow you, but it also pops up a cool mini version of my main header. This post will describe the surprisingly difficult time I had getting my head around the usage of the position fixed css property.</p>  <h2>A little bit of CSS</h2>  <p>The CSS for this isn’t actually the hard part, see below:</p>  <pre class="brush: css; ruler: true;">#wrapper
+<p>With the unveiling of my brand new blog theme, you may notice a cool little quirk that appears every time you scroll past the header. That’s right not only does the sidebar follow you, but it also pops up a cool mini version of my main header. This post will describe the surprisingly difficult time I had getting my head around the usage of the position fixed css property.</p>  <h2>A little bit of CSS</h2>  <p>The CSS for this isn’t actually the hard part, see below:</p>  <pre class="prettyprint">#wrapper
 {
     margin: 0 auto;
     min-width: 1000px;
@@ -37,7 +37,7 @@ aside.fixed
 
 <p>Luckily for us, jQuery makes this a very simple problem to fix. At the same time we detect if the sidebar has scrolled far enough, we’ll also measure the correct position for the left property of the sidebar. Thus solving the problem forever. Take a look:</p>
 
-<pre class="brush: javascript; ruler: true;">$(document).ready(function () {
+<pre class="prettyprint">$(document).ready(function () {
 
     var $sidebar = $(&quot;aside&quot;),
         $window = $(window),

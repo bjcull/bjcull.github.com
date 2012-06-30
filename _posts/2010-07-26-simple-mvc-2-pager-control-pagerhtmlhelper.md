@@ -20,7 +20,7 @@ I’ve recently discovered a great new tool for MVC 2 that lets you create gener
 	<li>Reference the PagerWrapper stylesheet in the head section of your html.</li>
 	<li>Place the following snippet of code anywhere in any of your views and the pager will render right there:</li>
 </ol>
-<pre class="brush: csharp; ruler: true;">&lt;% Html.RenderPager([TotalItemCount],
+<pre class="prettyprint">&lt;% Html.RenderPager([TotalItemCount],
        [PageSize],
        [PageIndex],
        Request.Url.Query,
@@ -30,7 +30,7 @@ So far with MVC 2, if you wanted to render a user control, you would use the Ren
 
 The beauty of this library is that we can now create simple modular user controls that anyone can quickly download and use. Let’s show you how:
 <h3>Lets look at the entire code first:</h3>
-<pre class="brush: csharp; ruler: true;">
+<pre class="prettyprint">
 &lt;%@ Control Language="C#" Inherits="MvcUserControlHtmlHelpers.UserControlHtmlHelper" ClassName="CoolBlogs" %&gt;
 
 &lt;script runat="server"&gt;
@@ -55,15 +55,15 @@ The beauty of this library is that we can now create simple modular user control
 </pre>
 <h3>Now comes the breakdown</h3>
 To change our MVC User Control into a html helper, we just change the Inherits attribute to MvcUserControlHtmlHelpers.UserControlHtmlHelper and give the control a name via the ClassName attribute.
-<pre class="brush: csharp; ruler: true;">&lt;%@ Control Language="C#" Inherits="MvcUserControlHtmlHelpers.UserControlHtmlHelper" ClassName="CoolBlogs" %&gt;</pre>
+<pre class="prettyprint" %&gt;</pre>
 You can add parameters to your control by adding the runat server script tags like below. You can use any public property as a parameter.
-<pre class="brush: csharp; ruler: true;">&lt;script runat="server"&gt;
+<pre class="prettyprint"&gt;
     // Declare Parameters Here
     public List&lt;string&gt; CoolBlogs;
     public int ShowItems;
 &lt;/script&gt;</pre>
 Next you can add some server tags to run any C# code you need, before rendering the html.
-<pre class="brush: csharp; ruler: true;">
+<pre class="prettyprint">
 &lt;%
 
     if (CoolBlogs.Count &lt; ShowItems)
@@ -71,7 +71,7 @@ Next you can add some server tags to run any C# code you need, before rendering 
 %&gt;
 </pre>
 Finally, the rest is just like a regular user control, letting you add html and server tags as you like.
-<pre class="brush: csharp; ruler: true;">
+<pre class="prettyprint">
 &lt;div class="CoolBlogsWrapper"&gt;
     &lt;ul&gt;
     &lt;% for (int i = 0; i &lt; ShowItems; i++) { %&gt;
@@ -84,7 +84,7 @@ Finally, the rest is just like a regular user control, letting you add html and 
 Placing the following code into the App_Code folder of you web application, compiles the code into a single assembly, allowing you to call it from anywhere inside your app.
 <h3>How do I call that sucker</h3>
 Once placed into the App_Code folder, your new html helper can bee called by using the following code:
-<pre class="brush: csharp; ruler: true;">
+<pre class="prettyprint">
 &lt;% Html.RenderCoolBlogs(new List&lt;string&gt;() { “Benjii.Me”, “Lukencode”, “DkDevelopment” }, 3); %&gt;
 
 </pre>

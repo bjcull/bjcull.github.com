@@ -29,12 +29,12 @@ On a side note, either me or <a title="lukencode" href="http://lukencode.com">lu
 
 You now have access to one of the most abbreviated and super of queues known to man. Here are a few common methods to get you going:
 <h3>Create or Open a Queue</h3>
-<pre class="brush: csharp; ruler: true;">var queue = SuperQ.SuperQ&lt;MyClass&gt;.GetQueue("MyQueue");</pre>
+<pre class="prettyprint");</pre>
 This will create a queue in your data folder (Usually App_Data) with the name provided. If it already exists it just opens it. Since SuperQ can only handle one type per queue, you must specify it when calling GetQueue, as above.
 
 Sorry about the namespace, it might be changed in future.
 <h3>Push a message onto the queue</h3>
-<pre class="brush: csharp; ruler: true;">var queue = SuperQ.SuperQ&lt;string&gt;.GetQueue("MyQueueString");
+<pre class="prettyprint");
 queue.PushMessage("P was pressed in message form");
 
 // OR
@@ -53,7 +53,7 @@ queue.PushMessage(
 );</pre>
 Yep, you can push whatever class you like onto the queue and you’re guaranteed to get it back.
 <h3>Get a message off the queue</h3>
-<pre class="brush: csharp; ruler: true;">var message = queue.GetMessage();
+<pre class="prettyprint">var message = queue.GetMessage();
 
 // Payload will be the same type you specify above
 MyClass result = message.Payload;
@@ -66,19 +66,19 @@ var payload = queue.GetPayload();
 </pre>
 Keep in mind that SuperQ is designed to use only one type at a time per queue. Please also remember to delete the message from the queue once you have successfully processed it. See Below.
 <h3>Delete the message from the queue</h3>
-<pre class="brush: csharp; ruler: true;">queue.DeleteMessage(message);</pre>
+<pre class="prettyprint">queue.DeleteMessage(message);</pre>
 To make sure that the queue message will survive even if your program crashes, you must delete the message from the queue within 30 seconds (soon to be an option) otherwise the message will become available to other GetMessage calls.
 <h3>Automatically receive a callback when a message arrives</h3>
 If you do not want to poll the queue manually, you can setup a callback method that will be called each time there is a message waiting to be processed.
 
 First create the callback method like so:
-<pre class="brush: csharp; ruler: true;">protected void MessageReceived(QueueMessage&lt;MyClass&gt; message)
+<pre class="prettyprint">protected void MessageReceived(QueueMessage&lt;MyClass&gt; message)
 {
     Console.WriteLine("Message Received: " + message.Payload.Name);
     queue.DeleteMessage(message);
 }</pre>
 Now you can start and stop the callback like so:
-<pre class="brush: csharp; ruler: true;">// Start receiving messages
+<pre class="prettyprint">// Start receiving messages
 queue.StartReceiving(MessageReceived);
 
 // Run for as long as you like here
@@ -87,7 +87,7 @@ queue.StartReceiving(MessageReceived);
 queue.StopReceiving();</pre>
 <h2>Can I have an example of all of the above?</h2>
 No problem imaginary heading friend, SuperQ can help. Here’s a quick Console App combining all the above methods:
-<pre class="brush: csharp; ruler: true;">    class Program
+<pre class="prettyprint">    class Program
     {
         private static SuperQ.SuperQ&lt;string&gt; queue;
 

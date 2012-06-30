@@ -9,7 +9,7 @@ tags:
 - *o0
 ---
 
-<p>Javascript classes allow you to create reusable javascript code and cleaner and leaner web sites and web applications. In this post we’ll create a javascript class and describe when and where you should use them.</p>  <h2>Javascript Class Structure</h2>  <p>Javascript classes are structured just like regular object oriented classes, they have a class signature, constructor, public properties, private variables and public and private methods. The following code is an example of how all these are laid out.</p>  <pre class="brush: js;"><p>function myNotificationClass(myDefaultMessage) {    //Class Declaration
+<p>Javascript classes allow you to create reusable javascript code and cleaner and leaner web sites and web applications. In this post we’ll create a javascript class and describe when and where you should use them.</p>  <h2>Javascript Class Structure</h2>  <p>Javascript classes are structured just like regular object oriented classes, they have a class signature, constructor, public properties, private variables and public and private methods. The following code is an example of how all these are laid out.</p>  <pre class="prettyprint"><p>function myNotificationClass(myDefaultMessage) {    //Class Declaration
 
     // Private Variables
     var defaultMessage = &quot;Hi there&quot;;
@@ -24,12 +24,12 @@ tags:
 
 <h4>Class Declaration</h4>
 
-<pre class="brush: js;">function myNotificationClass(myDefaultMessage) {
+<pre class="prettyprint">function myNotificationClass(myDefaultMessage) {
 }</pre>
 
 <p>A class in javascript is created the same way as a regular function, it’s what we put inside the class that really makes it useful. To access the contents of the class, we need to instantiate it like so:</p>
 
-<pre class="brush: js;">var note = new myNotificationClass(“im a default message”);</pre>
+<pre class="prettyprint">var note = new myNotificationClass(“im a default message”);</pre>
 
 <h4>Constructor</h4>
 
@@ -41,7 +41,7 @@ tags:
 
 <p>Private variables and methods are created the same way you would normally create them.</p>
 
-<pre class="brush: js;"><p>var defaultMessage = &quot;Hi there&quot;; </p><p>&#160;</p><p>function AddSignature(original) {</p><p>    return original + “ – By Ben Cull”;</p><p>}</p></pre>
+<pre class="prettyprint"><p>var defaultMessage = &quot;Hi there&quot;; </p><p>&#160;</p><p>function AddSignature(original) {</p><p>    return original + “ – By Ben Cull”;</p><p>}</p></pre>
 
 <p>These variables and methods can only be accessed from within the class itself, so they are useful for helper methods and keeping track of things you don’t want your page to see.</p>
 
@@ -51,13 +51,13 @@ tags:
 
 <p>Its important to note that public variables and methods are created by putting “this” in front of the declarations, like so:</p>
 
-<pre class="brush: js;"><p>this.NotificationCount = 0; </p><p>&#160;</p><p>this.DisplayNotification = function(message) {</p><p>    alert(AddSignature(message));</p><p>}</p></pre>
+<pre class="prettyprint"><p>this.NotificationCount = 0; </p><p>&#160;</p><p>this.DisplayNotification = function(message) {</p><p>    alert(AddSignature(message));</p><p>}</p></pre>
 
 <p>Also note that the function keyword now comes after the function name.</p>
 
 <p>To call a public function or access a public variable, you must use the instance you created above.</p>
 
-<pre class="brush: js;"><p>var myCount = note.NotificationCount;</p><p>&#160;</p><p>note.DisplayNotification(“Yes this is awesome”);</p></pre>
+<pre class="prettyprint"><p>var myCount = note.NotificationCount;</p><p>&#160;</p><p>note.DisplayNotification(“Yes this is awesome”);</p></pre>
 
 <h2>Why Should I Use Them?</h2>
 
@@ -65,7 +65,7 @@ tags:
 
 <p>Start by moving your global javascript functions into their own class. This will allow you to reference the file only once, but create as many instances of it in your pages as you like. If we took the myNotificationClass for example, this would allow you to create two separate default message displays with ease, like so:</p>
 
-<pre class="brush: js;">var MessageDisplayerOne = myNotificationClass(&quot;I like hotdogs&quot;);
+<pre class="prettyprint">var MessageDisplayerOne = myNotificationClass(&quot;I like hotdogs&quot;);
 
 var MessageDisplayerTwo = myNotificationClass(&quot;Icecream is my favourite&quot;);</pre>
 
