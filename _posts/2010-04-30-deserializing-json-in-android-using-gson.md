@@ -1,30 +1,6 @@
 ---
 title: Deserializing JSON in Android using GSON
-date:
-  DateTime: 2010-04-30T06:34:19.0000000
-  UtcDateTime: 2010-04-30T06:34:19.0000000Z
-  LocalDateTime: 2010-04-30T16:34:19.0000000+10:00
-  Date: 2010-04-30T00:00:00.0000000
-  Day: 30
-  DayOfWeek: Friday
-  DayOfYear: 120
-  Hour: 6
-  Minute: 34
-  Month: 4
-  Second: 19
-  Ticks: 634082060590000000
-  UtcTicks: 634082060590000000
-  TimeOfDay:
-    Ticks: 236590000000
-    Hours: 6
-    Minutes: 34
-    Seconds: 19
-    TotalDays: 0.273831018518518
-    TotalHours: 6.57194444444444
-    TotalMilliseconds: 23659000
-    TotalMinutes: 394.316666666667
-    TotalSeconds: 23659
-  Year: 2010
+date: 2010-04-30
 layout: post
 categories:
 - &o0 Android

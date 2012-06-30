@@ -1,30 +1,6 @@
 ---
 title: "Push Notifications in Windows Phone 7 – #1 Code on the Device"
-date:
-  DateTime: 2010-12-13T13:13:24.0000000
-  UtcDateTime: 2010-12-13T13:13:24.0000000Z
-  LocalDateTime: 2010-12-14T00:13:24.0000000+11:00
-  Date: 2010-12-13T00:00:00.0000000
-  Day: 13
-  DayOfWeek: Monday
-  DayOfYear: 347
-  Hour: 13
-  Minute: 13
-  Month: 12
-  Second: 24
-  Ticks: 634278428040000000
-  UtcTicks: 634278428040000000
-  TimeOfDay:
-    Ticks: 476040000000
-    Hours: 13
-    Minutes: 13
-    Seconds: 24
-    TotalDays: 0.550972222222222
-    TotalHours: 13.2233333333333
-    TotalMilliseconds: 47604000
-    TotalMinutes: 793.4
-    TotalSeconds: 47604
-  Year: 2010
+date: 2010-12-13
 layout: post
 categories:
 - Windows Phone 7
@@ -180,7 +156,7 @@ void httpChannel_ShellToastNotificationReceived(object sender, NotificationEvent
 
 <p>The following code uses the WP7 build of RestSharp to connect to my server. Trust me, RestSharp makes http calls so much easier, learn more about <a title="Rest Web Services In Windows Phone 7" href="http://lukencode.com/2010/08/04/rest-web-services-in-windows-phone-7/" target="_blank">using Restsharp on Windows Phone 7</a> on lukencode’s blog.</p>
 
-<p>Reference the RestSharp and Newtonsoft dlls to continue; you can get them <a title="Restsharp and Newtonsoft for Windows Phone 7" href="http://benjii.me/wp-content/uploads/2010/12/Restsharp.zip" target="_blank">conveniently from here</a> or get fresh dlls from <a title="http://restsharp.org/" href="http://restsharp.org/">http://restsharp.org/</a></p>
+<p>Reference the RestSharp and Newtonsoft dlls to continue; you can get them <a title="Restsharp and Newtonsoft for Windows Phone 7" href="/wp-content/uploads/2010/12/Restsharp.zip" target="_blank">conveniently from here</a> or get fresh dlls from <a title="http://restsharp.org/" href="http://restsharp.org/">http://restsharp.org/</a></p>
 
 <pre class="brush: csharp; ruler: true;">private void SubscribeToService()
 {

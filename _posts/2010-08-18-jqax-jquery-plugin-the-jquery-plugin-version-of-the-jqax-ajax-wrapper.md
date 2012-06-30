@@ -1,30 +1,6 @@
 ---
 title: "jQax jQuery plugin – The jQuery plugin version of the jQax ajax wrapper"
-date:
-  DateTime: 2010-08-18T13:02:53.0000000
-  UtcDateTime: 2010-08-18T13:02:53.0000000Z
-  LocalDateTime: 2010-08-18T23:02:53.0000000+10:00
-  Date: 2010-08-18T00:00:00.0000000
-  Day: 18
-  DayOfWeek: Wednesday
-  DayOfYear: 230
-  Hour: 13
-  Minute: 2
-  Month: 8
-  Second: 53
-  Ticks: 634177333730000000
-  UtcTicks: 634177333730000000
-  TimeOfDay:
-    Ticks: 469730000000
-    Hours: 13
-    Minutes: 2
-    Seconds: 53
-    TotalDays: 0.543668981481481
-    TotalHours: 13.0480555555556
-    TotalMilliseconds: 46973000
-    TotalMinutes: 782.883333333333
-    TotalSeconds: 46973
-  Year: 2010
+date: 2010-08-18
 layout: post
 categories:
 - &o0 Javascript

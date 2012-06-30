@@ -1,30 +1,6 @@
 ---
 title: Credit Card Validator Attribute for ASP.NET MVC 3
-date:
-  DateTime: 2010-11-04T06:28:51.0000000
-  UtcDateTime: 2010-11-04T06:28:51.0000000Z
-  LocalDateTime: 2010-11-04T17:28:51.0000000+11:00
-  Date: 2010-11-04T00:00:00.0000000
-  Day: 4
-  DayOfWeek: Thursday
-  DayOfYear: 308
-  Hour: 6
-  Minute: 28
-  Month: 11
-  Second: 51
-  Ticks: 634244489310000000
-  UtcTicks: 634244489310000000
-  TimeOfDay:
-    Ticks: 233310000000
-    Hours: 6
-    Minutes: 28
-    Seconds: 51
-    TotalDays: 0.270034722222222
-    TotalHours: 6.48083333333333
-    TotalMilliseconds: 23331000
-    TotalMinutes: 388.85
-    TotalSeconds: 23331
-  Year: 2010
+date: 2010-11-04
 layout: post
 categories:
 - &o0 .NET
@@ -36,7 +12,7 @@ tags:
 - Validator
 ---
 
-<a href="http://benjii.me/wp-content/uploads/2010/11/credit-cards.jpg"><img class="size-medium wp-image-116 alignright" title="It's not what your credit card company can do for you. It's what you can do for your credit card company." src="http://benjii.me/wp-content/uploads/2010/11/credit-cards-300x200.jpg" alt="Pile of credit cards" width="300" height="200" /></a>
+<a href="/wp-content/uploads/2010/11/credit-cards.jpg"><img class="size-medium wp-image-116 alignright" title="It's not what your credit card company can do for you. It's what you can do for your credit card company." src="/wp-content/uploads/2010/11/credit-cards-300x200.jpg" alt="Pile of credit cards" width="300" height="200" /></a>
 
 Quickly and simply validate your credit card fields by adding this attribute to your POCO model class.
 <h2>What do I need to do?</h2>

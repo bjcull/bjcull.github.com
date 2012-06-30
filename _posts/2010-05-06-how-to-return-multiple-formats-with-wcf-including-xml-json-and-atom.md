@@ -1,30 +1,6 @@
 ---
 title: How to return multiple formats with WCF including XML, JSON and ATOM
-date:
-  DateTime: 2010-05-06T14:42:50.0000000
-  UtcDateTime: 2010-05-06T14:42:50.0000000Z
-  LocalDateTime: 2010-05-07T00:42:50.0000000+10:00
-  Date: 2010-05-06T00:00:00.0000000
-  Day: 6
-  DayOfWeek: Thursday
-  DayOfYear: 126
-  Hour: 14
-  Minute: 42
-  Month: 5
-  Second: 50
-  Ticks: 634087537700000000
-  UtcTicks: 634087537700000000
-  TimeOfDay:
-    Ticks: 529700000000
-    Hours: 14
-    Minutes: 42
-    Seconds: 50
-    TotalDays: 0.613078703703704
-    TotalHours: 14.7138888888889
-    TotalMilliseconds: 52970000
-    TotalMinutes: 882.833333333333
-    TotalSeconds: 52970
-  Year: 2010
+date: 2010-05-06
 layout: post
 categories:
 - Web Services

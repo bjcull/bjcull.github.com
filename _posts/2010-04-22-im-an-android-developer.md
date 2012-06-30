@@ -1,30 +1,6 @@
 ---
 title: "I’m an Android developer"
-date:
-  DateTime: 2010-04-22T08:44:27.0000000
-  UtcDateTime: 2010-04-22T08:44:27.0000000Z
-  LocalDateTime: 2010-04-22T18:44:27.0000000+10:00
-  Date: 2010-04-22T00:00:00.0000000
-  Day: 22
-  DayOfWeek: Thursday
-  DayOfYear: 112
-  Hour: 8
-  Minute: 44
-  Month: 4
-  Second: 27
-  Ticks: 634075226670000000
-  UtcTicks: 634075226670000000
-  TimeOfDay:
-    Ticks: 314670000000
-    Hours: 8
-    Minutes: 44
-    Seconds: 27
-    TotalDays: 0.364201388888889
-    TotalHours: 8.74083333333333
-    TotalMilliseconds: 31467000
-    TotalMinutes: 524.45
-    TotalSeconds: 31467
-  Year: 2010
+date: 2010-04-22
 layout: post
 categories:
 - &o0 Android

@@ -1,28 +1,6 @@
 ---
 title: "Push Notifications in Windows Phone 7 – #3 Push that Notification"
-date:
-  DateTime: 2011-04-23T05:02:00.0000000
-  UtcDateTime: 2011-04-23T05:02:00.0000000Z
-  LocalDateTime: 2011-04-23T15:02:00.0000000+10:00
-  Date: 2011-04-23T00:00:00.0000000
-  Day: 23
-  DayOfWeek: Saturday
-  DayOfYear: 113
-  Hour: 5
-  Minute: 2
-  Month: 4
-  Ticks: 634391317200000000
-  UtcTicks: 634391317200000000
-  TimeOfDay:
-    Ticks: 181200000000
-    Hours: 5
-    Minutes: 2
-    TotalDays: 0.209722222222222
-    TotalHours: 5.03333333333333
-    TotalMilliseconds: 18120000
-    TotalMinutes: 302
-    TotalSeconds: 18120
-  Year: 2011
+date: 2011-04-23
 layout: post
 categories:
 - .NET

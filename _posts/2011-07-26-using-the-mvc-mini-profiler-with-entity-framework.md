@@ -1,30 +1,6 @@
 ---
 title: Using the MVC-Mini-Profiler with Entity Framework
-date:
-  DateTime: 2011-07-26T04:07:56.0000000
-  UtcDateTime: 2011-07-26T04:07:56.0000000Z
-  LocalDateTime: 2011-07-26T14:07:56.0000000+10:00
-  Date: 2011-07-26T00:00:00.0000000
-  Day: 26
-  DayOfWeek: Tuesday
-  DayOfYear: 207
-  Hour: 4
-  Minute: 7
-  Month: 7
-  Second: 56
-  Ticks: 634472500760000000
-  UtcTicks: 634472500760000000
-  TimeOfDay:
-    Ticks: 148760000000
-    Hours: 4
-    Minutes: 7
-    Seconds: 56
-    TotalDays: 0.172175925925926
-    TotalHours: 4.13222222222222
-    TotalMilliseconds: 14876000
-    TotalMinutes: 247.933333333333
-    TotalSeconds: 14876
-  Year: 2011
+date: 2011-07-26
 layout: post
 categories:
 - MVC
@@ -36,7 +12,7 @@ tags:
 - sql
 ---
 
-<p><a href="http://benjii.me/wp-content/uploads/2011/07/starting-a-blog-how-do-you-measure-success.jpg"><img style="background-image: none; border-bottom: 0px; border-left: 0px; padding-left: 0px; padding-right: 0px; display: inline; float: right; border-top: 0px; border-right: 0px; padding-top: 0px" title="Notice how the success sign points at the title?" border="0" alt="Notice how the success sign points at the title?" align="right" src="http://benjii.me/wp-content/uploads/2011/07/starting-a-blog-how-do-you-measure-success_thumb.jpg" width="244" height="183" /></a>The MVC Mini Profiler is an awesome tool that can help you reduce your page load times by showing you exactly how long each action, database query, view and even partial view took to load. It can be a little tricky to get right, especially using Entity Framework, but if you follow these steps you should be up and running in no time.</p>  <h2>Step 1: Nuget it Baby</h2>  <p>       <a href="http://nuget.org/List/Packages/MiniProfiler"><img style="background-image: none; border-right-width: 0px; padding-left: 0px; padding-right: 0px; display: inline; border-top-width: 0px; border-bottom-width: 0px; border-left-width: 0px; padding-top: 0px" title="Mini Profiler Nuget Package" border="0" alt="PM&gt; Install-Package MiniProfiler" src="http://benjii.me/wp-content/uploads/2011/07/image_5.png" width="445" height="92" /></a></p>  <p>If you haven’t used Nuget yet, now would be an excellent time to start as it makes adding references to third party assemblies a breeze. Click the link above to go to the package page to find out more.</p>  <p>By the time you’re done with this step, you should end up with a reference to the mini profiler in your project.</p>  <h2>Step 2: Hook it up</h2>  <p>To get the profiler profiling all we need to do is add the following to our Global.asax.cs:</p>  <pre class="brush: csharp; ruler: true;">protected void Application_BeginRequest()
+<p><a href="/wp-content/uploads/2011/07/starting-a-blog-how-do-you-measure-success.jpg"><img style="background-image: none; border-bottom: 0px; border-left: 0px; padding-left: 0px; padding-right: 0px; display: inline; float: right; border-top: 0px; border-right: 0px; padding-top: 0px" title="Notice how the success sign points at the title?" border="0" alt="Notice how the success sign points at the title?" align="right" src="/wp-content/uploads/2011/07/starting-a-blog-how-do-you-measure-success_thumb.jpg" width="244" height="183" /></a>The MVC Mini Profiler is an awesome tool that can help you reduce your page load times by showing you exactly how long each action, database query, view and even partial view took to load. It can be a little tricky to get right, especially using Entity Framework, but if you follow these steps you should be up and running in no time.</p>  <h2>Step 1: Nuget it Baby</h2>  <p>       <a href="http://nuget.org/List/Packages/MiniProfiler"><img style="background-image: none; border-right-width: 0px; padding-left: 0px; padding-right: 0px; display: inline; border-top-width: 0px; border-bottom-width: 0px; border-left-width: 0px; padding-top: 0px" title="Mini Profiler Nuget Package" border="0" alt="PM&gt; Install-Package MiniProfiler" src="/wp-content/uploads/2011/07/image_5.png" width="445" height="92" /></a></p>  <p>If you haven’t used Nuget yet, now would be an excellent time to start as it makes adding references to third party assemblies a breeze. Click the link above to go to the package page to find out more.</p>  <p>By the time you’re done with this step, you should end up with a reference to the mini profiler in your project.</p>  <h2>Step 2: Hook it up</h2>  <p>To get the profiler profiling all we need to do is add the following to our Global.asax.cs:</p>  <pre class="brush: csharp; ruler: true;">protected void Application_BeginRequest()
 {
     if (Request.IsLocal)
     {

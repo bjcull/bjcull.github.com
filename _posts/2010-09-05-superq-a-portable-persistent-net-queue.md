@@ -1,29 +1,6 @@
 ---
 title: "SuperQ – A Portable Persistent .NET Queue"
-date:
-  DateTime: 2010-09-05T14:05:45.0000000
-  UtcDateTime: 2010-09-05T14:05:45.0000000Z
-  LocalDateTime: 2010-09-06T00:05:45.0000000+10:00
-  Date: 2010-09-05T00:00:00.0000000
-  Day: 5
-  DayOfYear: 248
-  Hour: 14
-  Minute: 5
-  Month: 9
-  Second: 45
-  Ticks: 634192923450000000
-  UtcTicks: 634192923450000000
-  TimeOfDay:
-    Ticks: 507450000000
-    Hours: 14
-    Minutes: 5
-    Seconds: 45
-    TotalDays: 0.587326388888889
-    TotalHours: 14.0958333333333
-    TotalMilliseconds: 50745000
-    TotalMinutes: 845.75
-    TotalSeconds: 50745
-  Year: 2010
+date: 2010-09-05
 layout: post
 categories:
 - .NET
@@ -34,7 +11,7 @@ tags:
 - Queue
 ---
 
-<a title="I'm considering buying this T-Shirt" href="http://www.spreadshirt.com/large-super-q-logo-light-weight-t-shirt-C3380A4298535"><img style="margin: 0px 0px 0px 10px; display: inline; border-width: 0px;" title="I'm considering buying this T-Shirt" src="http://benjii.me/wp-content/uploads/2010/09/largesuperqlogolightweighttshirt_design.png" border="0" alt="I'm considering buying this T-Shirt" width="244" height="244" align="right" /></a> SuperQ is much like the Queue Storage for Windows Azure, except it automatically creates a local db instead of using the cloud. It is also self-polling, so all you need is a callback method and you’re ready to go. This allows you to create quick and easy task schedulers and background worker processes.
+<a title="I'm considering buying this T-Shirt" href="http://www.spreadshirt.com/large-super-q-logo-light-weight-t-shirt-C3380A4298535"><img style="margin: 0px 0px 0px 10px; display: inline; border-width: 0px;" title="I'm considering buying this T-Shirt" src="/wp-content/uploads/2010/09/largesuperqlogolightweighttshirt_design.png" border="0" alt="I'm considering buying this T-Shirt" width="244" height="244" align="right" /></a> SuperQ is much like the Queue Storage for Windows Azure, except it automatically creates a local db instead of using the cloud. It is also self-polling, so all you need is a callback method and you’re ready to go. This allows you to create quick and easy task schedulers and background worker processes.
 <h2>Step #1 – Ensure you have SQL Compact Edition 4 Installed</h2>
 To let SuperQ build a database automatically in your App_Data folder, we have opted to use SQL Compact Edition 4.
 

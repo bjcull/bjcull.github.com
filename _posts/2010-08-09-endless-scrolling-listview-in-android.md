@@ -1,30 +1,6 @@
 ---
 title: Endless Scrolling ListView in Android
-date:
-  DateTime: 2010-08-09T10:56:58.0000000
-  UtcDateTime: 2010-08-09T10:56:58.0000000Z
-  LocalDateTime: 2010-08-09T20:56:58.0000000+10:00
-  Date: 2010-08-09T00:00:00.0000000
-  Day: 9
-  DayOfWeek: Monday
-  DayOfYear: 221
-  Hour: 10
-  Minute: 56
-  Month: 8
-  Second: 58
-  Ticks: 634169482180000000
-  UtcTicks: 634169482180000000
-  TimeOfDay:
-    Ticks: 394180000000
-    Hours: 10
-    Minutes: 56
-    Seconds: 58
-    TotalDays: 0.456226851851852
-    TotalHours: 10.9494444444444
-    TotalMilliseconds: 39418000
-    TotalMinutes: 656.966666666667
-    TotalSeconds: 39418
-  Year: 2010
+date: 2010-08-09
 layout: post
 categories:
 - Android
@@ -33,7 +9,7 @@ tags:
 - Scrolling
 ---
 
-<p><a title="Pictured: Not Uninfinity" href="http://www.google.com.au/images?hl=en&amp;q=infinity&amp;um=1&amp;ie=UTF-8&amp;source=og&amp;sa=N&amp;tab=wi&amp;biw=1680&amp;bih=871" target="_blank"><img style="border-bottom: 0px; border-left: 0px; display: inline; margin-left: 0px; border-top: 0px; margin-right: 0px; border-right: 0px" title="Not Uninfinity" border="0" alt="Not Uninfinity" align="right" src="http://benjii.me/wp-content/uploads/2010/08/newInfinity.jpg" width="244" height="116" /></a> Implementing an endless scroller in Android was not actually that difficult. Here’s a quick code snippet and explanation to get you on your way.</p>  <h2>Just give me the code!</h2>  <p>Well here you go:</p>  <pre class="brush: java; ruler: true;">    public class EndlessScrollListener implements OnScrollListener {
+<p><a title="Pictured: Not Uninfinity" href="http://www.google.com.au/images?hl=en&amp;q=infinity&amp;um=1&amp;ie=UTF-8&amp;source=og&amp;sa=N&amp;tab=wi&amp;biw=1680&amp;bih=871" target="_blank"><img style="border-bottom: 0px; border-left: 0px; display: inline; margin-left: 0px; border-top: 0px; margin-right: 0px; border-right: 0px" title="Not Uninfinity" border="0" alt="Not Uninfinity" align="right" src="/wp-content/uploads/2010/08/newInfinity.jpg" width="244" height="116" /></a> Implementing an endless scroller in Android was not actually that difficult. Here’s a quick code snippet and explanation to get you on your way.</p>  <h2>Just give me the code!</h2>  <p>Well here you go:</p>  <pre class="brush: java; ruler: true;">    public class EndlessScrollListener implements OnScrollListener {
 
         private int visibleThreshold = 5;
         private int currentPage = 0;

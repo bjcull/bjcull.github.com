@@ -1,30 +1,6 @@
 ---
 title: "jQax – A Simple jQuery Ajax Wrapper with Loading Notification"
-date:
-  DateTime: 2010-08-13T15:30:12.0000000
-  UtcDateTime: 2010-08-13T15:30:12.0000000Z
-  LocalDateTime: 2010-08-14T01:30:12.0000000+10:00
-  Date: 2010-08-13T00:00:00.0000000
-  Day: 13
-  DayOfWeek: Friday
-  DayOfYear: 225
-  Hour: 15
-  Minute: 30
-  Month: 8
-  Second: 12
-  Ticks: 634173102120000000
-  UtcTicks: 634173102120000000
-  TimeOfDay:
-    Ticks: 558120000000
-    Hours: 15
-    Minutes: 30
-    Seconds: 12
-    TotalDays: 0.645972222222222
-    TotalHours: 15.5033333333333
-    TotalMilliseconds: 55812000
-    TotalMinutes: 930.2
-    TotalSeconds: 55812
-  Year: 2010
+date: 2010-08-13
 layout: post
 categories:
 - Javascript
@@ -36,7 +12,7 @@ tags:
 - Serialization
 ---
 
-<a href="http://benjii.me/wp-content/uploads/2010/08/ajax.png"><img class="alignright size-medium wp-image-95" title="I dont think this is quite what I meant" src="http://benjii.me/wp-content/uploads/2010/08/ajax-300x235.png" alt="I dont think this is quite what I meant" width="300" height="235" /></a>If you just want a simple way of connecting your web page to a .NET web service or page method using ajax, then the following snippet of javascript is for you. By the way, if you place a div with an id of “divLoader” somewhere on your page, it will automatically fade in during loading and fade out when its complete.
+<a href="/wp-content/uploads/2010/08/ajax.png"><img class="alignright size-medium wp-image-95" title="I dont think this is quite what I meant" src="/wp-content/uploads/2010/08/ajax-300x235.png" alt="I dont think this is quite what I meant" width="300" height="235" /></a>If you just want a simple way of connecting your web page to a .NET web service or page method using ajax, then the following snippet of javascript is for you. By the way, if you place a div with an id of “divLoader” somewhere on your page, it will automatically fade in during loading and fade out when its complete.
 
 <strong>UPDATE: I've created a jQuery plugin version of this code which I've <a title="jQax jQuery plugin – The jQuery plugin version of the jQax ajax wrapper" href="http://benjii.me/2010/08/jqax-jquery-plugin-the-jquery-plugin-version-of-the-jqax-ajax-wrapper/">blogged about here</a>!</strong>
 <h2>Yeah, Yeah, What do I copy?</h2>

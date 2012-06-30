@@ -1,30 +1,6 @@
 ---
 title: Using Multiple Application Bars in Windows Phone Development
-date:
-  DateTime: 2011-12-12T13:32:33.0000000
-  UtcDateTime: 2011-12-12T13:32:33.0000000Z
-  LocalDateTime: 2011-12-13T00:32:33.0000000+11:00
-  Date: 2011-12-12T00:00:00.0000000
-  Day: 12
-  DayOfWeek: Monday
-  DayOfYear: 346
-  Hour: 13
-  Minute: 32
-  Month: 12
-  Second: 33
-  Ticks: 634592935530000000
-  UtcTicks: 634592935530000000
-  TimeOfDay:
-    Ticks: 487530000000
-    Hours: 13
-    Minutes: 32
-    Seconds: 33
-    TotalDays: 0.564270833333333
-    TotalHours: 13.5425
-    TotalMilliseconds: 48753000
-    TotalMinutes: 812.55
-    TotalSeconds: 48753
-  Year: 2011
+date: 2011-12-12
 layout: post
 categories:
 - Windows Phone 7

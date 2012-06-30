@@ -1,29 +1,6 @@
 ---
 title: Scrollfixed Sidebar Tutorial with jQuery
-date:
-  DateTime: 2011-06-05T14:20:32.0000000
-  UtcDateTime: 2011-06-05T14:20:32.0000000Z
-  LocalDateTime: 2011-06-06T00:20:32.0000000+10:00
-  Date: 2011-06-05T00:00:00.0000000
-  Day: 5
-  DayOfYear: 156
-  Hour: 14
-  Minute: 20
-  Month: 6
-  Second: 32
-  Ticks: 634428804320000000
-  UtcTicks: 634428804320000000
-  TimeOfDay:
-    Ticks: 516320000000
-    Hours: 14
-    Minutes: 20
-    Seconds: 32
-    TotalDays: 0.597592592592593
-    TotalHours: 14.3422222222222
-    TotalMilliseconds: 51632000
-    TotalMinutes: 860.533333333333
-    TotalSeconds: 51632
-  Year: 2011
+date: 2011-06-05
 layout: post
 categories:
 - Javascript

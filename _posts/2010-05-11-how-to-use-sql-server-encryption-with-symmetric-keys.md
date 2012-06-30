@@ -1,30 +1,6 @@
 ---
 title: How to use SQL Server Encryption with Symmetric Keys
-date:
-  DateTime: 2010-05-11T07:41:15.0000000
-  UtcDateTime: 2010-05-11T07:41:15.0000000Z
-  LocalDateTime: 2010-05-11T17:41:15.0000000+10:00
-  Date: 2010-05-11T00:00:00.0000000
-  Day: 11
-  DayOfWeek: Tuesday
-  DayOfYear: 131
-  Hour: 7
-  Minute: 41
-  Month: 5
-  Second: 15
-  Ticks: 634091604750000000
-  UtcTicks: 634091604750000000
-  TimeOfDay:
-    Ticks: 276750000000
-    Hours: 7
-    Minutes: 41
-    Seconds: 15
-    TotalDays: 0.3203125
-    TotalHours: 7.6875
-    TotalMilliseconds: 27675000
-    TotalMinutes: 461.25
-    TotalSeconds: 27675
-  Year: 2010
+date: 2010-05-11
 layout: post
 categories:
 - Database

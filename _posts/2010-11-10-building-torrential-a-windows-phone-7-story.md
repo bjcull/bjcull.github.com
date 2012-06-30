@@ -1,30 +1,6 @@
 ---
 title: "Building Torrential – A Windows Phone 7 Story"
-date:
-  DateTime: 2010-11-10T15:11:28.0000000
-  UtcDateTime: 2010-11-10T15:11:28.0000000Z
-  LocalDateTime: 2010-11-11T02:11:28.0000000+11:00
-  Date: 2010-11-10T00:00:00.0000000
-  Day: 10
-  DayOfWeek: Wednesday
-  DayOfYear: 314
-  Hour: 15
-  Minute: 11
-  Month: 11
-  Second: 28
-  Ticks: 634249986880000000
-  UtcTicks: 634249986880000000
-  TimeOfDay:
-    Ticks: 546880000000
-    Hours: 15
-    Minutes: 11
-    Seconds: 28
-    TotalDays: 0.632962962962963
-    TotalHours: 15.1911111111111
-    TotalMilliseconds: 54688000
-    TotalMinutes: 911.466666666667
-    TotalSeconds: 54688
-  Year: 2010
+date: 2010-11-10
 layout: post
 categories:
 - &o0 .NET

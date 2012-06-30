@@ -1,30 +1,6 @@
 ---
 title: Javascript Classes are a Best Practice for Cleaner Javascript
-date:
-  DateTime: 2010-04-15T13:44:11.0000000
-  UtcDateTime: 2010-04-15T13:44:11.0000000Z
-  LocalDateTime: 2010-04-15T23:44:11.0000000+10:00
-  Date: 2010-04-15T00:00:00.0000000
-  Day: 15
-  DayOfWeek: Thursday
-  DayOfYear: 105
-  Hour: 13
-  Minute: 44
-  Month: 4
-  Second: 11
-  Ticks: 634069358510000000
-  UtcTicks: 634069358510000000
-  TimeOfDay:
-    Ticks: 494510000000
-    Hours: 13
-    Minutes: 44
-    Seconds: 11
-    TotalDays: 0.572349537037037
-    TotalHours: 13.7363888888889
-    TotalMilliseconds: 49451000
-    TotalMinutes: 824.183333333333
-    TotalSeconds: 49451
-  Year: 2010
+date: 2010-04-15
 layout: post
 categories:
 - &o0 Javascript
@@ -99,7 +75,7 @@ var MessageDisplayerTwo = myNotificationClass(&quot;Icecream is my favourite&quo
 
 <p>Below are two real world examples I’ve used in some of my projects to help make life easier. Check them out if you’d like a better understanding of how javascript classes are implemented.</p>
 
-<p><a href='http://benjii.me/wp-content/uploads/2010/04/Map.debug_.js'>Map.debug</a>
-<a href='http://benjii.me/wp-content/uploads/2010/04/Ajax.debug_.js'>Ajax.debug</a></p>
+<p><a href='/wp-content/uploads/2010/04/Map.debug_.js'>Map.debug</a>
+<a href='/wp-content/uploads/2010/04/Ajax.debug_.js'>Ajax.debug</a></p>
 
 <p>I hope this makes it easier to manage your javascript code. Drop me an email on the <a title="Contact Me" href="http://benjii.me/contact-me/">Contact Me</a> page if you have any questions.</p>

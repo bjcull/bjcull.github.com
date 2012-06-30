@@ -1,30 +1,6 @@
 ---
 title: "Simple MVC 2 Pager Control – PagerHtmlHelper"
-date:
-  DateTime: 2010-07-26T11:32:17.0000000
-  UtcDateTime: 2010-07-26T11:32:17.0000000Z
-  LocalDateTime: 2010-07-26T21:32:17.0000000+10:00
-  Date: 2010-07-26T00:00:00.0000000
-  Day: 26
-  DayOfWeek: Monday
-  DayOfYear: 207
-  Hour: 11
-  Minute: 32
-  Month: 7
-  Second: 17
-  Ticks: 634157407370000000
-  UtcTicks: 634157407370000000
-  TimeOfDay:
-    Ticks: 415370000000
-    Hours: 11
-    Minutes: 32
-    Seconds: 17
-    TotalDays: 0.480752314814815
-    TotalHours: 11.5380555555556
-    TotalMilliseconds: 41537000
-    TotalMinutes: 692.283333333333
-    TotalSeconds: 41537
-  Year: 2010
+date: 2010-07-26
 layout: post
 categories:
 - &o0 MVC

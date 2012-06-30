@@ -1,30 +1,6 @@
 ---
 title: Continuum Transition for Windows Phone Silverlight Toolkit
-date:
-  DateTime: 2011-11-07T15:16:23.0000000
-  UtcDateTime: 2011-11-07T15:16:23.0000000Z
-  LocalDateTime: 2011-11-08T02:16:23.0000000+11:00
-  Date: 2011-11-07T00:00:00.0000000
-  Day: 7
-  DayOfWeek: Monday
-  DayOfYear: 311
-  Hour: 15
-  Minute: 16
-  Month: 11
-  Second: 23
-  Ticks: 634562757830000000
-  UtcTicks: 634562757830000000
-  TimeOfDay:
-    Ticks: 549830000000
-    Hours: 15
-    Minutes: 16
-    Seconds: 23
-    TotalDays: 0.636377314814815
-    TotalHours: 15.2730555555556
-    TotalMilliseconds: 54983000
-    TotalMinutes: 916.383333333333
-    TotalSeconds: 54983
-  Year: 2011
+date: 2011-11-07
 layout: post
 categories:
 - Windows Phone 7
@@ -36,7 +12,7 @@ tags:
 - windows phone
 ---
 
-<p><a href="http://benjii.me/wp-content/uploads/2011/11/WP7_Email.png"><img style="background-image: none; border-right-width: 0px; padding-left: 0px; padding-right: 0px; display: inline; float: right; border-top-width: 0px; border-bottom-width: 0px; border-left-width: 0px; padding-top: 0px" title="Check out my awesome Paint.NET skills!" border="0" alt="Check out my awesome Paint.NET skills!" align="right" src="http://benjii.me/wp-content/uploads/2011/11/WP7_Email_thumb.png" width="244" height="198" /></a>You know that cool swooshing transition you get when you click an email on your Windows Phone? Now you too can make use of that awesome transition using only the Silverlight Toolkit and this handy dandy Continuum Transition class.</p>  <h2>Step 1 – Go get the Silverlight Toolkit!!</h2>  <p>As always, I suggest you use Nuget to include it, but feel free to <a title="Download the Silverlight Toolkit for Windows Phone" href="http://silverlight.codeplex.com/" target="_blank">download it from Codeplex</a></p>  <p>&#160;</p>  <h2>Step 2 – Let’s See How to Use It</h2>  <p>The actual continuum transition class is pretty big for a blog post, so I’ll show you how to use it first and then you can copy the Continuum Transition class after that.</p>  <p>If you are already using the Silverlight Toolkit transitions using code, then this should hopefully be familar:</p>  <pre class="brush: csharp; ruler: true;">private void ListBox_SelectionChanged(object sender, System.Windows.Controls.SelectionChangedEventArgs e)
+<p><a href="/wp-content/uploads/2011/11/WP7_Email.png"><img style="background-image: none; border-right-width: 0px; padding-left: 0px; padding-right: 0px; display: inline; float: right; border-top-width: 0px; border-bottom-width: 0px; border-left-width: 0px; padding-top: 0px" title="Check out my awesome Paint.NET skills!" border="0" alt="Check out my awesome Paint.NET skills!" align="right" src="/wp-content/uploads/2011/11/WP7_Email_thumb.png" width="244" height="198" /></a>You know that cool swooshing transition you get when you click an email on your Windows Phone? Now you too can make use of that awesome transition using only the Silverlight Toolkit and this handy dandy Continuum Transition class.</p>  <h2>Step 1 – Go get the Silverlight Toolkit!!</h2>  <p>As always, I suggest you use Nuget to include it, but feel free to <a title="Download the Silverlight Toolkit for Windows Phone" href="http://silverlight.codeplex.com/" target="_blank">download it from Codeplex</a></p>  <p>&#160;</p>  <h2>Step 2 – Let’s See How to Use It</h2>  <p>The actual continuum transition class is pretty big for a blog post, so I’ll show you how to use it first and then you can copy the Continuum Transition class after that.</p>  <p>If you are already using the Silverlight Toolkit transitions using code, then this should hopefully be familar:</p>  <pre class="brush: csharp; ruler: true;">private void ListBox_SelectionChanged(object sender, System.Windows.Controls.SelectionChangedEventArgs e)
 {
     var selectedElement = (sender as ListBox).ItemContainerGenerator.ContainerFromIndex(lstSeeding.SelectedIndex) as FrameworkElement;
                     

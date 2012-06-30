@@ -1,31 +1,7 @@
 ---
 title: Privacy Policy
-date:
-  DateTime: 2010-11-08T14:15:42.0000000
-  UtcDateTime: 2010-11-08T14:15:42.0000000Z
-  LocalDateTime: 2010-11-09T01:15:42.0000000+11:00
-  Date: 2010-11-08T00:00:00.0000000
-  Day: 8
-  DayOfWeek: Monday
-  DayOfYear: 312
-  Hour: 14
-  Minute: 15
-  Month: 11
-  Second: 42
-  Ticks: 634248225420000000
-  UtcTicks: 634248225420000000
-  TimeOfDay:
-    Ticks: 513420000000
-    Hours: 14
-    Minutes: 15
-    Seconds: 42
-    TotalDays: 0.594236111111111
-    TotalHours: 14.2616666666667
-    TotalMilliseconds: 51342000
-    TotalMinutes: 855.7
-    TotalSeconds: 51342
-  Year: 2010
-layout: post
+date: 2010-11-08
+layout: page
 categories: []
 tags: []
 ---

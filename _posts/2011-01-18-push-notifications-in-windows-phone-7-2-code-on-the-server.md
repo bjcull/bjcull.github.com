@@ -1,30 +1,6 @@
 ---
 title: "Push Notifications in Windows Phone 7 – #2 Code on the Server"
-date:
-  DateTime: 2011-01-18T14:18:48.0000000
-  UtcDateTime: 2011-01-18T14:18:48.0000000Z
-  LocalDateTime: 2011-01-19T01:18:48.0000000+11:00
-  Date: 2011-01-18T00:00:00.0000000
-  Day: 18
-  DayOfWeek: Tuesday
-  DayOfYear: 18
-  Hour: 14
-  Minute: 18
-  Month: 1
-  Second: 48
-  Ticks: 634309571280000000
-  UtcTicks: 634309571280000000
-  TimeOfDay:
-    Ticks: 515280000000
-    Hours: 14
-    Minutes: 18
-    Seconds: 48
-    TotalDays: 0.596388888888889
-    TotalHours: 14.3133333333333
-    TotalMilliseconds: 51528000
-    TotalMinutes: 858.8
-    TotalSeconds: 51528
-  Year: 2011
+date: 2011-01-18
 layout: post
 categories:
 - .NET
@@ -37,7 +13,7 @@ tags:
 - WCF
 ---
 
-<p>This is the second part in the mini series that is taking us through the steps of setting up push notifications for your windows phone 7 app.</p>  <h4>Posts in the series:</h4>  <ol>   <li><a title="Push Notifications in Windows Phone 7 – #1 Code on the Device" href="http://benjii.me/2010/12/push-notifications-in-windows-phone-7-1-code-on-the-device/" target="_blank"><strong>Code on the device</strong> – This will handle everything you need to put into your wp7 app</a> </li>    <li><strong>Code on the server</strong> – This will handle receiving and storing your user’s device URIs on the server </li>    <li><a title="Push Notifications in Windows Phone 7 – #3 Push that Notification" href="http://benjii.me/2011/04/push-notifications-in-windows-phone-7-3-push-that-notification/" target="_blank"><strong>Push that Notification</strong> – This will handle actually pushing notifications</a> </li> </ol>  <p>&#160;</p>  <p>To handle the requests from our devices, we will be setting up a WCF REST Service Project. This will allow us to keep track of all the devices that have downloaded our app, as well as keep track of which users want push notifications or live tiles.</p>  <h2>Step 1: Create a New WCF REST Service Project</h2>  <div style="clear: both; overflow: hidden">   <p><a href="http://benjii.me/wp-content/uploads/2011/01/newproject.png"><img style="background-image: none; border-right-width: 0px; margin: 0px 30px 0px 0px; padding-left: 0px; padding-right: 0px; display: inline; float: left; border-top-width: 0px; border-bottom-width: 0px; border-left-width: 0px; padding-top: 0px" title="newproject" border="0" alt="newproject" align="left" src="http://benjii.me/wp-content/uploads/2011/01/newproject_thumb.png" width="244" height="170" /></a></p>    <ul>     <li>Open the New Project dialog </li>      <li>Select the Online Templates menu on the left </li>      <li>Select the WCF sub-menu </li>      <li>Select the WCF REST Service Template 40(CS) project template </li>      <li>Choose a project name and click OK </li>   </ul> </div>  <p>To clean up our project a bit, delete SampleItem.cs and rename the Service1.cs file to Notifications.cs. If you are asked to rename all references, do that as well. </p>  <p>Also, you must edit the Global.asax.cs and change the string “Service1” to “Notifications” in the RegisterRoutes method.</p>  <p>Lets get rid of all the rubbish that is in the Notifications class by default. Make your class look like this:</p>  <pre class="brush: csharp; ruler: true;">[ServiceContract]
+<p>This is the second part in the mini series that is taking us through the steps of setting up push notifications for your windows phone 7 app.</p>  <h4>Posts in the series:</h4>  <ol>   <li><a title="Push Notifications in Windows Phone 7 – #1 Code on the Device" href="http://benjii.me/2010/12/push-notifications-in-windows-phone-7-1-code-on-the-device/" target="_blank"><strong>Code on the device</strong> – This will handle everything you need to put into your wp7 app</a> </li>    <li><strong>Code on the server</strong> – This will handle receiving and storing your user’s device URIs on the server </li>    <li><a title="Push Notifications in Windows Phone 7 – #3 Push that Notification" href="http://benjii.me/2011/04/push-notifications-in-windows-phone-7-3-push-that-notification/" target="_blank"><strong>Push that Notification</strong> – This will handle actually pushing notifications</a> </li> </ol>  <p>&#160;</p>  <p>To handle the requests from our devices, we will be setting up a WCF REST Service Project. This will allow us to keep track of all the devices that have downloaded our app, as well as keep track of which users want push notifications or live tiles.</p>  <h2>Step 1: Create a New WCF REST Service Project</h2>  <div style="clear: both; overflow: hidden">   <p><a href="/wp-content/uploads/2011/01/newproject.png"><img style="background-image: none; border-right-width: 0px; margin: 0px 30px 0px 0px; padding-left: 0px; padding-right: 0px; display: inline; float: left; border-top-width: 0px; border-bottom-width: 0px; border-left-width: 0px; padding-top: 0px" title="newproject" border="0" alt="newproject" align="left" src="/wp-content/uploads/2011/01/newproject_thumb.png" width="244" height="170" /></a></p>    <ul>     <li>Open the New Project dialog </li>      <li>Select the Online Templates menu on the left </li>      <li>Select the WCF sub-menu </li>      <li>Select the WCF REST Service Template 40(CS) project template </li>      <li>Choose a project name and click OK </li>   </ul> </div>  <p>To clean up our project a bit, delete SampleItem.cs and rename the Service1.cs file to Notifications.cs. If you are asked to rename all references, do that as well. </p>  <p>Also, you must edit the Global.asax.cs and change the string “Service1” to “Notifications” in the RegisterRoutes method.</p>  <p>Lets get rid of all the rubbish that is in the Notifications class by default. Make your class look like this:</p>  <pre class="brush: csharp; ruler: true;">[ServiceContract]
 [AspNetCompatibilityRequirements(RequirementsMode = AspNetCompatibilityRequirementsMode.Allowed)]
 [ServiceBehavior(InstanceContextMode = InstanceContextMode.PerCall)]
 public class Notifications
@@ -81,7 +57,7 @@ public string Register(string deviceid, string uri)
 
 <p>Go ahead and create a new database called WP7AppDB and add the table below.</p>
 
-<p><a href="http://benjii.me/wp-content/uploads/2011/01/tablediagram.png"><img style="background-image: none; border-right-width: 0px; margin: ; padding-left: 0px; padding-right: 0px; display: inline; border-top-width: 0px; border-bottom-width: 0px; border-left-width: 0px; padding-top: 0px" title="tablediagram" border="0" alt="tablediagram" src="http://benjii.me/wp-content/uploads/2011/01/tablediagram_thumb.png" width="244" height="146" /></a></p>
+<p><a href="/wp-content/uploads/2011/01/tablediagram.png"><img style="background-image: none; border-right-width: 0px; margin: ; padding-left: 0px; padding-right: 0px; display: inline; border-top-width: 0px; border-bottom-width: 0px; border-left-width: 0px; padding-top: 0px" title="tablediagram" border="0" alt="tablediagram" src="/wp-content/uploads/2011/01/tablediagram_thumb.png" width="244" height="146" /></a></p>
 
 <pre class="brush: sql; ruler: true;">/****** Object:  Table [dbo].[Devices]    Script Date: 01/18/2011 23:21:39 ******/
 SET ANSI_NULLS ON
@@ -127,7 +103,7 @@ GO</pre>
 <h2>Step 4: Connect to the Database</h2>
 
 <div style="clear: both; overflow: hidden">
-  <p><a href="http://benjii.me/wp-content/uploads/2011/01/newentity.png"><img style="background-image: none; border-right-width: 0px; margin: 0px 30px 0px 0px; padding-left: 0px; padding-right: 0px; display: inline; float: left; border-top-width: 0px; border-bottom-width: 0px; border-left-width: 0px; padding-top: 0px" title="newentity" border="0" alt="newentity" align="left" src="http://benjii.me/wp-content/uploads/2011/01/newentity_thumb.png" width="244" height="170" /></a>There are a million ways to connect to a database, so I’m going to run through my favourite way: Entity Framework.</p>
+  <p><a href="/wp-content/uploads/2011/01/newentity.png"><img style="background-image: none; border-right-width: 0px; margin: 0px 30px 0px 0px; padding-left: 0px; padding-right: 0px; display: inline; float: left; border-top-width: 0px; border-bottom-width: 0px; border-left-width: 0px; padding-top: 0px" title="newentity" border="0" alt="newentity" align="left" src="/wp-content/uploads/2011/01/newentity_thumb.png" width="244" height="170" /></a>There are a million ways to connect to a database, so I’m going to run through my favourite way: Entity Framework.</p>
 
   <p>Start by right clicking your project in Visual Studio and selecting Add &gt; New Item…</p>
 

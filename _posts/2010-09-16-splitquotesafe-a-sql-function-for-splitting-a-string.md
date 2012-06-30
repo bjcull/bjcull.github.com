@@ -1,30 +1,6 @@
 ---
 title: "SplitQuoteSafe – A SQL function for splitting a string"
-date:
-  DateTime: 2010-09-16T11:44:51.0000000
-  UtcDateTime: 2010-09-16T11:44:51.0000000Z
-  LocalDateTime: 2010-09-16T21:44:51.0000000+10:00
-  Date: 2010-09-16T00:00:00.0000000
-  Day: 16
-  DayOfWeek: Thursday
-  DayOfYear: 259
-  Hour: 11
-  Minute: 44
-  Month: 9
-  Second: 51
-  Ticks: 634202342910000000
-  UtcTicks: 634202342910000000
-  TimeOfDay:
-    Ticks: 422910000000
-    Hours: 11
-    Minutes: 44
-    Seconds: 51
-    TotalDays: 0.489479166666667
-    TotalHours: 11.7475
-    TotalMilliseconds: 42291000
-    TotalMinutes: 704.85
-    TotalSeconds: 42291
-  Year: 2010
+date: 2010-09-16
 layout: post
 categories:
 - Database
