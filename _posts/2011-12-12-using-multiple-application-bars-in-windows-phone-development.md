@@ -7,7 +7,9 @@ categories:
 tags: []
 ---
 
-<p>You know when you select multiple emails and the application bar swaps out for a different one? No? We’ll get ready to learn. This trick looks much better than enabling and disabling menu items on your application bar and is dead simple to achieve.</p>  <h2>Step 1: Create your Application Bars</h2>  <p>Make sure you have the shell namespace reference at the top of your PhoneApplicationPage:</p>  <pre class="prettyprint">xmlns:shell=&quot;clr-namespace:Microsoft.Phone.Shell;assembly=Microsoft.Phone&quot;</pre>
+<p>You know when you select multiple emails and the application bar swaps out for a different one? No? We’ll get ready to learn. This trick looks much better than enabling and disabling menu items on your application bar and is dead simple to achieve.</p>  <h2>Step 1: Create your Application Bars</h2>  
+<p>Make sure you have the shell namespace reference at the top of your PhoneApplicationPage:</p>  
+<pre class="prettyprint">xmlns:shell=&quot;clr-namespace:Microsoft.Phone.Shell;assembly=Microsoft.Phone&quot;</pre>
 
 <p>Create your application bars and add them to your page resources using the following XAML. I’ve created three, naming them “DefaultAppBar”, “SiungleSelectionAppBar” and “MultiSelectionAppBar”.</p>
 
