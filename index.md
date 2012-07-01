@@ -12,6 +12,7 @@ title : Benjii.Me
     {% endfor %}
 </ul>
 
+<!--
 <script type="text/javascript">
 //<![CDATA[
 (function() {
@@ -26,3 +27,4 @@ title : Benjii.Me
 })();
 //]]>
 </script>
+-->
