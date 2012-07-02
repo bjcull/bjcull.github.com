@@ -1,5 +1,12 @@
 ---
-layout: default
+title: "JobFork - The Australian Developer Job Board"
+date: 2012-07-02
+layout: post
+categories:
+- recruiting
+tags:
+- jobs
+- australia
 published: true
 ---
 # JobFork - The Australian Developer Job Board
