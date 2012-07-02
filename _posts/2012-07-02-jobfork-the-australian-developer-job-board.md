@@ -9,8 +9,6 @@ tags:
 - australia
 published: true
 ---
-# JobFork - The Australian Developer Job Board
-
 It's been a slow and drawn out demise for my old wordpress blog. I stopped posting and then I caught a nasty case of PHP vulnerability virus. Luckily it's [dead simple to setup a github pages blog](http://lukencode.com/2012/02/13/using-pretzel-jekyll-to-your-blog-on-github/) and now here I am, ready to update you all about the exciting projects I've been working on over the last 6 months.
 
 First cab off the rank is [JobFork - The Australian Developer Job Board](http://jobfork.com.au).
