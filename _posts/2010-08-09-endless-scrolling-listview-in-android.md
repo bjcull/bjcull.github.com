@@ -7,6 +7,7 @@ categories:
 tags:
 - ListView
 - Scrolling
+published: false
 ---
 
 <p>
@@ -50,8 +51,6 @@ tags:
         public void onScrollStateChanged(AbsListView view, int scrollState) {
         }
     }</pre>
-
-<h1></h1>
 
 <p>Ok, so all we’ve done is implement our own <a title="OnScrollListener" href="http://developer.android.com/reference/android/widget/AbsListView.OnScrollListener.html" target="_blank">OnScrollListener</a> named EndlessScrollListener, which can be called like so:</p>
 
