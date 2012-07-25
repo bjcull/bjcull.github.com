@@ -9,7 +9,13 @@ tags:
 - Scrolling
 ---
 
-<p><a title="Pictured: Not Uninfinity" href="http://www.google.com.au/images?hl=en&amp;q=infinity&amp;um=1&amp;ie=UTF-8&amp;source=og&amp;sa=N&amp;tab=wi&amp;biw=1680&amp;bih=871" target="_blank"><img style="border-bottom: 0px; border-left: 0px; display: inline; margin-left: 0px; border-top: 0px; margin-right: 0px; border-right: 0px" title="Not Uninfinity" border="0" alt="Not Uninfinity" align="right" src="/wp-content/uploads/2010/08/newInfinity.jpg" width="244" height="116" /></a> Implementing an endless scroller in Android was not actually that difficult. Here’s a quick code snippet and explanation to get you on your way.</p>  <h2>Just give me the code!</h2>  <p>Well here you go:</p>  <pre class="prettyprint">    public class EndlessScrollListener implements OnScrollListener {
+<p>
+<a title="Pictured: Not Uninfinity" href="http://www.google.com.au/images?hl=en&amp;q=infinity&amp;um=1&amp;ie=UTF-8&amp;source=og&amp;sa=N&amp;tab=wi&amp;biw=1680&amp;bih=871" target="_blank">
+<img style="border-bottom: 0px; border-left: 0px; display: inline; margin-left: 0px; border-top: 0px; margin-right: 0px; border-right: 0px" title="Not Uninfinity" border="0" alt="Not Uninfinity" align="right" src="/wp-content/uploads/2010/08/newInfinity.jpg" width="244" height="116" />
+</a> Implementing an endless scroller in Android was not actually that difficult. Here’s a quick code snippet and explanation to get you on your way.</p>  
+<h2>Just give me the code!</h2>  
+<p>Well here you go:</p>  
+<pre class="prettyprint">    public class EndlessScrollListener implements OnScrollListener {
 
         private int visibleThreshold = 5;
         private int currentPage = 0;
