@@ -95,37 +95,30 @@
 			    </aside>
 		    </div>
         </div>
-        <div class="secondaryHeaders">
+<!--        <div class="secondaryHeaders">
             <div class="currentPostComments panel">
                 <img src="/img/twitter_icon.jpg" alt="Comments" />
                 <h3>Comments</h3>
             </div>
-        </div>
+        </div>-->
 	</div>
 				
 	<div id="primary">
 		<div id="content">
 			{{ content }}
-
-            <div id="tweetFooter">
-                <!--<img src="/img/arrow_down.png" alt="show comments" />
-                <label>scroll for comments</label>-->
-            </div>
 		</div>				
 
+        <div id="tweetBoxWrapper">
+            <div id="tweetHeader">
+                <h2>Comments</h2>
+            </div>
+            <div id="tweetBox"></div>
+        </div>
+        
 		<footer>
 			<small>powered by <a href="https://github.com/code52/pretzel">pretzel</a> / <a href="https://github.com/mojombo/jekyll">jekyll</a> and living on <a href="https://github.com">github</a></small>
 		</footer>
 	</div>
-
-    <div id="tweetBoxWrapper">
-        <div id="tweetHeader">
-            <img src="/img/arrow_up.png" alt="back to post" />
-            <label>back to post</label>
-            <h2>Comments</h2>
-        </div>
-        <div id="tweetBox"></div>
-    </div>
 
 </body>
 </html>

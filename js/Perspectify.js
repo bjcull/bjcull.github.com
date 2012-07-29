@@ -3,20 +3,20 @@
 $(function () {
     var perspectified = false;
 
-    $("#tweetFooter").css({ "margin-bottom": $(window).height() / 2 });
-    var initialPostBottom = $("#tweetFooter").height() + $("#tweetFooter").offset().top;
+    //$("#tweetFooter").css({ "margin-bottom": $(window).height() / 2 });
+    //var initialPostBottom = $("#tweetFooter").height() + $("#tweetFooter").offset().top;
 
-    $(window).scroll(function () {
-        var midscreen = $(window).height() / 2;
-        var scrolltop = $(window).scrollTop();
+    //$(window).scroll(function () {
+    //    var midscreen = $(window).height() / 2;
+    //    var scrolltop = $(window).scrollTop();
 
-        if (scrolltop > (initialPostBottom - midscreen) && !perspectified) {
-            Perspectify();
-        }
-        else if (scrolltop <= (initialPostBottom - midscreen) && perspectified) {
-            Unperspectify();
-        }
-    });
+    //    if (scrolltop > (initialPostBottom - midscreen) && !perspectified) {
+    //        Perspectify();
+    //    }
+    //    else if (scrolltop <= (initialPostBottom - midscreen) && perspectified) {
+    //        Unperspectify();
+    //    }
+    //});
 
     $(".currentPostComments").click(function () {
         if (perspectified) {
@@ -33,27 +33,35 @@ $(function () {
 
         var postHeight = $("#post").height();
 
-        $("#post").transition({
-            perspective: '800',
-            rotateX: '45deg',
-            scale: 0.5
-            //y: (postHeight / 2)
-        }, 400, 'in-out');
-
-        $("#tweetBoxWrapper").css({
-            left: ($(window).width() / 2) - ($("#tweetBoxWrapper").width() / 2),
-            //top: ($(window).height() / 2) - ($("#tweetBoxWrapper").height() / 2),
-            top: 0,
+        $("#post").css({
             transformOrigin: '50% 0',
             perspective: '800',
-            rotate3d: '1, 0, 0, 90deg',
+            display: 'block'
+        });
+
+        $("#post").transition({
+            perspective: '800',
+            rotateY: '180deg',
+            scale: 0.5
+            //y: (postHeight / 2)
+        }, 400, 'in-out', function () {
+            $("#post").css({
+                display: 'none'
+            });
+        });
+
+        $("#tweetBoxWrapper").css({
+            transformOrigin: '50% 0',
+            perspective: '800',
+            rotate3d: '0, 1, 0, 180deg',
             display: 'block'
         });
 
         $("#tweetBoxWrapper").transition({
             perspective: '800',
-            rotate3d: '1, 0, 0, 0deg',
-            //delay:250
+            rotate3d: '0, 1, 0, 360deg',
+            scale: 1,
+            opacity: 0.8
         }, 400, "out");
 
         $("#tweet-box").focus();
@@ -65,16 +73,26 @@ $(function () {
 
         $("#tweetBoxWrapper").transition({
             perspective: '800',
-            rotate3d: '1, 0, 0, 90deg'
+            rotate3d: '0, 1, 0, 180deg',
+            scale: 0.5,
+            opacity:0
         }, 400, "out");
 
         $("#post").transition({
             perspective: '800',
-            rotateX: '0deg',
+            rotateY: '0deg',
             scale: 1
             //delay:250,
             //y: 0
         }, 400, 'in-out');
+
+        $("#post").css({
+            display: 'block'
+        });
+
+        $("#tweetBoxWrapper").css({
+            display: 'none'
+        });
     };
 
     $("#tweetBox").jTweetsAnywhere(GetjTweetsOptions());

@@ -8,8 +8,15 @@
 		height:auto;
 		padding:0;
         border-radius:0;
+        margin-bottom:40px;
 	}
 	
+    #header-wrap .mainHeader {
+        width:auto;
+        border-radius:0;
+        margin-top:0;
+    }
+    
 	#header-wrap hgroup h1
 	{
 		margin-bottom:13px;
@@ -22,7 +29,7 @@
 		width:100%;
 	}
 	
-	#content
+	#content, #tweetBoxWrapper
 	{
 		margin:10px 10px;
 		clear:both;
@@ -127,4 +134,8 @@
 	{
 		display:none;
 	}
+
+    .widget {
+        padding:0;
+    }
 }
