@@ -418,9 +418,6 @@ footer {
     opacity:0.8;
 }*/
 
-#tweetBoxWrapper {
-    margin-left:80px;
-}
 
 #tweetHeader label, #tweetFooter label {
     line-height:48px;
