@@ -9,9 +9,13 @@ tags:
 - Json
 - WCF
 - Xml
+published: true
 ---
 
-<p>One of the cooler features of WCF web services is the ability to return your data in a range of different formats such as XML, JSON and ATOM, but what really sets it apart is just how easy it is to achieve.</p>  <h2>A Complete Example</h2>  <p>Here’s a cut down, but working example from one of my project’s <a title="Promote.fm" href="http://promote.fm">promote.fm</a>. We’ll break it down below.</p>  <pre class="prettyprint">        [WebInvoke(
+<p>One of the cooler features of WCF web services is the ability to return your data in a range of different formats such as XML, JSON and ATOM, but what really sets it apart is just how easy it is to achieve.</p>  
+<h2>A Complete Example</h2>  
+<p>Here’s a cut down, but working example from one of my project’s <a title="Promote.fm" href="http://promote.fm">promote.fm</a>. We’ll break it down below.</p>  
+<pre class="prettyprint">        [WebInvoke(
             Method = &quot;GET&quot;,
             UriTemplate = &quot;search?format={format}&quot;)]
         [ServiceKnownType(typeof(Atom10FeedFormatter))]
