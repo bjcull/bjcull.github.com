@@ -56,12 +56,8 @@ The Javascript (home.js):
 ## OK, Now Explain... ##
 Right! To start off, the above HTML is everything you get by default when you create a new page, except I've also added a button that we can click. NOTE: I've only shown the contents of the body tag, for slight brevity.
 
-Again, with the javascript we are given some default code. We're simply adding an event listener and a function to navigate. I like to add all my event listeners in the ready function and pull everything else out into functions.
+Again, with the javascript we are given some default code. We're simply adding an event listener and a function to navigate.
 
+Looking at the ready function, first we get the button and then we attach the "click" event listener (this also works for touch). We also supply the GoToNextPage function which will be called when someone clicks the button.
 
-
-
-
-
-
-Enter Text in Markdown format.
+Looking further down, we now define the GoToNextPage function containing our single line of code to navigate. The string we are passing to navigate function should match the string given to the WinJS.UI.Pages.define function of the page you want to navigate to. In this case we are navigating to a second (not shown) page called next.html.
