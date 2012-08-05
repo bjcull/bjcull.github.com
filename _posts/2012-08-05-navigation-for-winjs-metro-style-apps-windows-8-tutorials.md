@@ -2,7 +2,7 @@
 title: "Navigation for WinJS Metro Style Apps | Windows 8 Tutorials"
 layout: post
 date: 2012-08-05
-published: false
+published: true
 ---
 
 # Navigation for WinJS Metro Style Apps | Windows 8 Tutorials #
