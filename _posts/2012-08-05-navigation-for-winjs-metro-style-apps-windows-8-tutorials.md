@@ -5,8 +5,6 @@ date: 2012-08-05
 published: true
 ---
 
-# Navigation for WinJS Metro Style Apps | Windows 8 Tutorials #
-
 Need to get from one page to another? Boom, navigation. Let's check out how to do it.
 
 ## The Javascript ##
