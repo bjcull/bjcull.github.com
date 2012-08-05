@@ -10,9 +10,8 @@ Need to get from one page to another? Boom, navigation. Let's check out how to d
 ## The Javascript ##
 Just need a quick refresher? Here's the code:
 
-<div class="prettyprint">
     WinJS.Navigation.navigate("/pages/next/next.html");
-</div>
+
 
 ## The Whole Picture, Now With Added Button ##
 The HTML (home.html):
