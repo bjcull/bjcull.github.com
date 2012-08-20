@@ -215,10 +215,9 @@ Firstly, add the following class to your project:
 
     }
     
+Now, all we need to do to take advantage of it's magic is change our route. Remember this?
+    routes.Add(new ServiceRoute("MyService", new ServiceHostFactory(), typeof(Service1)));
+Change it to this:
+    routes.Add(new ServiceRoute("MyService", new HttpsServiceHostFactory(), typeof(Service1)));
 
-- WCF Service Application
-- Add new item, Global Application Handler
-- System.ServiceModel.Activation
-- AspNetCompatibilityRequirements attribute
-- serviceHostingEnvironment web.config entry
-- Add https 
+Tada! We now have a fully functioning, SSL supporting, SOAP loving web service.
