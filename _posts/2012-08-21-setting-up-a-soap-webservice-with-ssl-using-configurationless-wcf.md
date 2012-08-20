@@ -82,6 +82,10 @@ Now let's look at the Service1.svc file where the majority of our web service co
         }
     }
     
+Whilst still in the Service1.svc class, hit Ctrl+F5. Boom, a handy dandy web service tester shoud appear. Right now you might be thinking, Hey! this was far too easy, where is all the pain and suffering? Well as long as all you want is http only, ugly url WCF, then you're fine. Not me though, let's kick it up a notch.
+
+## Extensionless URLs ##
+
 
 
 - WCF Service Application
