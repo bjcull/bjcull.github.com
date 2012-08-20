@@ -117,11 +117,23 @@ You can delete the empty methods that already exist in there and replace them wi
     
 All we're really doing here is setting up the route. If you've done any work with MVC or any other routing, this should hopefully be familiar. For everyone else, the important parts are: `"MyService"` which is the url (or route) we want to achieve; `new ServiceHostFactory()` which sets up our SOAP web service via some magic from the System.ServiceModel.Activation library; and `typeof(Service1)` which points to the Service1.svc class we made earlier.
 
-In a sentence it means, If someone navigates to http://example.com/MyService respond with our Service1.svc class using SOAP.
+In a sentence it means, If someone navigates to `http://example.com/MyService` respond with our Service1.svc class using SOAP.
 
 ### AspNetCompatibility ###
 
-If you tried to run your service at this point, you might realise that you can't.
+If you tried to run your service at this point, you might realise that you can't. There are a couple of compatibility issues we need to cleanup first.
+
+Firstly, add the following attribute to your Service1.svc class.
+
+    [AspNetCompatibilityRequirements(RequirementsMode=AspNetCompatibilityRequirementsMode.Allowed)]
+    
+Now add the following line to your web config, inside the `<system.serviceModel>` tag.
+
+    <serviceHostingEnvironment aspNetCompatibilityEnabled="True" />
+
+Congratulations! You now have a fully working SOAP web service complete with extensionless urls. If, like me, you needed to deploy this to a secure environment and have people access it using SSL (https) then you best read on.
+
+## SSL Support ##
 
 - WCF Service Application
 - Add new item, Global Application Handler
