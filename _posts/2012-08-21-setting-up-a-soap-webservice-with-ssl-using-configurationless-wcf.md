@@ -131,9 +131,90 @@ Now add the following line to your web config, inside the `<system.serviceModel>
 
     <serviceHostingEnvironment aspNetCompatibilityEnabled="True" />
 
-Congratulations! You now have a fully working SOAP web service complete with extensionless urls. If, like me, you needed to deploy this to a secure environment and have people access it using SSL (https) then you best read on.
+Congratulations! You now have a fully working SOAP web service complete with extensionless urls. If, like me, you needed to deploy this to a secure environment and have people access it using https/SSL then you best read on.
 
-## SSL Support ##
+## Https/SSL Support ##
+
+Configurationless WCF has made life so much easier when it comes to setting up a web service, however it does fall over if you venture outside the bounds of what it likes to do. Https/SSL is one such example.
+
+Luckily for you I've already dealt with the pain and have come up with a simple class that will handle everything for you.
+
+Firstly, add the following class to your project:
+
+    public class HttpsServiceHostFactory : ServiceHostFactory
+    {
+        protected override System.ServiceModel.ServiceHost CreateServiceHost(Type serviceType, Uri[] baseAddresses)
+        {
+            ServiceHost host = new ServiceHost(serviceType, baseAddresses);
+
+            foreach (Uri baseAddress in baseAddresses)
+            {
+                BasicHttpBinding binding = CreateSoapBinding(baseAddress);
+                ServiceEndpoint endpoint = host.AddServiceEndpoint(serviceType.GetInterfaces()[0], binding, baseAddress);
+            }
+
+            if (HasHttpEndpoint(baseAddresses))
+            {
+                if (host.Description.Behaviors.Contains(typeof(ServiceMetadataBehavior)))
+                {
+                    var smb = (ServiceMetadataBehavior)host.Description.Behaviors[typeof(ServiceMetadataBehavior)];
+                    smb.HttpGetEnabled = true;
+                }
+                else
+                {
+                    var smb = new ServiceMetadataBehavior();
+                    smb.HttpGetEnabled = true;
+
+                    host.Description.Behaviors.Add(smb);
+                }
+            }
+
+            if (HasHttpsEndpoint(baseAddresses))
+            {
+                if (host.Description.Behaviors.Contains(typeof(ServiceMetadataBehavior)))
+                {
+                    var smb = (ServiceMetadataBehavior)host.Description.Behaviors[typeof(ServiceMetadataBehavior)];
+                    smb.HttpsGetEnabled = true;
+                }
+                else
+                {
+                    var smb = new ServiceMetadataBehavior();
+                    smb.HttpsGetEnabled = true;
+
+                    host.Description.Behaviors.Add(smb);
+                }
+            }
+
+            return host;
+        }
+
+        private bool HasHttpsEndpoint(Uri[] baseAddresses)
+        {
+            return baseAddresses.Any(b => b.Scheme == Uri.UriSchemeHttps);
+        }
+
+        private bool HasHttpEndpoint(Uri[] baseAddresses)
+        {
+            return baseAddresses.Any(b => b.Scheme == Uri.UriSchemeHttp);
+        }
+
+        private BasicHttpBinding CreateSoapBinding(Uri baseAddress)
+        {
+            BasicHttpBinding binding;
+            if (baseAddress.Scheme == Uri.UriSchemeHttps)
+            {
+                binding = new BasicHttpBinding(BasicHttpSecurityMode.Transport);
+            }
+            else
+            {
+                binding = new BasicHttpBinding();
+            }
+
+            return binding;
+        }
+
+    }
+    
 
 - WCF Service Application
 - Add new item, Global Application Handler
