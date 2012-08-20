@@ -215,9 +215,11 @@ Firstly, add the following class to your project:
 
     }
     
-Now, all we need to do to take advantage of it's magic is change our route. Remember this?
+Now, all we need to do to take advantage of it's magic is change our route. Remember this from our Global.asax?
+
     routes.Add(new ServiceRoute("MyService", new ServiceHostFactory(), typeof(Service1)));
 Change it to this:
+
     routes.Add(new ServiceRoute("MyService", new HttpsServiceHostFactory(), typeof(Service1)));
 
 Tada! We now have a fully functioning, SSL supporting, SOAP loving web service.
