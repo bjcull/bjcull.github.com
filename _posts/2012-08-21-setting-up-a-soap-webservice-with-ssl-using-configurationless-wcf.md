@@ -59,6 +59,29 @@ There is also an example of Data Contracts just below, we'll leave it there for 
 
 ### Service1.svc ###
 
+Now let's look at the Service1.svc file where the majority of our web service code will live. Really, all we are doing is inheriting from the `IService1` class and implementing the methods, returning normal types.
+
+    public class Service1 : IService1
+    {
+        public string GetData(int value)
+        {
+            return string.Format("You entered: {0}", value);
+        }
+
+        public CompositeType GetDataUsingDataContract(CompositeType composite)
+        {
+            if (composite == null)
+            {
+                throw new ArgumentNullException("composite");
+            }
+            if (composite.BoolValue)
+            {
+                composite.StringValue += "Suffix";
+            }
+            return composite;
+        }
+    }
+    
 
 
 - WCF Service Application
