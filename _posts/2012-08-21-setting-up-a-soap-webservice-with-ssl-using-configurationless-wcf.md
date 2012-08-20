@@ -17,6 +17,10 @@ You'll notice that we start with a service already made for us. Each service con
 
 The interface defines what our web service will look like to the outside world and the rest of our code will live in the .svc file.
 
+* STARTING FILES IMAGE HERE *
+
+### IService1.cs ###
+
 Firstly, let's look at the interface. Really, it's just the same as a normal interface with a couple of extra attributes. The `[ServiceContract]` and `[OperationContract]` attributes. The service contract attribute lets WCF know that this interface represents a web service, and the operation contract lets it know that the methods should be a part of that service.
 
     [ServiceContract]
@@ -29,7 +33,33 @@ Firstly, let's look at the interface. Really, it's just the same as a normal int
         CompositeType GetDataUsingDataContract(CompositeType composite);
     }
 
-There is also an example of Data Contracts just below, we'll leave it there for the time being. The `[DataContract]` attribute allows the class to be serialized to JSON or XML so it can be returned by the web service. The `[DataMember]` attribute let's the class know which properties to serialize and which to ignore.
+There is also an example of Data Contracts just below, we'll leave it there for now. The `[DataContract]` attribute allows the class to be serialized to JSON or XML so it can be returned by the web service. The `[DataMember]` attribute let's the class know which properties to serialize and which to ignore.
+
+    [DataContract]
+    public class CompositeType
+    {
+        bool boolValue = true;
+        string stringValue = "Hello ";
+
+        [DataMember]
+        public bool BoolValue
+        {
+            get { return boolValue; }
+            set { boolValue = value; }
+        }
+
+        [DataMember]
+        public string StringValue
+        {
+            get { return stringValue; }
+            set { stringValue = value; }
+        }
+    }
+
+
+### Service1.svc ###
+
+
 
 - WCF Service Application
 - Add new item, Global Application Handler
