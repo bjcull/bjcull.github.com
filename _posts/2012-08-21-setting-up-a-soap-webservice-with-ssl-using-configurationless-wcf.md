@@ -115,7 +115,13 @@ You can delete the empty methods that already exist in there and replace them wi
         }
     }
     
+All we're really doing here is setting up the route. If you've done any work with MVC or any other routing, this should hopefully be familiar. For everyone else, the important parts are: `"MyService"` which is the url (or route) we want to achieve; `new ServiceHostFactory()` which sets up our SOAP web service via some magic from the System.ServiceModel.Activation library; and `typeof(Service1)` which points to the Service1.svc class we made earlier.
 
+In a sentence it means, If someone navigates to http://example.com/MyService respond with our Service1.svc class using SOAP.
+
+### AspNetCompatibility ###
+
+If you tried to run your service at this point, you might realise that you can't.
 
 - WCF Service Application
 - Add new item, Global Application Handler
