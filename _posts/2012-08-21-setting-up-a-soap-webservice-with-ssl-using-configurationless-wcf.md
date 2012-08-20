@@ -86,6 +86,35 @@ Whilst still in the Service1.svc class, hit Ctrl+F5. Boom, a handy dandy web ser
 
 ## Extensionless URLs ##
 
+Now it's time to get tricky. Instead of the boring and lame `http://example.com/Service1.svc` we can get any route we want, like  `http://example.com/Service1` or `http://example.com/MyService` or `http://example.com/absolutely/any/route/we/want`.
+
+### System.ServiceModel.Activation ###
+
+Firstly, we are going to need to add a reference to the magical `System.ServiceModel.Activation` namespace.
+
+* ADD REFERENCE IMAGE HERE *
+
+Remember the shortcuts I mentioned earlier? This library contains most of them. It's going to allow us to setup a route to our service quite easily.
+
+### Global.asax ###
+
+Next we are going to setup our Global.asax. At this stage we don't have one yet so start by right clicking your project and going to Add Item. Select the Global Application Class and click add.
+
+You can delete the empty methods that already exist in there and replace them with the following code:
+
+    public class Global : System.Web.HttpApplication
+    {
+        protected void Application_Start(object sender, EventArgs e)
+        {
+            RegisterRoutes(RouteTable.Routes);
+        }
+
+        private void RegisterRoutes(RouteCollection routes)
+        {
+            routes.Add(new ServiceRoute("MyService", new ServiceHostFactory(), typeof(Service1)));
+        }
+    }
+    
 
 
 - WCF Service Application
