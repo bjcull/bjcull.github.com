@@ -20,7 +20,7 @@ The interface defines what our web service will look like to the outside world a
 
 ![Starting Files](http://i.imgur.com/bWxTt.png)
 
-### IService1.cs ###
+#### IService1.cs ####
 
 Firstly, let's look at the interface. Really, it's just the same as a normal interface with a couple of extra attributes. The `[ServiceContract]` and `[OperationContract]` attributes. The service contract attribute lets WCF know that this interface represents a web service, and the operation contract lets it know that the methods should be a part of that service.
 
@@ -58,7 +58,7 @@ There is also an example of Data Contracts just below, we'll leave it there for 
     }
 
 
-### Service1.svc ###
+#### Service1.svc ####
 
 Now let's look at the Service1.svc file where the majority of our web service code will live. Really, all we are doing is inheriting from the `IService1` class and implementing the methods, returning normal types.
 
@@ -89,7 +89,7 @@ Whilst still in the Service1.svc class, hit Ctrl+F5. Boom, a handy dandy web ser
 
 Now it's time to get tricky. Instead of the boring and lame `http://example.com/Service1.svc` we can get any route we want, like  `http://example.com/Service1` or `http://example.com/MyService` or `http://example.com/absolutely/any/route/we/want`.
 
-### System.ServiceModel.Activation ###
+#### System.ServiceModel.Activation ####
 
 Firstly, we are going to need to add a reference to the magical `System.ServiceModel.Activation` namespace.
 
@@ -97,7 +97,7 @@ Firstly, we are going to need to add a reference to the magical `System.ServiceM
 
 Remember the shortcuts I mentioned earlier? This library contains most of them. It's going to allow us to setup a route to our service quite easily.
 
-### Global.asax ###
+#### Global.asax ####
 
 Next we are going to setup our Global.asax. At this stage we don't have one yet so start by right clicking your project and going to Add Item. Select the Global Application Class and click add.
 
@@ -122,7 +122,7 @@ All we're really doing here is setting up the route. If you've done any work wit
 
 In a sentence it means, If someone navigates to `http://example.com/MyService` respond with our Service1.svc class using SOAP.
 
-### AspNetCompatibility ###
+#### AspNetCompatibility ####
 
 If you tried to run your service at this point, you might realise that you can't. There are a couple of compatibility issues we need to cleanup first.
 
