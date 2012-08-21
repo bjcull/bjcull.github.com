@@ -12,13 +12,13 @@ This post will outline how to quickly setup a WCF Webservice to use SOAP, with s
 ## Step 1: Create the project
 We want File > New Project > WCF > WCF Service Application
 
-![New Project](http://i.imgur.com/2FE5P)
+![New Project](http://i.imgur.com/2FE5P.png)
 
 You'll notice that we start with a service already made for us. Each service consists of an interace (IService1.cs) and the actual service code (Service1.svc).
 
 The interface defines what our web service will look like to the outside world and the rest of our code will live in the .svc file.
 
-![Starting Files](http://i.imgur.com/bWxTt)
+![Starting Files](http://i.imgur.com/bWxTt.png)
 
 ### IService1.cs ###
 
@@ -93,7 +93,7 @@ Now it's time to get tricky. Instead of the boring and lame `http://example.com/
 
 Firstly, we are going to need to add a reference to the magical `System.ServiceModel.Activation` namespace.
 
-![Add Reference](http://i.imgur.com/JbmXC)
+![Add Reference](http://i.imgur.com/JbmXC.png)
 
 Remember the shortcuts I mentioned earlier? This library contains most of them. It's going to allow us to setup a route to our service quite easily.
 
@@ -101,7 +101,7 @@ Remember the shortcuts I mentioned earlier? This library contains most of them. 
 
 Next we are going to setup our Global.asax. At this stage we don't have one yet so start by right clicking your project and going to Add Item. Select the Global Application Class and click add.
 
-![Global.asax](http://i.imgur.com/7Diz2)
+![Global.asax](http://i.imgur.com/7Diz2.png)
 
 You can delete the empty methods that already exist in there and replace them with the following code:
 
