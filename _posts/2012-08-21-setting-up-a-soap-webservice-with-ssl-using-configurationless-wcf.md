@@ -1,7 +1,8 @@
 ---
 layout: post
+date: 2012-08-21
 title: Setting up a SOAP WebService with SSL using Configurationless WCF
-published: false
+published: true
 ---
 
 WCF is notorious for being overengineered and difficult to setup, however, these days there are many shortcuts you can take advantage of to get something up and running in no time.
@@ -11,13 +12,13 @@ This post will outline how to quickly setup a WCF Webservice to use SOAP, with s
 ## Step 1: Create the project
 We want File > New Project > WCF > WCF Service Application
 
-* NEW PROJECT IMAGE HERE *
+![New Project](http://i.imgur.com/2FE5P)
 
 You'll notice that we start with a service already made for us. Each service consists of an interace (IService1.cs) and the actual service code (Service1.svc).
 
 The interface defines what our web service will look like to the outside world and the rest of our code will live in the .svc file.
 
-* STARTING FILES IMAGE HERE *
+![Starting Files](http://i.imgur.com/bWxTt)
 
 ### IService1.cs ###
 
@@ -92,13 +93,15 @@ Now it's time to get tricky. Instead of the boring and lame `http://example.com/
 
 Firstly, we are going to need to add a reference to the magical `System.ServiceModel.Activation` namespace.
 
-* ADD REFERENCE IMAGE HERE *
+![Add Reference](http://i.imgur.com/JbmXC)
 
 Remember the shortcuts I mentioned earlier? This library contains most of them. It's going to allow us to setup a route to our service quite easily.
 
 ### Global.asax ###
 
 Next we are going to setup our Global.asax. At this stage we don't have one yet so start by right clicking your project and going to Add Item. Select the Global Application Class and click add.
+
+![Global.asax](http://i.imgur.com/7Diz2)
 
 You can delete the empty methods that already exist in there and replace them with the following code:
 
