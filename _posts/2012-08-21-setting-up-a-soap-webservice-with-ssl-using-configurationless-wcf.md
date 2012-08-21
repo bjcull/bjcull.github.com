@@ -14,7 +14,7 @@ We want File > New Project > WCF > WCF Service Application
 
 ![New Project](http://i.imgur.com/2FE5P.png)
 
-You'll notice that we start with a service already made for us. Each service consists of an interace (IService1.cs) and the actual service code (Service1.svc).
+You'll notice that we start with a service already made for us. Each service consists of an interface (IService1.cs) and the actual service code (Service1.svc).
 
 The interface defines what our web service will look like to the outside world and the rest of our code will live in the .svc file.
 
