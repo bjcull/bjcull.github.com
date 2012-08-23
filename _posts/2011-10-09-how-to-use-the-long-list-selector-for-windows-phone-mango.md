@@ -7,9 +7,21 @@ categories:
 tags:
 - Long List Selector
 - Silverlight Toolkit
+published: true
 ---
 
-<p>One of the cool new controls in the Silverlight Toolkit for Windows Phone Mango is the Long List Selector. This post will show you how to get one looking nice, complete with alphabetised grouping.</p>  <h2>Step 1: Make sure you have the Silverlight Toolkit referenced</h2>  <p>The best way to do this is via Nuget: <a title="Silverlight Toolkit for Windows Phone - Nuget" href="http://nuget.org/List/Packages/SilverlightToolkitWP" target="_blank"><img style="background-image: none; border-right-width: 0px; padding-left: 0px; padding-right: 0px; display: inline; float: left; border-top-width: 0px; border-bottom-width: 0px; border-left-width: 0px; padding-top: 0px" title="nuget_silverlight_toolkit" border="0" alt="nuget_silverlight_toolkit" align="left" src="/wp-content/uploads/2011/10/nuget_silverlight_toolkit.png" width="763" height="87" /></a></p>  <p>&#160;</p>  <p>&#160;</p>  <p>or directly from Codeplex:</p>  <p><a title="Silverlight Toolkit for Windows Phone" href="http://silverlight.codeplex.com/releases/view/71550" target="_blank"><img style="background-image: none; border-right-width: 0px; padding-left: 0px; padding-right: 0px; display: inline; border-top-width: 0px; border-bottom-width: 0px; border-left-width: 0px; padding-top: 0px" title="augtk_3" border="0" alt="augtk_3" src="/wp-content/uploads/2011/10/augtk_3.png" width="273" height="82" /></a></p>  <h2>&#160;</h2>  <h2>Step 2: Drop that bad boy onto the page</h2>  <p>Paste the following XAML where you would like to use the control.</p>  <pre class="prettyprint">&lt;toolkit:LongListSelector x:Name=&quot;lstMain&quot; 
+<p>One of the cool new controls in the Silverlight Toolkit for Windows Phone Mango is the Long List Selector. This post will show you how to get one looking nice, complete with alphabetised grouping.</p>  
+<h2>Step 1: Make sure you have the Silverlight Toolkit referenced</h2>  
+<p>The best way to do this is via Nuget: <a title="Silverlight Toolkit for Windows Phone - Nuget" href="http://nuget.org/List/Packages/SilverlightToolkitWP" target="_blank"><img style="background-image: none; border-right-width: 0px; padding-left: 0px; padding-right: 0px; display: inline; float: left; border-top-width: 0px; border-bottom-width: 0px; border-left-width: 0px; padding-top: 0px" title="nuget_silverlight_toolkit" border="0" alt="nuget_silverlight_toolkit" align="left" src="/wp-content/uploads/2011/10/nuget_silverlight_toolkit.png" width="763" height="87" /></a></p>  
+<p>&#160;</p>  
+<p>&#160;</p>  
+<p>or directly from Codeplex:</p>  
+<p>
+<a title="Silverlight Toolkit for Windows Phone" href="http://silverlight.codeplex.com/releases/view/71550" target="_blank"><img style="background-image: none; border-right-width: 0px; padding-left: 0px; padding-right: 0px; display: inline; border-top-width: 0px; border-bottom-width: 0px; border-left-width: 0px; padding-top: 0px" title="augtk_3" border="0" alt="augtk_3" src="/wp-content/uploads/2011/10/augtk_3.png" width="273" height="82" /></a></p>  
+<h2>&#160;</h2>  
+<h2>Step 2: Drop that bad boy onto the page</h2>  
+<p>Paste the following XAML where you would like to use the control.</p>  
+<pre class="prettyprint">&lt;toolkit:LongListSelector x:Name=&quot;lstMain&quot; 
 GroupHeaderTemplate=&quot;{StaticResource LongListGroupHeader}&quot; GroupItemTemplate=&quot;{StaticResource LongListGroupItemTemplate}&quot;&gt;
     &lt;toolkit:LongListSelector.ItemTemplate&gt;
         &lt;DataTemplate&gt;
@@ -66,7 +78,12 @@ GroupHeaderTemplate=&quot;{StaticResource LongListGroupHeader}&quot; GroupItemTe
 
 <p>You now have all the XAML you need to rock a kick ass selector like the below screenshots:</p>
 
-<p><a href="/wp-content/uploads/2011/10/ItemTemplates.png"><img style="background-image: none; border-right-width: 0px; margin: 0px; padding-left: 0px; padding-right: 0px; display: inline; border-top-width: 0px; border-bottom-width: 0px; border-left-width: 0px; padding-top: 0px" title="ItemTemplates" border="0" alt="ItemTemplates" src="/wp-content/uploads/2011/10/ItemTemplates_thumb.png" width="148" height="244" /></a><a href="/wp-content/uploads/2011/10/ItemTemplates2.png"><img style="background-image: none; border-right-width: 0px; padding-left: 0px; padding-right: 0px; display: inline; border-top-width: 0px; border-bottom-width: 0px; border-left-width: 0px; padding-top: 0px" title="ItemTemplates2" border="0" alt="ItemTemplates2" src="/wp-content/uploads/2011/10/ItemTemplates2_thumb.png" width="148" height="244" /></a></p>
+<p>
+<a href="/wp-content/uploads/2011/10/ItemTemplates.png">
+<img style="background-image: none; border-right-width: 0px; margin: 0px; padding-left: 0px; padding-right: 0px; display: inline; border-top-width: 0px; border-bottom-width: 0px; border-left-width: 0px; padding-top: 0px" title="ItemTemplates" border="0" alt="ItemTemplates" src="/wp-content/uploads/2011/10/ItemTemplates_thumb.png" width="148" height="244" /></a>
+<a href="/wp-content/uploads/2011/10/ItemTemplates2.png">
+<img style="background-image: none; border-right-width: 0px; padding-left: 0px; padding-right: 0px; display: inline; border-top-width: 0px; border-bottom-width: 0px; border-left-width: 0px; padding-top: 0px" title="ItemTemplates2" border="0" alt="ItemTemplates2" src="/wp-content/uploads/2011/10/ItemTemplates2_thumb.png" width="148" height="244" /></a>
+</p>
 
 <p>&#160;</p>
 
