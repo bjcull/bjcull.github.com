@@ -53,7 +53,7 @@ Back to our Credit Card Validator, we'll take a look at the only manditory metho
     {
         var number = Convert.ToString(value);
         
-        return IsValidType(number, _cardTypes) &amp;&amp; IsValidNumber(number);
+        return IsValidType(number, _cardTypes) && IsValidNumber(number);
     }
 </pre>
 Its very simple, you get the value to validate as an object and you must return a boolean showing whether or not it passed validation. The rest of the methods in the credit card validator are helpers to decide if the card is valid, and an enum to represent card types.
