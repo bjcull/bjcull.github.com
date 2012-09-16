@@ -21,12 +21,14 @@ Quickly and simply validate your credit card fields by adding this attribute to 
 
 2. Decorate your data model with the attribute like so:
 
+<pre>
     [CreditCard]
     public string CreditCardNumber { get; set; }
+</pre>
     
 You're Done! If you would like to know a little more, read on, but that's enough to get you going.
 
- ##But what about card types? ##
+ ## But what about card types? ##
  
 You can specify which cards you would like to accept using the AcceptedCardTypes named parameter. Do it like so:
 
