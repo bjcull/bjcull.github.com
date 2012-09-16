@@ -107,7 +107,10 @@ pre {
 	margin:12px 0 20px 0;  
     overflow:auto;
 }
-
+code {
+    background-color:#eee;
+    padding:3px 5px;
+}
 
 /* These selection declarations have to be separate.
    No text-shadow: twitter.com/miketaylr/status/12228805301 
