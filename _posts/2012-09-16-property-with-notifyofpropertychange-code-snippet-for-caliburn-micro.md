@@ -38,3 +38,34 @@ See the full code below:
 [Insert GIST here]
 
 ## How does it work? ##
+
+There's not too much to it. Firstly we start out with a basic XML template that visual studio uses to recognise that this is a code snippet:
+
+    <?xml version="1.0" encoding="utf-8"?>
+    <CodeSnippets
+        xmlns="http://schemas.microsoft.com/VisualStudio/2005/CodeSnippet">
+        <CodeSnippet Format="1.0.0">
+            <Header>
+                <Title></Title>
+            </Header>
+            <Snippet>
+                <Code Language="">
+                    <![CDATA[]]>
+                </Code>
+            </Snippet>
+        </CodeSnippet>
+    </CodeSnippets>
+    
+Then we add our metadata to the header section, filling out the `Title`, `Author` and `Description` fields. We also add a `shortcut` field, which is the keyword that users will type to insert the snippet.
+
+Next we insert the actual code straight into the `Code` section, wrapped with the cdata tag to keep it valid XML.
+
+You might have noticed some `$variable$` looking things inside my code. These are bits that we want the user to replce when they insert the snippet, called Replacements. We add our replacements into the Declarations section, just below the code.
+
+There are two types of replacements, Literals and Objects. A literal lets the user type anything (a literal string, variable name, other values etc...) and an Object lets us specify the type of value we want replaced. For example in my snippet, I want the user to add a `System.Type` into the code so I use a system.type object.
+
+## What now? ##
+
+For a more in-depth tutorial, check out this (Walkthrough for Creating a Code Snippet)[http://msdn.microsoft.com/en-us/library/ms165394(v=vs.110).aspx]
+
+Also here is (slightly more information about Replacements)[http://msdn.microsoft.com/en-us/library/ms165396(v=vs.80).aspx]
