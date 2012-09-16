@@ -3,24 +3,26 @@ title: Credit Card Validator Attribute for ASP.NET MVC 3
 date: 2010-11-04
 layout: post
 categories:
-- &o0 .NET
-- &o1 MVC
+- .NET
+- MVC
 tags:
-- *o0
 - Attribute
-- *o1
 - Validator
+published: true
 ---
 
-<a href="/wp-content/uploads/2010/11/credit-cards.jpg"><img class="size-medium wp-image-116 alignright" title="It's not what your credit card company can do for you. It's what you can do for your credit card company." src="/wp-content/uploads/2010/11/credit-cards-300x200.jpg" alt="Pile of credit cards" width="300" height="200" /></a>
+<a href="/wp-content/uploads/2010/11/credit-cards.jpg">
+<img class="size-medium wp-image-116 alignright" title="It's not what your credit card company can do for you. It's what you can do for your credit card company." src="/wp-content/uploads/2010/11/credit-cards-300x200.jpg" alt="Pile of credit cards" width="300" height="200" />
+</a>
 
 Quickly and simply validate your credit card fields by adding this attribute to your POCO model class.
 <h2>What do I need to do?</h2>
 <ol>
-	<li>Start by downloading the <a title="Super Amazing Credit Card Validator Attribute Class" href="https://gist.github.com/662078" target="_blank">CreditCardAttribute class</a> and including it in your project somewhere. (Code shown below)</li>
+	<li>Start by downloading the <a title="Super Amazing Credit Card Validator Attribute Class" href="https://gist.github.com/662078" target="_blank">CreditCardAttribute class</a> and including it in your project somewhere. (Code shown below)</li>    
 	<li>Decorate your data model with the attribute like so:</li>
 </ol>
-<pre class="prettyprint")]
+
+<pre class="prettyprint">
         public string CreditCardNumber { get; set; }
 </pre>
 You're Done! If you would like to know a little more, read on, but that's enough to get you going.
