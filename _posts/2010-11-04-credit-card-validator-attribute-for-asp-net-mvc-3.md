@@ -49,11 +49,12 @@ The first thing to notice is that I have inherited from the ValidationAttribute.
 That's all you need to do to implement your own regular expression based validator.
 
 Back to our Credit Card Validator, we'll take a look at the only manditory method for creating a custom validator, the IsValid method.
+
 <pre class="prettyprint">    public override bool IsValid(object value)
     {
-        var number = Convert.ToString(value);
-        
+        var number = Convert.ToString(value);        
         return IsValidType(number, _cardTypes) && IsValidNumber(number);
     }
 </pre>
+
 Its very simple, you get the value to validate as an object and you must return a boolean showing whether or not it passed validation. The rest of the methods in the credit card validator are helpers to decide if the card is valid, and an enum to represent card types.
