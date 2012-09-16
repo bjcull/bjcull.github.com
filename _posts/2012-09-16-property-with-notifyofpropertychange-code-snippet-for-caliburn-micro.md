@@ -33,7 +33,7 @@ I've recently started using the Caliburn.Micro MVVM Library for my Windows 8 app
     
 Now I'd heard of code snippets, but I never really used them, and didn't know how difficult it was to create them. **Turns out it's quite easy**.
 
-See the full code below:
+### See the Full Code ###
 
 PS. Install the snippet by going to the **Tools > Code Snippet Manager** and clicking **Import**.
 
