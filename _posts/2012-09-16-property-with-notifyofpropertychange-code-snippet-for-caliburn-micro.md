@@ -35,7 +35,7 @@ Now I'd heard of code snippets, but I never really used them, and didn't know ho
 
 See the full code below:
 
-[Insert GIST here]
+<script src="https://gist.github.com/3730960.js"> </script>
 
 ## How does it work? ##
 
