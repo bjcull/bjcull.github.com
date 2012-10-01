@@ -2,7 +2,7 @@
 title: Using LESS CSS With MVC4 Web Optimization
 date: 2012-10-01
 layout: post
-published: false
+published: true
 ---
 
 # Using LESS CSS With MVC4 Web Optimization
@@ -50,10 +50,11 @@ Take a look at how I've set this up:
     }
     
 A couple of things to note here:
- - The `cssTransformer` and `jsTransformer` variables tie in the BundleTransformer to the pipeline.
- - The `nullOrderer` variable forces the optimizer to reference the files in the order they are defined.
- - The string we pass to the `StyleBundle` and `ScriptBundle` is a virtual path. Don't use a real path otherwise you'll run into some funky routing issues.
- - The `BundleTable.EnableOptimizations = true;` allows you to force the optimizations to render as they would in release mode.
+
+ * The `cssTransformer` and `jsTransformer` variables tie in the BundleTransformer to the pipeline.
+ * The `nullOrderer` variable forces the optimizer to reference the files in the order they are defined.
+ * The string we pass to the `StyleBundle` and `ScriptBundle` is a virtual path. Don't use a real path otherwise you'll run into some funky routing issues.
+ * The `BundleTable.EnableOptimizations = true;` allows you to force the optimizations to render as they would in release mode.
  
 ## Step 3: Reference the Bundles in your Layout View
 
@@ -67,3 +68,4 @@ You can also add the javascript bundle to the bottom of the page in the same way
 
     @Scripts.Render("~/bundles/jquery")
 
+That's It!
