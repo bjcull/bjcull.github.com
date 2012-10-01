@@ -54,3 +54,16 @@ A couple of things to note here:
  - The `nullOrderer` variable forces the optimizer to reference the files in the order they are defined.
  - The string we pass to the `StyleBundle` and `ScriptBundle` is a virtual path. Don't use a real path otherwise you'll run into some funky routing issues.
  - The `BundleTable.EnableOptimizations = true;` allows you to force the optimizations to render as they would in release mode.
+ 
+## Step 3: Reference the Bundles in your Layout View
+
+Open up your `_Layout.cshtml` and add the following code to your head tag:
+
+    @Styles.Render("~/bundles/css")
+    
+This will render any of the stylesheets we included earlier. Note that we're referencing the virtual path we gave to the StyleBundle class.
+
+You can also add the javascript bundle to the bottom of the page in the same way:
+
+    @Scripts.Render("~/bundles/jquery")
+
