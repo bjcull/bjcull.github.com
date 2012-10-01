@@ -42,5 +42,11 @@ Take a look at how I've set this up:
             jquery.Orderer = nullOrderer;
 
             bundles.Add(jquery);
+            
+            // If you'd like to test the optimization locally,
+            // you can use this line to force it.
+            //BundleTable.EnableOptimizations = true;            
         }
     }
+    
+A couple of things to note here:
