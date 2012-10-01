@@ -5,8 +5,6 @@ layout: post
 published: true
 ---
 
-# Using LESS CSS With MVC4 Web Optimization
-
 MVC4 has a built in bundler and optimizer for javascript and css, but when you want to use LESS CSS, there's a few things you need to do to get set up.
 
 ## Step 1: Add BundleTransformer.Less from Nuget
