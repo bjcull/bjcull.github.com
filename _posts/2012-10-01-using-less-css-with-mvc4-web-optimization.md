@@ -51,5 +51,6 @@ Take a look at how I've set this up:
     
 A couple of things to note here:
  - The `cssTransformer` and `jsTransformer` variables tie in the BundleTransformer to the pipeline.
- - The nullOrderer variable forces the optimizer to reference the files in the order they are defined.
+ - The `nullOrderer` variable forces the optimizer to reference the files in the order they are defined.
  - The string we pass to the `StyleBundle` and `ScriptBundle` is a virtual path. Don't use a real path otherwise you'll run into some funky routing issues.
+ - The `BundleTable.EnableOptimizations = true;` allows you to force the optimizations to render as they would in release mode.
