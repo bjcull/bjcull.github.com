@@ -27,14 +27,14 @@ Take a look at how I've set this up:
             var jsTransformer = new JsTransformer();
             var nullOrderer = new NullOrderer();
 
-            var css = new StyleBundle("~/bundles/css")
+            var css = new Bundle("~/bundles/css")
                 .Include("~/Content/site.less");
             css.Transforms.Add(cssTransformer);
             css.Orderer = nullOrderer;
 
             bundles.Add(css);
             
-            var jquery = new ScriptBundle("~/bundles/jquery")
+            var jquery = new Bundle("~/bundles/jquery")
                 .Include("~/Scripts/jquery-1.*");
             jquery.Transforms.Add(jsTransformer);
             jquery.Orderer = nullOrderer;
@@ -51,7 +51,7 @@ A couple of things to note here:
 
  * The `cssTransformer` and `jsTransformer` variables tie in the BundleTransformer to the pipeline.
  * The `nullOrderer` variable forces the optimizer to reference the files in the order they are defined.
- * The string we pass to the `StyleBundle` and `ScriptBundle` is a virtual path. Don't use a real path otherwise you'll run into some funky routing issues.
+ * The string we pass to the `Bundle` constructor is a virtual path. Don't use a real path otherwise you'll run into some funky routing issues.
  * The `BundleTable.EnableOptimizations = true;` allows you to force the optimizations to render as they would in release mode.
  
 ## Step 3: Reference the Bundles in your Layout View
@@ -67,3 +67,5 @@ You can also add the javascript bundle to the bottom of the page in the same way
     @Scripts.Render("~/bundles/jquery")
 
 That's It!
+
+Thanks to [Andrey Taritsyn](https://plus.google.com/u/0/104102250252560157369/about) for giving me some pointers about the code I've posted. You should absolutely check out the rest of the [Bundle Transformer Range](http://bundletransformer.codeplex.com/) for other useful modules including SASS, CoffeeScript, YUI, JSMin, WebGrease and much more...
