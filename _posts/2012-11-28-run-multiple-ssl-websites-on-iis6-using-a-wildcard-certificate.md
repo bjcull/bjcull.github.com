@@ -1,7 +1,8 @@
 ---
 title: Run Multiple SSL Websites on IIS6 Using a Wildcard Certificate
+date: 2012-11-29
 layout: post
-published: false
+published: true
 ---
 
 I came across this problem whilst setting up a UAT environment at work. Having not dealt with SSL certs before, especially on the older IIS6, it was actually a little challenging to figure out.
