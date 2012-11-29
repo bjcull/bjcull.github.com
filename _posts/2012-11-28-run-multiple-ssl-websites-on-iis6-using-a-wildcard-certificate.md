@@ -19,4 +19,15 @@ Trying to configure and start two sites using the same cert, port and certificat
 I'm not sure if this is purely an IIS6 problem, but to solve it we need to go to the command line.
 
 Whip open a command prompt and navigate to the following location:
-`C:\inetpub\adminscripts\`. If this location doesn't exist, and/or it doesn't contain a file named `adsutil.vbs` then follow these instructions to [Install Missing IIS Admin Scripts](http://www.exactsoftware.com/docs/docview.aspx?documentid=%7B0066f7b8-89a1-4011-80a0-0bd1755899ea%7D&NoHeader=1&NoSubject=1) before moving on.
+`C:\inetpub\adminscripts\`. If this location doesn't exist and/or it doesn't contain a file named `adsutil.vbs` then follow these instructions to [Install Missing IIS Admin Scripts](http://www.exactsoftware.com/docs/docview.aspx?documentid=%7B0066f7b8-89a1-4011-80a0-0bd1755899ea%7D&NoHeader=1&NoSubject=1) before moving on.
+
+Now, still in the `C:\inetpub\adminscripts\` folder, enter the following command for each website that you would like to bind:
+
+`cscript.exe adsutil.vbs set /w3svc/<site identifier>/SecureBindings ":443:ssl1.example.com"`
+
+The `<site identifier>` can be found by clicking the Web Sites folder icon on the left hand menu in IIS6 as shown below:
+[![Imgur](http://i.imgur.com/YyJuN.png)](http://i.imgur.com/YyJuN)
+
+Of course `ssl1.example.com` should be replaced with your own host header.
+
+That's It. You should now be able to start both websites successfully.
