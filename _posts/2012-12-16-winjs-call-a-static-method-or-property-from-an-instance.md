@@ -1,6 +1,7 @@
 ---
 title: WinJS - Call a Static Method or Property from an Instance
-layout: default
+date: 2012-12-16
+layout: post
 published: true
 ---
 
