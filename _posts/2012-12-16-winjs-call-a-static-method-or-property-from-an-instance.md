@@ -1,5 +1,5 @@
 ---
-title: WinJS - Call a Static Method from an Instance
+title: WinJS - Call a Static Method or Property from an Instance
 layout: default
 published: false
 ---
