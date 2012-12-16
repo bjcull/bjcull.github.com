@@ -1,7 +1,7 @@
 ---
 title: WinJS - Call a Static Method or Property from an Instance
 layout: default
-published: false
+published: true
 ---
 
 Wondering how you can call a static method or reach a static property of your WinJS class when all you have is an instance of it?
