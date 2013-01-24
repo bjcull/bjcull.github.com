@@ -26,3 +26,5 @@ Keep in mind this for when you're using the WinJS.Class.define structure as show
         });
     
     var myInstance = new MyClass();
+    
+    
