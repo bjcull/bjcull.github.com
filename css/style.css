@@ -637,5 +637,5 @@ footer {
 }
 
 .gist .line-numbers {
-    line-height:none !important;
+    line-height:normal;
 }
