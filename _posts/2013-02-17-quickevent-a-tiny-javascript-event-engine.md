@@ -9,7 +9,7 @@ Creating your own events in javascript can seem a bit unruly, with magic strings
 
 ## Give me the code
 Here you go:
-<script src="https://gist.github.com/bjcull/4970183.js"></script>
+<script src="https://gist.github.com/bjcull/4970183.js"> </script>
 
 ## Usage
 ### Create Event
