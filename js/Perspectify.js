@@ -95,34 +95,34 @@ $(function () {
         });
     };
 
-    $("#tweetBox").jTweetsAnywhere(GetjTweetsOptions());
+    //$("#tweetBox").jTweetsAnywhere(GetjTweetsOptions());
 
-    function GetjTweetsOptions() {
-        var options = {
-            count: 20,
-            showTweetBox: {
-                counter: true,
-                height: 100,
-                label: "Don't Comment, Tweet!",
-                defaultContent: "via @benjii22"
-            },
-            showTweetFeed: {
-                showProfileImages: true,
-                showUserScreenNames: true,
-                paging: {
-                    mode: "endless-scroll"
-                }
-            },
-            noDataDecorator: function () { return "<strong>There aren't any tweets!</strong> <span>Be the first to start the conversation below.<span>"; }
-        };
+    //function GetjTweetsOptions() {
+    //    var options = {
+    //        count: 20,
+    //        showTweetBox: {
+    //            counter: true,
+    //            height: 100,
+    //            label: "Don't Comment, Tweet!",
+    //            defaultContent: "via @benjii22"
+    //        },
+    //        showTweetFeed: {
+    //            showProfileImages: true,
+    //            showUserScreenNames: true,
+    //            paging: {
+    //                mode: "endless-scroll"
+    //            }
+    //        },
+    //        noDataDecorator: function () { return "<strong>There aren't any tweets!</strong> <span>Be the first to start the conversation below.<span>"; }
+    //    };
 
-        if (window.location.href == "http://benjii.me") {
-            options.username = "benjii22";
-        }
-        else {
-            options.searchParams = "q=" + window.location.href;
-        }
+    //    if (window.location.href == "http://benjii.me") {
+    //        options.username = "benjii22";
+    //    }
+    //    else {
+    //        options.searchParams = "q=" + window.location.href;
+    //    }
 
-        return options;
-    };
+    //    return options;
+    //};
 });
