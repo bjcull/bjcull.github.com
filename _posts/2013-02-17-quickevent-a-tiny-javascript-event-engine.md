@@ -46,6 +46,5 @@ You might be asking, "Why are there three arguments when only two arrive at the 
 Anyway, the idea is that the first argument will set the context, and then you can add as many arguments as you like afterwards and they'll all be passed to the subscribers. Different events can have different numbers of parameters, it's up to you.
 
 <div>
-<blockquote class="twitter-tweet" align="center"><p>Just blogged about a javascript event engine I whipped up. What are your thoughts? <a href="http://t.co/ziZRtvuF" title="http://benjii.me/2013/02/quickevent-a-tiny-javascript-event-engine/">benjii.me/2013/02/quicke…</a></p>&mdash; Ben Cull (@benjii22) <a href="https://twitter.com/benjii22/status/303019945208451072">February 17, 2013</a></blockquote>
-<script async src="//platform.twitter.com/widgets.js" charset="utf-8"> </script>
+	<blockquote class="twitter-tweet" align="center"><p>Just blogged about a javascript event engine I whipped up. What are your thoughts? <a href="http://t.co/ziZRtvuF" title="http://benjii.me/2013/02/quickevent-a-tiny-javascript-event-engine/">benjii.me/2013/02/quicke…</a></p>&mdash; Ben Cull (@benjii22) <a href="https://twitter.com/benjii22/status/303019945208451072">February 17, 2013</a></blockquote>
 </div>
