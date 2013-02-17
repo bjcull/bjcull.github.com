@@ -4,7 +4,7 @@ date: 2013-02-17 15:00:00
 layout: post
 published: true
 twitter_metadata: |
-	<meta name="twitter:card" content="summary">
+    <meta name="twitter:card" content="summary">
     <meta name="twitter:site" content="@benjii22">
     <meta name="twitter:creator" content="@benjii22">
     <meta name="twitter:url" content="http://benjii.me/2013/02/quickevent-a-tiny-javascript-event-engine/">
