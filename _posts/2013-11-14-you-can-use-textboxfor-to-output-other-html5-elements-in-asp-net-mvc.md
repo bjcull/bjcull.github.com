@@ -1,6 +1,7 @@
 ---
 published: true
 title: You can use TextBoxFor to output other HTML5 elements in ASP.NET MVC
+layout: post
 ---
 
 I needed to use a `<input type="range">` the other day. I thought of creating a new HTML helper to render the range input, but then a much simpler solution was pointed out to me.
