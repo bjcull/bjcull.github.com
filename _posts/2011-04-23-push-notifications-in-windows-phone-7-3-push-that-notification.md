@@ -1,5 +1,5 @@
 ---
-title: "Push Notifications in Windows Phone 7 – #3 Push that Notification"
+title: "Push Notifications in Windows Phone 7 – 3: Push that Notification"
 date: 2011-04-23
 layout: post
 categories:
