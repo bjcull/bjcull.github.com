@@ -9,4 +9,32 @@ tags:
 - Windows Phone 7
 ---
 
-<p>Torrential version 1.2.0 has just hit the marketplace, so here’s a quick wrap up of the brand new features you get to play with.</p>  <h2>Add Torrents from the Web Browser</h2>  <p>You can now use your favourite torrent web site to add torrents via Torrential. Simply click the add torrent button and you’re away!</p>  <p>&#160;<a href="/wp-content/uploads/2010/12/AddTorrent.png"><img style="border-right-width: 0px; display: inline; border-top-width: 0px; border-bottom-width: 0px; border-left-width: 0px" title="AddTorrent" border="0" alt="AddTorrent" src="/wp-content/uploads/2010/12/AddTorrent_thumb.png" width="148" height="244" /></a> <a href="/wp-content/uploads/2010/12/AddDialog.png"><img style="border-right-width: 0px; display: inline; border-top-width: 0px; border-bottom-width: 0px; border-left-width: 0px" title="AddDialog" border="0" alt="AddDialog" src="/wp-content/uploads/2010/12/AddDialog_thumb.png" width="148" height="244" /></a></p>  <p></p>  <p></p>  <h2>See Individual Files within Torrent</h2>  <p>The torrent screen has been updated to include individual file information.</p>  <p>&#160;<a href="/wp-content/uploads/2010/12/TorrentDetail.png"><img style="border-right-width: 0px; display: inline; border-top-width: 0px; border-bottom-width: 0px; border-left-width: 0px" title="TorrentDetail" border="0" alt="TorrentDetail" src="/wp-content/uploads/2010/12/TorrentDetail_thumb.png" width="148" height="244" /></a> <a href="/wp-content/uploads/2010/12/Files.png"><img style="border-right-width: 0px; display: inline; border-top-width: 0px; border-bottom-width: 0px; border-left-width: 0px" title="Files" border="0" alt="Files" src="/wp-content/uploads/2010/12/Files_thumb.png" width="148" height="244" /></a></p>  <p></p>  <p></p>  <h2>Shake to Refresh</h2>  <p>Sick of touching the screen? You can now simply shake your phone and it will refresh your torrent list and torrent screen!</p>  <h2>Free Trial</h2>  <p>Now you can try Torrential for free! </p>  <h2>Plus everything you’ve already come to love</h2>  <ul>   <li>Filtered login screen </li>    <li>Direct Isohunt search integration </li>    <li>Push notifications for completed downloads </li>    <li>Auto login </li>    <li>Manage and control your torrents </li> </ul>  <h2>Feedback</h2>  <p>Once again, if you have any suggestions, comments or ideas please use the <a title="Feedback Forum" href="http://torrential.uservoice.com/forums/88381" target="_blank">feedback forum</a>, or fill out the contact me page.</p>
+Torrential version 1.2.0 has just hit the marketplace, so here’s a quick wrap up of the brand new features you get to play with.
+
+## Add Torrents from the Web Browser
+
+You can now use your favourite torrent web site to add torrents via Torrential. Simply click the add torrent button and you’re away!
+
+[![AddTorrent](/wp-content/uploads/2010/12/AddTorrent_thumb.png "AddTorrent")](/wp-content/uploads/2010/12/AddTorrent.png) [![AddDialog](/wp-content/uploads/2010/12/AddDialog_thumb.png "AddDialog")](/wp-content/uploads/2010/12/AddDialog.png)
+
+## See Individual Files within Torrent
+
+The torrent screen has been updated to include individual file information.
+
+[![TorrentDetail](/wp-content/uploads/2010/12/TorrentDetail_thumb.png "TorrentDetail")](/wp-content/uploads/2010/12/TorrentDetail.png) [![Files](/wp-content/uploads/2010/12/Files_thumb.png "Files")](/wp-content/uploads/2010/12/Files.png)
+
+## Shake to Refresh
+
+Sick of touching the screen? You can now simply shake your phone and it will refresh your torrent list and torrent screen!
+
+## Free Trial
+
+Now you can try Torrential for free! 
+
+## Plus everything you’ve already come to love
+
+*   Filtered login screen*   Direct Isohunt search integration*   Push notifications for completed downloads*   Auto login*   Manage and control your torrents  
+
+## Feedback
+
+Once again, if you have any suggestions, comments or ideas please use the [feedback forum](http://torrential.uservoice.com/forums/88381 "Feedback Forum"), or fill out the contact me page.

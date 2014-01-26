@@ -7,4 +7,33 @@ categories:
 tags: []
 ---
 
-<p><a href="/wp-content/uploads/2011/05/SmallMobileTile_99x99.png"><img style="background-image: none; border-bottom: 0px; border-left: 0px; margin: 0px 20px 0px 0px; padding-left: 0px; padding-right: 0px; display: inline; float: left; border-top: 0px; border-right: 0px; padding-top: 0px" title="SmallMobileTile_99x99" border="0" alt="SmallMobileTile_99x99" align="left" src="/wp-content/uploads/2011/05/SmallMobileTile_99x99_thumb.png" width="103" height="103" /></a></p>  <p>TwitLinkz takes your favourite twitter feeds, pulls out the links and summarizes the articles for you. It’s as simple as that.</p>  <p>If you source your up to the minute news from twitter, Twitlinkz is a great way to browse the headlines.</p>  <p>Available in the marketplace now, <strong>TwitLinkz is free </strong>and is set to change the way you get your real-time information.</p>  <p>&#160;</p>  <h2><a href="/wp-content/uploads/2011/05/loadingScreen.png"><img style="background-image: none; border-bottom: 0px; border-left: 0px; padding-left: 0px; padding-right: 0px; display: inline; border-top: 0px; border-right: 0px; padding-top: 0px" title="loadingScreen" border="0" alt="loadingScreen" src="/wp-content/uploads/2011/05/loadingScreen_thumb.png" width="148" height="244" /></a><a href="/wp-content/uploads/2011/05/search.png"><img style="background-image: none; border-bottom: 0px; border-left: 0px; padding-left: 0px; padding-right: 0px; display: inline; border-top: 0px; border-right: 0px; padding-top: 0px" title="search" border="0" alt="search" src="/wp-content/uploads/2011/05/search_thumb.png" width="148" height="244" /></a><a href="/wp-content/uploads/2011/05/watching2.png"><img style="background-image: none; border-bottom: 0px; border-left: 0px; padding-left: 0px; padding-right: 0px; display: inline; border-top: 0px; border-right: 0px; padding-top: 0px" title="watching2" border="0" alt="watching2" src="/wp-content/uploads/2011/05/watching2_thumb.png" width="148" height="244" /></a><a href="/wp-content/uploads/2011/05/linklist.png"><img style="background-image: none; border-bottom: 0px; border-left: 0px; padding-left: 0px; padding-right: 0px; display: inline; border-top: 0px; border-right: 0px; padding-top: 0px" title="linklist" border="0" alt="linklist" src="/wp-content/uploads/2011/05/linklist_thumb.png" width="148" height="244" /></a><a href="/wp-content/uploads/2011/05/article.png"><img style="background-image: none; border-bottom: 0px; border-left: 0px; margin: 0px; padding-left: 0px; padding-right: 0px; display: inline; border-top: 0px; border-right: 0px; padding-top: 0px" title="article" border="0" alt="article" src="/wp-content/uploads/2011/05/article_thumb.png" width="148" height="244" /></a></h2>  <h2>What does it actually do?</h2>  <p>Here’s the step by step:</p>  <ol>   <li>Follow a twitter feed like #wp7, @benjii22 or “Australia”</li>    <li>TwitLinkz searches the twitter feed for any links that were posted</li>    <li>TwitLinkz fetches and summarizes the articles</li>    <li>You enjoy a list of headlines with article summaries relevant to you</li> </ol>  <p>&#160;</p>  <h2>Future Features</h2>  <p>I love building Windows Phone 7 apps, so you guys can expect these features to land on your doorstep just as soon as you can say, “Why the hell did he put a z on the end…”</p>  <ul>   <li>Save your articles for later with Instapaper and other exciting web apps</li>    <li>Push Notifications and Live Tiles</li>    <li>Sign in with twitter for more personalised use</li> </ul>  <p>&#160;</p>  <h2 align="center">Download TwitLinkz Now, It’s Free!</h2>  <p>&#160;</p>  <p><a title="Download TwitLinkz for Windows Phone 7" href="http://social.zune.net/redirect?type=phoneApp&amp;id=15b26053-f17e-e011-986b-78e7d1fa76f8" target="_blank"><img style="background-image: none; border-bottom: 0px; border-left: 0px; padding-left: 0px; padding-right: 0px; display: block; float: none; margin-left: auto; border-top: 0px; margin-right: auto; border-right: 0px; padding-top: 0px" title="wp7_278x92_blue" border="0" alt="wp7_278x92_blue" src="/wp-content/uploads/2011/05/wp7_English_278x92_blue.png" width="244" height="83" /></a></p>
+[![SmallMobileTile_99x99](/wp-content/uploads/2011/05/SmallMobileTile_99x99_thumb.png "SmallMobileTile_99x99")](/wp-content/uploads/2011/05/SmallMobileTile_99x99.png)
+
+TwitLinkz takes your favourite twitter feeds, pulls out the links and summarizes the articles for you. It’s as simple as that.
+
+If you source your up to the minute news from twitter, Twitlinkz is a great way to browse the headlines.
+
+Available in the marketplace now, **TwitLinkz is free **and is set to change the way you get your real-time information.
+
+## [![loadingScreen](/wp-content/uploads/2011/05/loadingScreen_thumb.png "loadingScreen")](/wp-content/uploads/2011/05/loadingScreen.png)[![search](/wp-content/uploads/2011/05/search_thumb.png "search")](/wp-content/uploads/2011/05/search.png)[![watching2](/wp-content/uploads/2011/05/watching2_thumb.png "watching2")](/wp-content/uploads/2011/05/watching2.png)[![linklist](/wp-content/uploads/2011/05/linklist_thumb.png "linklist")](/wp-content/uploads/2011/05/linklist.png)[![article](/wp-content/uploads/2011/05/article_thumb.png "article")](/wp-content/uploads/2011/05/article.png)
+
+## What does it actually do?
+
+Here’s the step by step:
+
+1.  Follow a twitter feed like #wp7, @benjii22 or “Australia”
+2.  TwitLinkz searches the twitter feed for any links that were posted
+3.  TwitLinkz fetches and summarizes the articles
+4.  You enjoy a list of headlines with article summaries relevant to you  
+
+## Future Features
+
+I love building Windows Phone 7 apps, so you guys can expect these features to land on your doorstep just as soon as you can say, “Why the hell did he put a z on the end…”
+
+*   Save your articles for later with Instapaper and other exciting web apps
+*   Push Notifications and Live Tiles
+*   Sign in with twitter for more personalised use  
+
+## Download TwitLinkz Now, It’s Free!
+
+[![wp7_278x92_blue](/wp-content/uploads/2011/05/wp7_English_278x92_blue.png "wp7_278x92_blue")](http://social.zune.net/redirect?type=phoneApp&amp;id=15b26053-f17e-e011-986b-78e7d1fa76f8 "Download TwitLinkz for Windows Phone 7")

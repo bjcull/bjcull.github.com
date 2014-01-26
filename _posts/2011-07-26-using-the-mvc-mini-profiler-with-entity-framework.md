@@ -13,232 +13,238 @@ tags:
 published: true
 ---
 
-<p>
-<a href="/wp-content/uploads/2011/07/starting-a-blog-how-do-you-measure-success.jpg"><img style="background-image: none; border-bottom: 0px; border-left: 0px; padding-left: 0px; padding-right: 0px; display: inline; float: right; border-top: 0px; border-right: 0px; padding-top: 0px" title="Notice how the success sign points at the title?" border="0" alt="Notice how the success sign points at the title?" align="right" src="/wp-content/uploads/2011/07/starting-a-blog-how-do-you-measure-success_thumb.jpg" width="244" height="183" />
-</a>
-The MVC Mini Profiler is an awesome tool that can help you reduce your page load times by showing you exactly how long each action, database query, view and even partial view took to load. It can be a little tricky to get right, especially using Entity Framework, but if you follow these steps you should be up and running in no time.</p>  
-<h2>Step 1: Nuget it Baby</h2>  
-<p>       
-<a href="http://nuget.org/List/Packages/MiniProfiler"><img style="background-image: none; border-right-width: 0px; padding-left: 0px; padding-right: 0px; display: inline; border-top-width: 0px; border-bottom-width: 0px; border-left-width: 0px; padding-top: 0px" title="Mini Profiler Nuget Package" border="0" alt="PM&gt; Install-Package MiniProfiler" src="/wp-content/uploads/2011/07/image_5.png" width="445" height="92" /></a>
-</p>  
-<p>If you haven’t used Nuget yet, now would be an excellent time to start as it makes adding references to third party assemblies a breeze. Click the link above to go to the package page to find out more.</p>  
-<p>By the time you’re done with this step, you should end up with a reference to the mini profiler in your project.</p>  
-<h2>Step 2: Hook it up</h2>  
-<p>To get the profiler profiling all we need to do is add the following to our Global.asax.cs:</p>  
-<pre class="prettyprint">protected void Application_BeginRequest()
-{
-    if (Request.IsLocal)
+[![Notice how the success sign points at the title?](/wp-content/uploads/2011/07/starting-a-blog-how-do-you-measure-success_thumb.jpg "Notice how the success sign points at the title?")
+](/wp-content/uploads/2011/07/starting-a-blog-how-do-you-measure-success.jpg)
+The MVC Mini Profiler is an awesome tool that can help you reduce your page load times by showing you exactly how long each action, database query, view and even partial view took to load. It can be a little tricky to get right, especially using Entity Framework, but if you follow these steps you should be up and running in no time.
+
+## Step 1: Nuget it Baby
+
+[![PM> Install-Package MiniProfiler](/wp-content/uploads/2011/07/image_5.png "Mini Profiler Nuget Package")](http://nuget.org/List/Packages/MiniProfiler)
+
+If you haven’t used Nuget yet, now would be an excellent time to start as it makes adding references to third party assemblies a breeze. Click the link above to go to the package page to find out more.
+
+By the time you’re done with this step, you should end up with a reference to the mini profiler in your project.
+
+## Step 2: Hook it up
+
+To get the profiler profiling all we need to do is add the following to our Global.asax.cs:
+
+    protected void Application_BeginRequest()
     {
-        MiniProfiler.Start();
-    }
-}
-
-protected void Application_EndRequest()
-{
-    MiniProfiler.Stop();
-}</pre>
-<p>Adding the check for Request.IsLocal means that the profiler will only run when the site is loaded locally. Feel free to add your own check's. It's usually handy to check for a cookie or an admin login, to see performance on a production website.</p>
-<h2>Step 3: Add the includes (and you’re finished)</h2>
-
-<p>Add this quick line of code to your _layout view or at the end of your head section. This adds the necessary javascript and css to keep it neat and tidy in the corner.</p>
-
-<pre class="prettyprint">@MvcMiniProfiler.MiniProfiler.RenderIncludes()</pre>
-
-<p>By this point you can fire up your web pages and watch the pretty profiler in action, however it will be a bit bare. Read on to add extra bits and pieces to your fancy new profiler.</p>
-
-<h2>Step 4 (Optional): I want SQL profiling!</h2>
-
-<p>Very good sir, the profiler supports quite a number of database providers. I’m going to focus on using Entity Framework, as that’s where I had the most trouble. Luckily the good community at Stack Overflow have done the leg work here so we can benefit from their genius. Simply use the following code to retrieve your DB context:</p>
-
-<pre class="prettyprint">public static T GetProfiledContext&lt;T&gt;() where T : System.Data.Objects.ObjectContext
-{
-    var conn = ProfiledDbConnection.Get(GetStoreConnection&lt;T&gt;());
-    return ObjectContextUtils.CreateObjectContext&lt;T&gt;(conn);
-}
-
-public static DbConnection GetStoreConnection&lt;T&gt;() where T : System.Data.Objects.ObjectContext
-{
-    return GetStoreConnection(&quot;name=&quot; + typeof(T).Name);
-}
-
-public static DbConnection GetStoreConnection(string entityConnectionString)
-{
-    // Build the initial connection string.
-    var builder = new EntityConnectionStringBuilder(entityConnectionString);
-
-    // If the initial connection string refers to an entry in the configuration, load that as the builder.
-    object configName;
-    if (builder.TryGetValue(&quot;name&quot;, out configName))
-    {
-        var configEntry = WebConfigurationManager.ConnectionStrings[configName.ToString()];
-        builder = new EntityConnectionStringBuilder(configEntry.ConnectionString);
-    }
-
-    // Find the proper factory for the underlying connection.
-    var factory = DbProviderFactories.GetFactory(builder.Provider);
-
-    // Build the new connection.
-    DbConnection tempConnection = null;
-    try
-    {
-        tempConnection = factory.CreateConnection();
-        tempConnection.ConnectionString = builder.ProviderConnectionString;
-
-        var connection = tempConnection;
-        tempConnection = null;
-        return connection;
-    }
-    finally
-    {
-        // If creating of the connection failed, dispose the connection.
-        if (tempConnection != null)
+        if (Request.IsLocal)
         {
-            tempConnection.Dispose();
+            MiniProfiler.Start();
         }
     }
-}</pre>
 
-<p>Just call the GetProfiledContext Method with your entities class like so:</p>
-
-<pre class="prettyprint">var context = GetProfiledContext&lt;MyModelEntities&gt;();</pre>
-
-<p>Finally, we need to add this snippet to our web.config to allow for the DbProviderFactories class to do it’s job properly:</p>
-
-<pre class="prettyprint">&lt;system.data&gt;
-    &lt;dbproviderfactories&gt;
-        &lt;remove invariant=&quot;MvcMiniProfiler.Data.ProfiledDbProvider&quot; /&gt;
-        &lt;add description=&quot;MvcMiniProfiler.Data.ProfiledDbProvider&quot; invariant=&quot;MvcMiniProfiler.Data.ProfiledDbProvider&quot; type=&quot;MvcMiniProfiler.Data.ProfiledDbProviderFactory, MvcMiniProfiler, Version=1.6.0.0, Culture=neutral, PublicKeyToken=b44f9351044011a3&quot; name=&quot;MvcMiniProfiler.Data.ProfiledDbProvider&quot; /&gt;
-    &lt;/dbproviderfactories&gt;
-&lt;/system.data&gt;</pre>
-
-<p>Note that this config is for assembly version 1.6.0.0, in future you may need to change this number.</p>
-
-<p>That's it! You should now see some sql load times to your page load times, and if you click the link it will show you the queries generated, duplicate queries and other sql goodies.</p>
-
-<h2>Step 5 (Optional): I want Automatic Controller, View and Partial Profiling!</h2>
-
-<p>Well have you come to the right place. Just the other day Sam Saffron posted about automatic controller and view profiling and it couldn’t be simpler. Create these two classes:</p>
-
-<p>ProfilingActionFilter.cs</p>
-
-<pre class="prettyprint">public class ProfilingActionFilter : ActionFilterAttribute
-{
-    const string stackKey = &quot;ProfilingActionFilterStack&quot;;
-
-    public override void OnActionExecuting(ActionExecutingContext filterContext)
+    protected void Application_EndRequest()
     {
-        var mp = MiniProfiler.Current;
-        if (mp != null)
+        MiniProfiler.Stop();
+    }
+
+Adding the check for Request.IsLocal means that the profiler will only run when the site is loaded locally. Feel free to add your own check's. It's usually handy to check for a cookie or an admin login, to see performance on a production website.
+
+## Step 3: Add the includes (and you’re finished)
+
+Add this quick line of code to your _layout view or at the end of your head section. This adds the necessary javascript and css to keep it neat and tidy in the corner.
+
+    @MvcMiniProfiler.MiniProfiler.RenderIncludes()
+
+By this point you can fire up your web pages and watch the pretty profiler in action, however it will be a bit bare. Read on to add extra bits and pieces to your fancy new profiler.
+
+## Step 4 (Optional): I want SQL profiling!
+
+Very good sir, the profiler supports quite a number of database providers. I’m going to focus on using Entity Framework, as that’s where I had the most trouble. Luckily the good community at Stack Overflow have done the leg work here so we can benefit from their genius. Simply use the following code to retrieve your DB context:
+
+    public static T GetProfiledContext<T>() where T : System.Data.Objects.ObjectContext
+    {
+        var conn = ProfiledDbConnection.Get(GetStoreConnection<T>());
+        return ObjectContextUtils.CreateObjectContext<T>(conn);
+    }
+
+    public static DbConnection GetStoreConnection<T>() where T : System.Data.Objects.ObjectContext
+    {
+        return GetStoreConnection("name=" + typeof(T).Name);
+    }
+
+    public static DbConnection GetStoreConnection(string entityConnectionString)
+    {
+        // Build the initial connection string.
+        var builder = new EntityConnectionStringBuilder(entityConnectionString);
+
+        // If the initial connection string refers to an entry in the configuration, load that as the builder.
+        object configName;
+        if (builder.TryGetValue("name", out configName))
         {
-            var stack = HttpContext.Current.Items[stackKey] as Stack&lt;IDisposable&gt;;
-            if (stack == null)
+            var configEntry = WebConfigurationManager.ConnectionStrings[configName.ToString()];
+            builder = new EntityConnectionStringBuilder(configEntry.ConnectionString);
+        }
+
+        // Find the proper factory for the underlying connection.
+        var factory = DbProviderFactories.GetFactory(builder.Provider);
+
+        // Build the new connection.
+        DbConnection tempConnection = null;
+        try
+        {
+            tempConnection = factory.CreateConnection();
+            tempConnection.ConnectionString = builder.ProviderConnectionString;
+
+            var connection = tempConnection;
+            tempConnection = null;
+            return connection;
+        }
+        finally
+        {
+            // If creating of the connection failed, dispose the connection.
+            if (tempConnection != null)
             {
-                stack = new Stack&lt;IDisposable&gt;();
-                HttpContext.Current.Items[stackKey] = stack;
+                tempConnection.Dispose();
+            }
+        }
+    }
+
+Just call the GetProfiledContext Method with your entities class like so:
+
+    var context = GetProfiledContext<MyModelEntities>();
+
+Finally, we need to add this snippet to our web.config to allow for the DbProviderFactories class to do it’s job properly:
+
+    <system.data>
+        <dbproviderfactories>
+            <remove invariant="MvcMiniProfiler.Data.ProfiledDbProvider" />
+            <add description="MvcMiniProfiler.Data.ProfiledDbProvider" invariant="MvcMiniProfiler.Data.ProfiledDbProvider" type="MvcMiniProfiler.Data.ProfiledDbProviderFactory, MvcMiniProfiler, Version=1.6.0.0, Culture=neutral, PublicKeyToken=b44f9351044011a3" name="MvcMiniProfiler.Data.ProfiledDbProvider" />
+        </dbproviderfactories>
+    </system.data>
+
+Note that this config is for assembly version 1.6.0.0, in future you may need to change this number.
+
+That's it! You should now see some sql load times to your page load times, and if you click the link it will show you the queries generated, duplicate queries and other sql goodies.
+
+## Step 5 (Optional): I want Automatic Controller, View and Partial Profiling!
+
+Well have you come to the right place. Just the other day Sam Saffron posted about automatic controller and view profiling and it couldn’t be simpler. Create these two classes:
+
+ProfilingActionFilter.cs
+
+    public class ProfilingActionFilter : ActionFilterAttribute
+    {
+        const string stackKey = "ProfilingActionFilterStack";
+
+        public override void OnActionExecuting(ActionExecutingContext filterContext)
+        {
+            var mp = MiniProfiler.Current;
+            if (mp != null)
+            {
+                var stack = HttpContext.Current.Items[stackKey] as Stack<IDisposable>;
+                if (stack == null)
+                {
+                    stack = new Stack<IDisposable>();
+                    HttpContext.Current.Items[stackKey] = stack;
+                }
+
+                var prof = MiniProfiler.Current.Step("Controller: " + filterContext.Controller.ToString() + "." + filterContext.ActionDescriptor.ActionName);
+                stack.Push(prof);
+
+            }
+            base.OnActionExecuting(filterContext);
+        }
+
+        public override void OnActionExecuted(ActionExecutedContext filterContext)
+        {
+            base.OnActionExecuted(filterContext);
+            var stack = HttpContext.Current.Items[stackKey] as Stack<IDisposable>;
+            if (stack != null &amp;&amp; stack.Count > 0)
+            {
+                stack.Pop().Dispose();
+            }
+        }
+    }
+
+ProfilingViewEngine.cs
+
+    public class ProfilingViewEngine : IViewEngine
+    {
+        class WrappedView : IView
+        {
+            IView wrapped;
+            string name;
+            bool isPartial;
+
+            public WrappedView(IView wrapped, string name, bool isPartial)
+            {
+                this.wrapped = wrapped;
+                this.name = name;
+                this.isPartial = isPartial;
             }
 
-            var prof = MiniProfiler.Current.Step(&quot;Controller: &quot; + filterContext.Controller.ToString() + &quot;.&quot; + filterContext.ActionDescriptor.ActionName);
-            stack.Push(prof);
-
+            public void Render(ViewContext viewContext, System.IO.TextWriter writer)
+            {
+                using (MiniProfiler.Current.Step("Render " + (isPartial ? "partial" : "") + ": " + name))
+                {
+                    wrapped.Render(viewContext, writer);
+                }
+            }
         }
-        base.OnActionExecuting(filterContext);
-    }
 
-    public override void OnActionExecuted(ActionExecutedContext filterContext)
-    {
-        base.OnActionExecuted(filterContext);
-        var stack = HttpContext.Current.Items[stackKey] as Stack&lt;IDisposable&gt;;
-        if (stack != null &amp;&amp; stack.Count &gt; 0)
-        {
-            stack.Pop().Dispose();
-        }
-    }
-}</pre>
+        IViewEngine wrapped;
 
-<p>ProfilingViewEngine.cs</p>
-
-<pre class="prettyprint">public class ProfilingViewEngine : IViewEngine
-{
-    class WrappedView : IView
-    {
-        IView wrapped;
-        string name;
-        bool isPartial;
-
-        public WrappedView(IView wrapped, string name, bool isPartial)
+        public ProfilingViewEngine(IViewEngine wrapped)
         {
             this.wrapped = wrapped;
-            this.name = name;
-            this.isPartial = isPartial;
         }
 
-        public void Render(ViewContext viewContext, System.IO.TextWriter writer)
+        public ViewEngineResult FindPartialView(ControllerContext controllerContext, string partialViewName, bool useCache)
         {
-            using (MiniProfiler.Current.Step(&quot;Render &quot; + (isPartial ? &quot;partial&quot; : &quot;&quot;) + &quot;: &quot; + name))
+            var found = wrapped.FindPartialView(controllerContext, partialViewName, useCache);
+            if (found != null &amp;&amp; found.View != null)
             {
-                wrapped.Render(viewContext, writer);
+                found = new ViewEngineResult(new WrappedView(found.View, partialViewName, isPartial: true), this);
             }
+            return found;
         }
-    }
 
-    IViewEngine wrapped;
-
-    public ProfilingViewEngine(IViewEngine wrapped)
-    {
-        this.wrapped = wrapped;
-    }
-
-    public ViewEngineResult FindPartialView(ControllerContext controllerContext, string partialViewName, bool useCache)
-    {
-        var found = wrapped.FindPartialView(controllerContext, partialViewName, useCache);
-        if (found != null &amp;&amp; found.View != null)
+        public ViewEngineResult FindView(ControllerContext controllerContext, string viewName, string masterName, bool useCache)
         {
-            found = new ViewEngineResult(new WrappedView(found.View, partialViewName, isPartial: true), this);
+            var found = wrapped.FindView(controllerContext, viewName, masterName, useCache);
+            if (found != null &amp;&amp; found.View != null)
+            {
+                found = new ViewEngineResult(new WrappedView(found.View, viewName, isPartial: false), this);
+            }
+            return found;
         }
-        return found;
-    }
 
-    public ViewEngineResult FindView(ControllerContext controllerContext, string viewName, string masterName, bool useCache)
-    {
-        var found = wrapped.FindView(controllerContext, viewName, masterName, useCache);
-        if (found != null &amp;&amp; found.View != null)
+        public void ReleaseView(ControllerContext controllerContext, IView view)
         {
-            found = new ViewEngineResult(new WrappedView(found.View, viewName, isPartial: false), this);
+            wrapped.ReleaseView(controllerContext, view);
         }
-        return found;
     }
 
-    public void ReleaseView(ControllerContext controllerContext, IView view)
+Finally, add this snippet of code to your Global.asax.cs - Application_Start() method to hook it up:
+
+    // Add Profiling Action Filter (mvc mini profiler)
+    GlobalFilters.Filters.Add(new ProfilingActionFilter());
+    
+    // Add Profiling View Engine (mvc mini profiler)
+    var copy = ViewEngines.Engines.ToList();
+    ViewEngines.Engines.Clear();
+    foreach (var item in copy)
     {
-        wrapped.ReleaseView(controllerContext, view);
+        ViewEngines.Engines.Add(new ProfilingViewEngine(item));
     }
-}</pre>
+    
+    RegisterGlobalFilters(GlobalFilters.Filters);
 
-<p>Finally, add this snippet of code to your Global.asax.cs - Application_Start() method to hook it up:</p>
+## References and More Information
 
-<pre class="prettyprint">// Add Profiling Action Filter (mvc mini profiler)
-GlobalFilters.Filters.Add(new ProfilingActionFilter());
+Enjoy your brand new MVC Mini Profiler. Many thanks go to the following collection of awesome links that I've sourced the different code snippets from. Be sure to check them out for extra details and clarity.
 
-// Add Profiling View Engine (mvc mini profiler)
-var copy = ViewEngines.Engines.ToList();
-ViewEngines.Engines.Clear();
-foreach (var item in copy)
-{
-    ViewEngines.Engines.Add(new ProfilingViewEngine(item));
-}
+[The MVC Mini Profiler Home Page](http://code.google.com/p/mvc-mini-profiler/)
 
-RegisterGlobalFilters(GlobalFilters.Filters);</pre>
+[Scott Hanselman's post about using the MVC Mini Profiler](http://www.hanselman.com/blog/NuGetPackageOfTheWeek9ASPNETMiniProfilerFromStackExchangeRocksYourWorld.aspx)
 
-<h2>References and More Information</h2>
+[Stack Overflow solution to the EF connection problem](http://stackoverflow.com/questions/6296444/using-mvc-mini-profiler-with-ef-4-0-and-ninject)
 
-<p>Enjoy your brand new MVC Mini Profiler. Many thanks go to the following collection of awesome links that I've sourced the different code snippets from. Be sure to check them out for extra details and clarity.</p>
+[Stack Overflow inspiration for web config changes](http://stackoverflow.com/questions/6550046/using-mvc-mini-profiler-database-profiling-with-entity-framework-code-first)
 
-<p><a href="http://code.google.com/p/mvc-mini-profiler/">The MVC Mini Profiler Home Page</a></p>
-
-<p><a href="http://www.hanselman.com/blog/NuGetPackageOfTheWeek9ASPNETMiniProfilerFromStackExchangeRocksYourWorld.aspx">Scott Hanselman's post about using the MVC Mini Profiler</a></p>
-
-<p><a href="http://stackoverflow.com/questions/6296444/using-mvc-mini-profiler-with-ef-4-0-and-ninject">Stack Overflow solution to the EF connection problem</a></p>
-
-<p><a href="http://stackoverflow.com/questions/6550046/using-mvc-mini-profiler-database-profiling-with-entity-framework-code-first">Stack Overflow inspiration for web config changes</a></p>
-
-<p><a href="http://samsaffron.com/archive/2011/07/25/Automatically+instrumenting+an+MVC3+app">Sam Saffron's post on Automatic Controller and View Profiling</a></p>
+[Sam Saffron's post on Automatic Controller and View Profiling](http://samsaffron.com/archive/2011/07/25/Automatically+instrumenting+an+MVC3+app)

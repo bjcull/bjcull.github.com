@@ -10,17 +10,20 @@ tags:
 - string
 ---
 
-<p>If you need to split a string using a delimiter in SQL, but want certain sections wrapped in quotes to ignore the delimiter, fear not, as I have a quick and easy answer.</p>  <h2>Here’s how you use it:</h2>  <p><strong>In SQL:</strong></p>  <pre class="prettyprint">SELECT * FROM dbo.SplitQuoteSafe('&quot;Test&quot;,&quot;Stuff, that, has commas&quot;,&quot;ok&quot;,24.45,,yes', ',')</pre>
+If you need to split a string using a delimiter in SQL, but want certain sections wrapped in quotes to ignore the delimiter, fear not, as I have a quick and easy answer.
 
-<p><strong>In Linq:</strong></p>
+## Here’s how you use it:
 
-<pre class="prettyprint">var words = from w in context.SplitQuoteSafe(&quot;\&quot;test\&quot;,\&quot;I'm, in, quotes\&quot;&quot;, &quot;,&quot;)
-            select w;</pre>
+**In SQL:**
+  SELECT * FROM dbo.SplitQuoteSafe('"Test","Stuff, that, has commas","ok",24.45,,yes', ',')
 
-<h2></h2>
+**In Linq:**
 
-<h2>And Here’s the Function:</h2>
+    var words = from w in context.SplitQuoteSafe("\"test\",\"I'm, in, quotes\"", ",")
+    select w;
 
-<p>[gist id=576911 file=SplitQuoteSafe.sql]</p>
+## And Here’s the Function:
 
-<p>Simple.</p>
+[gist id=576911 file=SplitQuoteSafe.sql]
+
+Simple.

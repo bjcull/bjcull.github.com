@@ -11,40 +11,38 @@ tags:
 published: true
 ---
 
-<img class="size-medium wp-image-116 alignright" title="It's not what your credit card company can do for you. It's what you can do for your credit card company." src="/wp-content/uploads/2010/11/credit-cards-300x200.jpg" alt="Pile of credit cards" width="300" height="200" />
+![Pile of credit cards](/wp-content/uploads/2010/11/credit-cards-300x200.jpg "It")
 
 Quickly and simply validate your credit card fields by adding this attribute to your POCO model class.
 
 ## What do I need to do? ##
 
-1. Start by downloading the <a title="Super Amazing Credit Card Validator Attribute Class" href="https://gist.github.com/662078" target="_blank">CreditCardAttribute class</a> and including it in your project somewhere. (Code shown below)
+1. Start by downloading the [CreditCardAttribute class](https://gist.github.com/662078 "Super Amazing Credit Card Validator Attribute Class") and including it in your project somewhere. (Code shown below)
 
 2. Decorate your data model with the attribute like so:
 
-<pre>
     [CreditCard]
     public string CreditCardNumber { get; set; }
-</pre>
-    
+
 You're Done! If you would like to know a little more, read on, but that's enough to get you going.
 
  ## But what about card types? ##
- 
+
 You can specify which cards you would like to accept using the AcceptedCardTypes named parameter. Do it like so:
 
     [CreditCard(AcceptedCardTypes=CreditCardAttribute.CardType.Visa | CreditCardAttribute.CardType.MasterCard)]
     public string CreditCardNumber { get; set; }
-    
-You can use as many or as little of the card types as you like, making sure to use the bitwise OR '|' operator to seprate them.
+
+You can use as many or as little of the card types as you like, making sure to use the bitwise OR '|' operator to separate them.
 
 ##I'm interested in how you've created this validator. Can you breakdown the code? ##
 
 Yes. Yes I can. But first the code.
 
-<script src="https://gist.github.com/662078.js"> </script>
+<script src="https://gist.github.com/662078.js"></script>
 
 The first thing to notice is that I have inherited from the ValidationAttribute. This takes care of most the work, allowing me to quickly and easily implement the actual validation. `ValidationAttribute` is just the default, you can also inherit from other classes within the `System.ComponentModel.DataAnnotations` namespace. The most useful of which is the `RegularExpressionAttribute`. Check it out, a simple currency validator:
-    
+
     public class CurrencyAttribute : RegularExpressionAttribute
     {
         public CurrencyAttribute() : base("^\\$?(\\d{1,3},?(\\d{3},?)*\\d{3}(\\.\\d{1,3})?|\\d{1,3}(\\.\\d{2})?)$")

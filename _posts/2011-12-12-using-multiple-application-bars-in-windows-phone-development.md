@@ -7,48 +7,49 @@ categories:
 tags: []
 ---
 
-<p>You know when you select multiple emails and the application bar swaps out for a different one? No? We’ll get ready to learn. This trick looks much better than enabling and disabling menu items on your application bar and is dead simple to achieve.</p>
-<h2>Step 1: Create your Application Bars</h2>  
-<p>Make sure you have the shell namespace reference at the top of your PhoneApplicationPage:</p>  
-<pre class="prettyprint">xmlns:shell=&quot;clr-namespace:Microsoft.Phone.Shell;assembly=Microsoft.Phone&quot;</pre>
+You know when you select multiple emails and the application bar swaps out for a different one? No? We’ll get ready to learn. This trick looks much better than enabling and disabling menu items on your application bar and is dead simple to achieve.
 
-<p>Create your application bars and add them to your page resources using the following XAML. I’ve created three, naming them “DefaultAppBar”, “SiungleSelectionAppBar” and “MultiSelectionAppBar”.</p>
+## Step 1: Create your Application Bars
 
-<pre class="prettyprint">&lt;phone:PhoneApplicationPage.Resources&gt;
-    &lt;shell:ApplicationBar x:Key=&quot;DefaultAppBar&quot; IsVisible=&quot;True&quot;&gt;
-        &lt;shell:ApplicationBarIconButton x:Name=&quot;mnuAdd&quot; IconUri=&quot;/icons/appbar.add.rest.png&quot; IsEnabled=&quot;True&quot; Text=&quot;Add&quot; Click=&quot;mnuAdd_Click&quot;/&gt;
-    &lt;/shell:ApplicationBar&gt;
-    &lt;shell:ApplicationBar x:Key=&quot;SingleSelectionAppBar&quot; IsVisible=&quot;True&quot;&gt;
-        &lt;shell:ApplicationBarIconButton x:Name=&quot;mnuPin&quot; IconUri=&quot;/icons/appbar.pushpin.png&quot; IsEnabled=&quot;True&quot; Text=&quot;Pin&quot; Click=&quot;mnuPin_Click&quot; /&gt;
-        &lt;shell:ApplicationBarIconButton x:Name=&quot;mnuDelete&quot; IconUri=&quot;/icons/appbar.delete.rest.png&quot; IsEnabled=&quot;True&quot; Text=&quot;Delete&quot; Click=&quot;mnuDelete_Click&quot;/&gt;
-        &lt;shell:ApplicationBarIconButton x:Name=&quot;mnuEdit&quot; IconUri=&quot;/icons/appbar.edit.rest.png&quot; IsEnabled=&quot;True&quot; Text=&quot;Edit&quot; Click=&quot;mnuEdit_Click&quot;/&gt;
-    &lt;/shell:ApplicationBar&gt;
-    &lt;shell:ApplicationBar x:Key=&quot;MultiSelectionAppBar&quot; IsVisible=&quot;True&quot;&gt;
-        &lt;shell:ApplicationBarIconButton x:Name=&quot;mnuDeleteMulti&quot; IconUri=&quot;/icons/appbar.delete.rest.png&quot; IsEnabled=&quot;True&quot; Text=&quot;Delete&quot; Click=&quot;mnuDelete_Click&quot;/&gt;
-    &lt;/shell:ApplicationBar&gt;
-&lt;/phone:PhoneApplicationPage.Resources&gt;</pre>
+Make sure you have the shell namespace reference at the top of your PhoneApplicationPage:
 
-<p>&#160;</p>
+    xmlns:shell="clr-namespace:Microsoft.Phone.Shell;assembly=Microsoft.Phone"
 
-<h2>Step 2: Use Code to Swap Between Them</h2>
+Create your application bars and add them to your page resources using the following XAML. I’ve created three, naming them “DefaultAppBar”, “SiungleSelectionAppBar” and “MultiSelectionAppBar”.
 
-<p>Firstly, we need to set a default application bar to load with the page. We can do this by adding the following code to the constructor:</p>
+    <phone:PhoneApplicationPage.Resources>
+        <shell:ApplicationBar x:Key="DefaultAppBar" IsVisible="True">
+            <shell:ApplicationBarIconButton x:Name="mnuAdd" IconUri="/icons/appbar.add.rest.png" IsEnabled="True" Text="Add" Click="mnuAdd_Click"/>
+        </shell:ApplicationBar>
+        <shell:ApplicationBar x:Key="SingleSelectionAppBar" IsVisible="True">
+            <shell:ApplicationBarIconButton x:Name="mnuPin" IconUri="/icons/appbar.pushpin.png" IsEnabled="True" Text="Pin" Click="mnuPin_Click" />
+            <shell:ApplicationBarIconButton x:Name="mnuDelete" IconUri="/icons/appbar.delete.rest.png" IsEnabled="True" Text="Delete" Click="mnuDelete_Click"/>
+            <shell:ApplicationBarIconButton x:Name="mnuEdit" IconUri="/icons/appbar.edit.rest.png" IsEnabled="True" Text="Edit" Click="mnuEdit_Click"/>
+        </shell:ApplicationBar>
+        <shell:ApplicationBar x:Key="MultiSelectionAppBar" IsVisible="True">
+            <shell:ApplicationBarIconButton x:Name="mnuDeleteMulti" IconUri="/icons/appbar.delete.rest.png" IsEnabled="True" Text="Delete" Click="mnuDelete_Click"/>
+        </shell:ApplicationBar>
+    </phone:PhoneApplicationPage.Resources>
 
-<pre class="prettyprint">ApplicationBar = (Microsoft.Phone.Shell.ApplicationBar)Resources[&quot;DefaultAppBar&quot;];</pre>
+## Step 2: Use Code to Swap Between Them
 
-<p>It's actually the exact same code to change the application bar to one of our other ones. Check out the following code I use to swap between them when my list fires a selection changed event:</p>
+Firstly, we need to set a default application bar to load with the page. We can do this by adding the following code to the constructor:
 
-<pre class="prettyprint">if (list.SelectedItems.Count == 1)
-{
-    ApplicationBar = (Microsoft.Phone.Shell.ApplicationBar)Resources[&quot;SingleSelectionAppBar&quot;];
-}
-else if (list.SelectedItems.Count &gt; 1)
-{
-    ApplicationBar = (Microsoft.Phone.Shell.ApplicationBar)Resources[&quot;MultiSelectionAppBar&quot;];
-}
-else
-{
-    ApplicationBar = (Microsoft.Phone.Shell.ApplicationBar)Resources[&quot;DefaultAppBar&quot;];
-}</pre>
+    ApplicationBar = (Microsoft.Phone.Shell.ApplicationBar)Resources["DefaultAppBar"];
 
-<p>That's it. You'll also notice that when you change application bars, it uses a cool swoosh down and then back up animation. All for free.</p>
+It's actually the exact same code to change the application bar to one of our other ones. Check out the following code I use to swap between them when my list fires a selection changed event:
+
+    if (list.SelectedItems.Count == 1)
+    {
+        ApplicationBar = (Microsoft.Phone.Shell.ApplicationBar)Resources["SingleSelectionAppBar"];
+    }
+    else if (list.SelectedItems.Count > 1)
+    {
+        ApplicationBar = (Microsoft.Phone.Shell.ApplicationBar)Resources["MultiSelectionAppBar"];
+    }
+    else
+    {
+        ApplicationBar = (Microsoft.Phone.Shell.ApplicationBar)Resources["DefaultAppBar"];
+    }
+
+That's it. You'll also notice that when you change application bars, it uses a cool swoosh down and then back up animation. All for free.
