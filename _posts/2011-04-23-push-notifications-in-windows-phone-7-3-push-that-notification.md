@@ -17,7 +17,8 @@ Finally we arrive at the thrilling conclusion to my push notifications miniserie
 #### Posts in the series:
 
 1.  [**Code on the device** – This will handle everything you need to put into your wp7 app](http://benjii.me/2010/12/push-notifications-in-windows-phone-7-1-code-on-the-device/)
-2.  [**Code on the server** – This will handle receiving and storing your user’s device URIs on the server](http://benjii.me/2011/01/push-notifications-in-windows-phone-7-2-code-on-the-server/)3.  **Push that Notification** – This will handle actually pushing notifications  
+2.  [**Code on the server** – This will handle receiving and storing your user’s device URIs on the server](http://benjii.me/2011/01/push-notifications-in-windows-phone-7-2-code-on-the-server/)
+3.  **Push that Notification** – This will handle actually pushing notifications  
 
 ## Step 1 – Create a Project to do the Pushing
 

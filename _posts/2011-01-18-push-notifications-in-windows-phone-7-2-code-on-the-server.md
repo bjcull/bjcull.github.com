@@ -17,7 +17,9 @@ This is the second part in the mini series that is taking us through the steps o
 
 #### Posts in the series:
 
-1.  [**Code on the device** – This will handle everything you need to put into your wp7 app](http://benjii.me/2010/12/push-notifications-in-windows-phone-7-1-code-on-the-device/ "Push Notifications in Windows Phone 7 – #1 Code on the Device")2.  **Code on the server** – This will handle receiving and storing your user’s device URIs on the server3.  [**Push that Notification** – This will handle actually pushing notifications](http://benjii.me/2011/04/push-notifications-in-windows-phone-7-3-push-that-notification/ "Push Notifications in Windows Phone 7 – #3 Push that Notification")  
+1.  [**Code on the device** – This will handle everything you need to put into your wp7 app](http://benjii.me/2010/12/push-notifications-in-windows-phone-7-1-code-on-the-device/ "Push Notifications in Windows Phone 7 – 1: Code on the Device")
+2.  **Code on the server** – This will handle receiving and storing your user’s device URIs on the server
+3.  [**Push that Notification** – This will handle actually pushing notifications](http://benjii.me/2011/04/push-notifications-in-windows-phone-7-3-push-that-notification/ "Push Notifications in Windows Phone 7 – 3: Push that Notification")  
 
 To handle the requests from our devices, we will be setting up a WCF REST Service Project. This will allow us to keep track of all the devices that have downloaded our app, as well as keep track of which users want push notifications or live tiles.
 
