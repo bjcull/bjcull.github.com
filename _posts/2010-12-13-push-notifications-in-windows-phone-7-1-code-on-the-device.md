@@ -1,5 +1,5 @@
 ---
-title: "Push Notifications in Windows Phone 7 – 1: Code on the Device"
+title: "Push Notifications in Windows Phone 7 – 1 Code on the Device"
 date: 2010-12-13
 layout: post
 categories:
