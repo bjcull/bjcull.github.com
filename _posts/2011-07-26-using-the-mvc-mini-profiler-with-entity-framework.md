@@ -42,11 +42,11 @@ To get the profiler profiling all we need to do is add the following to our Glob
         MiniProfiler.Stop();
     }
 
-Adding the check for Request.IsLocal means that the profiler will only run when the site is loaded locally. Feel free to add your own check's. It's usually handy to check for a cookie or an admin login, to see performance on a production website.
+Adding the check for Request.IsLocal means that the profiler will only run when the site is loaded locally. Feel free to add your own checks. It's usually handy to check for a cookie or an admin login, to see performance on a production website.
 
 ## Step 3: Add the includes (and you’re finished)
 
-Add this quick line of code to your _layout view or at the end of your head section. This adds the necessary javascript and css to keep it neat and tidy in the corner.
+Add this quick line of code to your `_layout` view or at the end of your head section. This adds the necessary javascript and css to keep it neat and tidy in the corner.
 
     @MvcMiniProfiler.MiniProfiler.RenderIncludes()
 

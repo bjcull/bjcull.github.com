@@ -13,9 +13,9 @@ This tutorial mini series will take us through the steps of setting up push noti
 
 #### Posts in the series:
 
-**Code on the device** - This will handle everything you need to put into your wp7 app
-[Code on the server - This will handle receiving and storing your user's device URIs on the server](http://benjii.me/2011/01/push-notifications-in-windows-phone-7-2-code-on-the-server/)
-[Push that Notification - This will handle actually pushing notifications](http://benjii.me/2011/04/push-notifications-in-windows-phone-7-3-push-that-notification/ "Push Notifications in Windows Phone 7 – 3: Push that Notification")
+1. **Code on the device** - This will handle everything you need to put into your wp7 app
+2. [Code on the server - This will handle receiving and storing your user's device URIs on the server](http://benjii.me/2011/01/push-notifications-in-windows-phone-7-2-code-on-the-server/)
+3. [Push that Notification - This will handle actually pushing notifications](http://benjii.me/2011/04/push-notifications-in-windows-phone-7-3-push-that-notification/ "Push Notifications in Windows Phone 7 – 3: Push that Notification")
 
 First things first, we need to put code into our app that identifies the device and sends the info to our server. For now, the main page code behind file will do. Also note I’ve used a variable called _settings_ that contains various properties relevant to the user and application; these are mostly constants.
 
