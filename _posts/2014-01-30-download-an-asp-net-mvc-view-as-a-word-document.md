@@ -3,6 +3,14 @@ title: Download an ASP.NET MVC View as a Word Document
 date: 2014-01-30
 layout: post
 published: false
+twitter_metadata: |
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:site" content="@benjii22" />
+    <meta name="twitter:creator" content="@benjii22" />
+    <meta name="twitter:url" content="http://benjii.me/2014/01/download-an-asp-net-mvc-view-as-a-word-document/" />
+    <meta name="twitter:title" content="Download an ASP.NET MVC View as a Word Document" />
+    <meta name="twitter:description" content="Download any of your ASP.NET MVC Views as a Word Document thanks to this Filter Attribute." />
+    <meta name="twitter:image" content="http://benjii.me/wp-content/uploads/2014/01/word-icon-256x256.png" />
 ---
 
 Creating reports for ASP.NET MVC web apps has to be one of the worst tasks imaginable, especially when you're asked to let them print the page, or worse again, download it as a word document.
