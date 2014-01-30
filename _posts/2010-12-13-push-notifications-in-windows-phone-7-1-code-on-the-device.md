@@ -30,20 +30,20 @@ First we need to open the HttpNotificationChannel. This will give us the URI to 
     {
         //First, try to pick up existing channel
         httpChannel = HttpNotificationChannel.Find(_settings.ChannelName);
-
+        
         if (httpChannel != null) 
         {
             SubscribeToChannelEvents();
-
+            
             SubscribeToService();
         }
         else
         {
             //Create new channel
             httpChannel = new HttpNotificationChannel(_settings.ChannelName, _settings.ServiceName);
-
+            
             SubscribeToChannelEvents();
-
+            
             httpChannel.Open();
         }
     }
@@ -60,13 +60,13 @@ This method sets up our event handlers so we can be notified when Microsoft has 
     {
         //Register to UriUpdated event - occurs when channel successfully opens   
         httpChannel.ChannelUriUpdated += new EventHandler<NotificationChannelUriEventArgs>(httpChannel_ChannelUriUpdated);     
-
+        
         //Subscribed to Raw Notification
         httpChannel.HttpNotificationReceived += new EventHandler<HttpNotificationEventArgs>(httpChannel_HttpNotificationReceived);
-
+        
         //Subscribe to Toast Notifications
         httpChannel.ShellToastNotificationReceived += new EventHandler<NotificationEventArgs>(httpChannel_ShellToastNotificationReceived);
-
+        
         //general error handling for push channel
         httpChannel.ErrorOccurred += new EventHandler<NotificationChannelErrorEventArgs>(httpChannel_ExceptionOccurred);
     }
@@ -76,32 +76,32 @@ Here are the methods referred to above.
     void httpChannel_ChannelUriUpdated(object sender, NotificationChannelUriEventArgs e)
     {
         // Optionally save the URI locally here - e.ChannelUri.ToString();
-
+        
         SubscribeToService();
     }
-
+    
     void httpChannel_ExceptionOccurred(object sender, NotificationChannelErrorEventArgs e)
     {
         // Handle notification exceptions here
     }
-
+    
     void httpChannel_HttpNotificationReceived(object sender, HttpNotificationEventArgs e)
     {
         // Handle raw notification here
     }
-
+    
     void httpChannel_ShellToastNotificationReceived(object sender, NotificationEventArgs e)
     {
         // This runs when a toast notification is received while the app is running
-
+        
         if (e.Collection != null)
         {
             Dictionary<string, string> collection = (Dictionary<string, string>)e.Collection;
-
+            
             Dispatcher.BeginInvoke(() => {
                 MessageBox.Show(collection["wp:Text2"], collection["wp:Text1"], MessageBoxButton.OK);
             });
-
+            
         }
     }
 
@@ -123,7 +123,7 @@ Copy this bad boy from [http://adventuresinsoftware.com/blog/?p=569](http://adve
                 .FirstOrDefault();
             return id;
         }
-
+        
         return String.Empty;
     }
 
@@ -152,7 +152,7 @@ The first part of this method is important; you must ask your users to allow pus
                 return;
             }
         }
-
+        
         if (!httpChannel.IsShellToastBound)
         {
             httpChannel.BindToShellToast();
@@ -172,15 +172,15 @@ Reference the RestSharp and Newtonsoft dlls to continue; you can get them [conve
             // Handle no internet here
             return;
         }
-
+        
         string id = ParseANID(UserExtendedProperties.GetValue("ANID") as string);    
-
+        
         var client = new RestClient("http://api.example.com");
         var request = new RestRequest("mycontroller/register");
         request.AddParameter("uri", httpChannel.ChannelUri.ToString());
         request.AddParameter("deviceid", id);
         request.AddParameter("nocache", Guid.NewGuid());
-
+        
         client.ExecuteAsync(request, (response) =>
         {
             if (response.ResponseStatus != ResponseStatus.Error)
@@ -209,7 +209,7 @@ Start the ball rolling by calling the RegisterDevice method in your OnNavigatedT
     {
         // Register for push notifications
         RegisterDevice();
-
+        
         base.OnNavigatedTo(e);
     }
 
