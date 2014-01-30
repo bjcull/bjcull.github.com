@@ -3,9 +3,8 @@ title: "Torrential – uTorrent WP7 App – Version 1.2 Available Now!"
 date: 2010-12-04
 layout: post
 categories:
-- &o0 .NET
+- .NET
 tags:
-- *o0
 - Windows Phone 7
 ---
 

@@ -1,5 +1,6 @@
 ---
 published: true
+date: 2013-11-14
 title: You can use TextBoxFor to output other HTML5 elements in ASP.NET MVC
 layout: post
 ---

@@ -3,9 +3,8 @@ title: "Torrential – uTorrent client for Windows Phone 7 in the Marketplace!"
 date: 2010-11-15
 layout: post
 categories:
-- &o0 .NET
+- .NET
 tags:
-- *o0
 - Windows Phone 7
 ---
 

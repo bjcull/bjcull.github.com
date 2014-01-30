@@ -3,9 +3,8 @@ title: "Building Torrential – A Windows Phone 7 Story"
 date: 2010-11-10
 layout: post
 categories:
-- &o0 .NET
+- .NET
 tags:
-- *o0
 - Windows Phone 7
 ---
 
