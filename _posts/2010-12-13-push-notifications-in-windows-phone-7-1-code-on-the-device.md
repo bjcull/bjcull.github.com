@@ -59,16 +59,16 @@ This method sets up our event handlers so we can be notified when Microsoft has 
     private void SubscribeToChannelEvents()
     {
         //Register to UriUpdated event - occurs when channel successfully opens   
-        httpChannel.ChannelUriUpdated += new EventHandler&lt;NotificationChannelUriEventArgs&gt;(httpChannel_ChannelUriUpdated);     
+        httpChannel.ChannelUriUpdated += new EventHandler<NotificationChannelUriEventArgs>(httpChannel_ChannelUriUpdated);     
 
         //Subscribed to Raw Notification
-        httpChannel.HttpNotificationReceived += new EventHandler&lt;HttpNotificationEventArgs&gt;(httpChannel_HttpNotificationReceived);
+        httpChannel.HttpNotificationReceived += new EventHandler<HttpNotificationEventArgs>(httpChannel_HttpNotificationReceived);
 
         //Subscribe to Toast Notifications
-        httpChannel.ShellToastNotificationReceived += new EventHandler&lt;NotificationEventArgs&gt;(httpChannel_ShellToastNotificationReceived);
+        httpChannel.ShellToastNotificationReceived += new EventHandler<NotificationEventArgs>(httpChannel_ShellToastNotificationReceived);
 
         //general error handling for push channel
-        httpChannel.ErrorOccurred += new EventHandler&lt;NotificationChannelErrorEventArgs&gt;(httpChannel_ExceptionOccurred);
+        httpChannel.ErrorOccurred += new EventHandler<NotificationChannelErrorEventArgs>(httpChannel_ExceptionOccurred);
     }
 
 Here are the methods referred to above.
@@ -96,9 +96,9 @@ Here are the methods referred to above.
 
         if (e.Collection != null)
         {
-            Dictionary&lt;string, string&gt; collection = (Dictionary&lt;string, string&gt;)e.Collection;
+            Dictionary<string, string> collection = (Dictionary<string, string>)e.Collection;
 
-            Dispatcher.BeginInvoke(() =&gt; {
+            Dispatcher.BeginInvoke(() => {
                 MessageBox.Show(collection["wp:Text2"], collection["wp:Text1"], MessageBoxButton.OK);
             });
 
@@ -109,17 +109,17 @@ Here are the methods referred to above.
 
 The windows live anonymous id lets you identify a user by their windows live account, without actually seeing their details.
 
-Copy this bad boy from [http://adventuresinsoftware.com/blog/?p=569](http://adventuresinsoftware.com/blog/?p=569 "http://adventuresinsoftware.com/blog/?p=569")
+Copy this bad boy from [http://adventuresinsoftware.com/blog/?p=569](http://adventuresinsoftware.com/blog/?p=569)
 
     public string ParseANID(string anid)
     {
         if (!String.IsNullOrEmpty(anid))
         {
-            string[] parts = anid.Split('&amp;');
-            IEnumerable&lt;string[]&gt; pairs = parts.Select(part =&gt; part.Split('='));
+            string[] parts = anid.Split('&');
+            IEnumerable<string[]> pairs = parts.Select(part => part.Split('='));
             string id = pairs
-                .Where(pair =&gt; pair.Length == 2 &amp;&amp; pair[0] == "A")
-                .Select(pair =&gt; pair[1])
+                .Where(pair => pair.Length == 2 && pair[0] == "A")
+                .Select(pair => pair[1])
                 .FirstOrDefault();
             return id;
         }
@@ -181,7 +181,7 @@ Reference the RestSharp and Newtonsoft dlls to continue; you can get them [conve
         request.AddParameter("deviceid", id);
         request.AddParameter("nocache", Guid.NewGuid());
 
-        client.ExecuteAsync(request, (response) =&gt;
+        client.ExecuteAsync(request, (response) =>
         {
             if (response.ResponseStatus != ResponseStatus.Error)
             {
