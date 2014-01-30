@@ -2,7 +2,7 @@
 title: Download an ASP.NET MVC View as a Word Document
 date: 2014-01-30
 layout: post
-published: false
+published: true
 twitter_metadata: |
     <meta name="twitter:card" content="summary" />
     <meta name="twitter:site" content="@benjii22" />
