@@ -13,9 +13,10 @@ twitter_metadata: |
     <meta name="twitter:image" content="http://benjii.me/wp-content/uploads/2014/01/word-icon-256x256.png" />
 ---
 
-I often work with MVC teams and notice that everyone shudders when printable reports are mentioned, especially when you need to export to programs like Microsoft Word.
+I often work with MVC teams and notice that everyone shudders when printable reports are mentioned, especially when you need to export to programs like Microsoft Word. 
+Reporting Services or even Crystal Reports usually come to mind, but in this case I opted to stick to web technologies and render views as Word documents.
 
-Luckily I'm no longer phased by the concept thanks to this handy FilterAttribute that lets you return any of your views as a word document. You can see an example in the video of how I solved this problem for Brisbane Catholic Education.
+Luckily it's now dead easy to achieve, thanks to this handy FilterAttribute that lets you return any of your views as a word document. You can see an example in the video of how I solved this problem for Brisbane Catholic Education.
 
 <iframe width="560" height="315" src="//www.youtube.com/embed/Mbb7lSdb66Q?vq=hd720" frameborder="0" allowfullscreen="allowfullscreen">&nbsp;</iframe>
 

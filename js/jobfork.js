@@ -38,8 +38,8 @@
 })(jQuery);
 
 (function(){
-    var title = "Hey fellow Australian Developer!";
-	var message = "You should checkout <strong><a href='http://jobfork.com.au/?utm_source=benjiime&utm_medium=flash&utm_campaign=blogs' target='_blank'>JobFork.com.au</a></strong> - a job board for the best developers and dev jobs in Australia";
+    var title = "Hey there fellow developer!";
+	var message = "You should check out <strong><a href='https://eventdebit.com/?utm_source=benjiime&utm_medium=flash&utm_campaign=blogs' target='_blank'>EventDebit.com</a></strong> - my new website for custom forms and payments";
 	
 	function showAlert() {
 		//todo check close cookie
@@ -89,7 +89,7 @@
 	}
 	
 	$(function(){
-		getCountry();
+		showAlert();
 	});
 	
 })();
