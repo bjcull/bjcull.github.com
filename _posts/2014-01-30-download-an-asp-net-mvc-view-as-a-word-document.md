@@ -17,7 +17,7 @@ I often work with MVC teams and notice that everyone shudders when printable rep
 
 Luckily I'm no longer phased by the concept thanks to this handy FilterAttribute that lets you return any of your views as a word document. You can see an example in the video of how I solved this problem for Brisbane Catholic Education.
 
-<iframe width="560" height="315" src="//www.youtube.com/embed/Mbb7lSdb66Q?vq=hd720" frameborder="0" allowfullscreen="allowfullscreen"></iframe>
+<iframe width="560" height="315" src="//www.youtube.com/embed/Mbb7lSdb66Q?vq=hd720" frameborder="0" allowfullscreen="allowfullscreen">&nbsp;</iframe>
 
 You're just four steps away from getting things working nicely yourself:
 
