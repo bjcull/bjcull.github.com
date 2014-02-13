@@ -27,14 +27,14 @@ You're just four steps away from getting things working nicely yourself:
 4. Usage: The Controller Action (using [WordDocument])
  
 
-## 1. Get the Word Document Filter Attribute
+## 1 - Get the Word Document Filter Attribute
 This is where the magic happens. This filter attribute hijacks the request, changes the layout of the view to your new Word specific layout and then changes the response type to a file stream. Check out the code below:
 
 <script src="https://gist.github.com/bjcull/8702230.js"></script>
 
 There are two key things to notice here, one is that we set the MasterPage (aka Layout) to `_LayoutWord.cshtml`. The other is that we set a ViewBag property `ViewBag.WordDocumentMode = true;`. This lets us tweak our View when it's being downloaded as a word document if we want.
 
-## 2. Create a Word Document Layout File
+## 2 - Create a Word Document Layout File
 The next step is to create a basic layout file so we only put into the word document what we need. The important thing here is that it is simple, there are no scripts, and that **all styles are fully rendered in the head section**. Make sure you save this layout to `~/Views/Shared/_LayoutWord.cshtml`, or change the filter attribute above to your own location. Check out my example:
 
     @{
@@ -61,7 +61,7 @@ The next step is to create a basic layout file so we only put into the word docu
 
 Notice that this layout removes all extra content and only renders the view (RenderBody).
 
-## 3. Usage: An Example View (using ViewBag.WordDocumentMode)
+## 3 - Usage: An Example View (using ViewBag.WordDocumentMode)
 Now that we have the neccessary bits in place, lets take a quick look at an example view. This is the default "About" view you get with a File > New Project, but I've made one small change:
 
     @{
@@ -78,7 +78,7 @@ Now that we have the neccessary bits in place, lets take a quick look at an exam
 
 I've added some logic to hide the headers when downloading the word document.
 
-## 4. Usage: The Controller Action (using [WordDocument])
+## 4 - Usage: The Controller Action (using [WordDocument])
 Ok same deal here, I've got the default About action, but I've also added an extra action to download the about view as a Word Document. Check it out:
 
     public ActionResult About()
