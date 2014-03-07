@@ -1,6 +1,7 @@
 ﻿---
 title: Track Created and Modified fields Automatically with Entity Framework Code First
 date: 2014-03-07
+layout: post
 published: true
 ---
 

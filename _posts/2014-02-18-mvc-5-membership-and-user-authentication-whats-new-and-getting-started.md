@@ -1,6 +1,7 @@
 ﻿---
 title: MVC 5 Membership and User Authentication: What's New and Getting Started
 date: 2014-02-18
+layout: post
 published: false
 ---
 
