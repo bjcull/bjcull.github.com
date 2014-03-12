@@ -1,4 +1,4 @@
-﻿---
+---
 title: Wizard Style Navigation Tabs for Bootstrap
 date: 2014-03-12
 layout: post
