@@ -13,7 +13,8 @@ You have a website, you live in Australia and you need to collect payments. Outl
         <strong><a href="https://www.slideshare.net/bjcull/state-of-payments-in-australia-march-2014" title="State of Payments in Australia March 2014" target="_blank">State of Payments in Australia March 2014</a></strong> from <strong><a href="http://www.slideshare.net/bjcull" target="_blank">bjcull</a></strong>
     </div>
 </div>
-*(slides may be a bit off due to font errors, also it should read "Ben Heart Stripe")*
+
+The embedded viewer above has mangled some of the slides so feel free to [Download the original Powerpoint Presentation](/wp-content/uploads/2014/03/StateOfPayments_Mar2014.pptx).
 
 ## What Do You Know?
 
