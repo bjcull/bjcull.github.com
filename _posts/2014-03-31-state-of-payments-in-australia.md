@@ -13,6 +13,9 @@ You have a website, you live in Australia and you need to collect payments. Outl
         <strong><a href="https://www.slideshare.net/bjcull/state-of-payments-in-australia-march-2014" title="State of Payments in Australia March 2014" target="_blank">State of Payments in Australia March 2014</a></strong> from <strong><a href="http://www.slideshare.net/bjcull" target="_blank">bjcull</a></strong>
     </div>
 </div>
+*(slides may be a bit off due to font errors, also it should read "Ben Heart Stripe")*
+
+## What Do You Know?
 
 Thanks to everyone who attended [What Do You Know? - Brisbane](http://www.webdirections.org/events/wdyk-brisbane-mar2014/). It was a great night and I look forward to the next event!
 
