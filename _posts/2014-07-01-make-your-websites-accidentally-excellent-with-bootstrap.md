@@ -1,4 +1,4 @@
-﻿---
+---
 title: Make your Web Apps Accidentally Excellent with Bootstrap
 date: 2014-07-01
 layout: post
