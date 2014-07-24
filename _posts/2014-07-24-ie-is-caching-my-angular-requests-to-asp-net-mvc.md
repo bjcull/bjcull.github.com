@@ -36,13 +36,13 @@ To my understanding, by setting the `If-Modified-Since` header to a zero date, w
 
 ## Some more reading
 
-I plucked the code for this fix from the following stack overflow. Go give them an upvote:
+I plucked the code for this fix from the following stack overflow answer. Go give them an upvote:
 [http://stackoverflow.com/questions/16098430/angular-ie-caching-issue-for-http](http://stackoverflow.com/questions/16098430/angular-ie-caching-issue-for-http)
 
 A little more reading about how the If-Modified-Since header works:
 [http://www.feedthebot.com/ifmodified.html](http://www.feedthebot.com/ifmodified.html)
 
-An interesting stck overflow question about caching, which is relevant here:
+An interesting stack overflow question about caching, which is relevant here:
 [http://stackoverflow.com/questions/5017454/make-ie-to-cache-resources-but-always-revalidate](http://stackoverflow.com/questions/5017454/make-ie-to-cache-resources-but-always-revalidate)
 
 Finally, the obligatory link to the reference doc. Make sure you read about "Setting HTTP Headers":
