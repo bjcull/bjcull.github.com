@@ -15,7 +15,7 @@ Have you seen the [Bootstrap Switch](http://www.bootstrap-switch.org)? If not, c
     <script src="/wp-content/uploads/2014/07/bootstrap-switch.min.js"></script>
 
     <script>
-        document.getElementById("sweetCheckbox").bootstrapSwitch();
+        $("sweetCheckbox").bootstrapSwitch();
     </script>
 </div>
 
