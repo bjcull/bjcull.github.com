@@ -11,7 +11,7 @@ Have you seen the [Bootstrap Switch](http://www.bootstrap-switch.org)? If not, c
     <input id="sweetCheckbox" type="checkbox" />
 
     <link href="/wp-content/uploads/2014/07/bootstrap-switch.min.css" rel="Stylesheet" type="text/css" />
-    <script src="http://code.jquery.com/jquery-2.1.1.min.js"></script>
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
     <script src="/wp-content/uploads/2014/07/bootstrap-switch.min.js"></script>
 
     <script>
