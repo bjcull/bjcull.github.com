@@ -26,9 +26,9 @@ First up, lets look at an example of this in action. Here is a basic controller 
 
     public ActionResult Save(EditVM model)
     {
-        if (_dogLogic.AcceptableName(model.Name))
+        if (!_dogLogic.AcceptableName(model.Name))
         {
-            ModelState.AddModelError(string.Empty, "That is not a suitabel name for a dog, please choose a new one.");
+            ModelState.AddModelError(string.Empty, "That is not a suitable name for a dog, please choose a new one.");
         }
 
         if (!ModelState.IsValid)
@@ -37,12 +37,15 @@ First up, lets look at an example of this in action. Here is a basic controller 
         }
 
         // Perform Success Actions
-        _dogLogic.Save(model);
+        var dog = _dogLogic.Save(model);
 
         return JsonFormResponse();
+        
+        // You can also do the following if you want to return actual data
+        // return Json(dog.Id);
     }
 
-Here we do three things. First we run the model through any custom validation we have. You shoudl always run all validation over your model before returning to the user to ensure they can fix all errors in one go.
+Here we do three things. First we run the model through any custom validation we have. You should always run all validation over your model before returning to the user to ensure they can fix all errors in one go.
 
 Next we check if there are any validation errors using `ModelState.IsValid`. This will catch any errors from attributes on our model, as well as the custom validation we just performed.
 
@@ -85,6 +88,26 @@ What's this `JsonFormResponse` you ask? Let's dig in:
         return Json(response, jsonRequestBehaviour);
     }
 
+The classes referenced above:
+
+    public class JsonResponse
+    {
+        public string Type { get; set; }
+        public string Message { get; set; }
+        public IEnumerable<JsonValidationError> Errors { get; set; }
+
+        public JsonResponse()
+        {
+            Errors = new List<JsonValidationError>();
+        }
+    }
+
+    public class JsonValidationError
+    {
+        public string Key { get; set; }
+        public string Message { get; set; }
+    }
+
 Added to my `BaseController`, the class from which all my other controllers inherit, is the JsonFormResponse method. This method returns a nice (200 OK) response if there are no errors. If there are errors, it breaks down the ModelState and serialises them into a nice standardised reponse. For Example, if the Name property of our EditVM model from above was missing, we could expect to see the following response:
 
     {
@@ -97,7 +120,7 @@ Added to my `BaseController`, the class from which all my other controllers inhe
             },
             {
                 Key: "",
-                Message: "That is not a suitabel name for a dog, please choose a new one."
+                Message: "That is not a suitable name for a dog, please choose a new one."
             }
         ]
     }
@@ -140,12 +163,12 @@ At the top is the http call to the server. Next is the updateErrors function tha
 Last but not least we turn to the client side and put up our two types of validation messages. Firstly the field validation:
 
     <input type="text" ng-model="dog.Name" />
-    <span class="help-block" ng-if="errors.formErrors.Name">{{errors.formErrors.Name}}</span>
+    <span class="help-block" ng-if="errors.formErrors.Name">{% raw %}{{errors.formErrors.Name}}{% endraw %}</span>
 
 and at the bottom the global validation:
 
     <div class="alert alert-danger" ng-if="errors.pageError">
-        <p>{{errors.pageError}}</p>
+        <p>{% raw %}{{errors.pageError}}{% endraw %}</p>
     </div>
 
 Right all done. I know it's a fair bit of work at the moment, but I'm sure the great minds at Microsoft are already looking at how to facilitate a new Angular Unobtrusive validation. Until then we'll make do with our own custom Angular + MVC validation combo!
