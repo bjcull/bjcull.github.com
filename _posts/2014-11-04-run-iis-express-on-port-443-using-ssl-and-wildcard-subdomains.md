@@ -25,7 +25,7 @@ If we want a custom domain we just change a couple of things. Firstly right clic
 Update the Project URL to `http://localhost`, pictured below. This step binds our project to port 80.
 
 ![Project Properties](/wp-content/uploads/2014/11/properties1.png)
-*Figure: My custom domain is the creatively named mycustomdomain.com*
+*Figure: Pretty easy so far*
 
 When you save it will ask you to create a virtual directory, click yes :)
 
