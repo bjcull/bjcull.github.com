@@ -18,6 +18,7 @@ We'll start basic and then move on to the more complex scenarios.
 Firstly, lets take a look at setting up a local domain. I've spun up a brand new project and hit F5 straight away.
 
 ![localhost:34113](/wp-content/uploads/2014/11/localhost1.png) 
+
 *Figure: I'm running on port 34113, but you will be assigned a different random number*
 
 If we want a custom domain we just change a couple of things. Firstly right click your project, select Properties and click on the Web tab.
@@ -25,6 +26,7 @@ If we want a custom domain we just change a couple of things. Firstly right clic
 Update the Project URL to `http://localhost`, pictured below. This step binds our project to port 80.
 
 ![Project Properties](/wp-content/uploads/2014/11/properties1.png)
+
 *Figure: Pretty easy so far*
 
 When you save it will ask you to create a virtual directory, click yes :)
@@ -34,6 +36,7 @@ When you save it will ask you to create a virtual directory, click yes :)
 Let's try running the app now!
 
 ![localhost](/wp-content/uploads/2014/11/localhost2.png)
+
 *Figure: Woo! We're running on localhost port 80.*
 
 Next add your custom domain name to the hosts file, as always located at C:\Windows\System32\drivers\etc\hosts. *Be sure to edit the file as an admin.*
@@ -41,6 +44,7 @@ Next add your custom domain name to the hosts file, as always located at C:\Wind
 Here I'm adding `127.0.0.1       mycustomdomain.com`
 
 ![My Hosts File](/wp-content/uploads/2014/11/hosts1.png)
+
 *Figure: Adding the line to my hosts file*
 
 Lastly, update your iisexpress config with the new bindings. You can usually find your IISExpress Application config here: C:\Users\YOUR_USERNAME\Documents\IISExpress\config\applicationhost.config
@@ -52,6 +56,7 @@ Open the file and look for the `<sites>` node. You should be able to see your ap
 We're going to update the http binding by changing localhost to our custom domain name.
 
 ![ApplicationHost.config](/wp-content/uploads/2014/11/config1.png)
+
 *Figure: Update localhost to mycustomdomain.com*
 
 Once you saved, check that IIS Express isn't running. If it is, stop it.
@@ -69,16 +74,19 @@ Open up your applicationhost.config file again (C:\Users\YOUR_USERNAME\Documents
 This time instead of adding a custom domain, we'll remove the hostname altogether.
 
 ![ApplicationHost.config](/wp-content/uploads/2014/11/config2.png)
+
 *Figure: This binds to any hostname on port 80*
 
 Don't forget to restart IIS Express. This is neccessary for any changes you make to the applicationhost.config
 
 The only pain is that you need to add each subdomain to the hosts file:
 
-![My Hosts File](/wp-content/uploads/2014/11/hosts.png)
+![My Hosts File](/wp-content/uploads/2014/11/hosts2.png)
+
 *Figure: I've added a few test subdomains*
 
 ![localhost](/wp-content/uploads/2014/11/localhost4.png)
+
 *Figure: Woo! It works!*
 
 ## Now using HTTPS and SSL
@@ -113,11 +121,13 @@ Now that we have our http bindings, we just need to update our applicationhost.c
 Change port 44300 to 443 and remove the hostname like before.
 
 ![ApplicationHost.config](/wp-content/uploads/2014/11/config3.png)
-*Figure: This looks familiar.
+
+*Figure: This looks familiar.*
 
 Restart IIS Express again :)
 
 ![Localhost](/wp-content/uploads/2014/11/localhost5.png)
+
 *Figure: Hooray! We've finally done it.*
 
 Phew! That was a pretty long list of steps, but at least we have a better understanding of what happens under the IIS Express covers. Keep an eye out though, the applicationhost.config is updated all the time by Visual Studio. You may need to re-apply some of the changes we made from time to time. Especially if you are juggling a few projects at once.
