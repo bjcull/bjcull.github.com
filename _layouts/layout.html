@@ -7,8 +7,10 @@
 	<meta http-equiv="X-UA-Compatible" content="chrome=1">
 	<title>{{ page.title }}</title>
 
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<link rel="shortcut icon" href="/img/favicon.ico">
+
+    <link rel="author" href="https://plus.google.com/117762830922865070946/posts" />
 
     {{ page.twitter_metadata }}
 
@@ -17,7 +19,7 @@
     <link rel="stylesheet" href="/css/responsive.css" type="text/css" media="screen, projection" />
     <link rel="stylesheet" href="/prettify/prettify.css" type="text/css" media="screen, projection" />
 	<link rel="stylesheet" href="/css/jquery.jtweetsanywhere-1.3.1.css" media="screen, projection" />
-
+    <link href='http://fonts.googleapis.com/css?family=Roboto' rel='stylesheet' type='text/css'>
     <link href="http://benjii.me/atom.xml" rel="alternate" title="benjii.me" type="application/atom+xml" />
 	
 	<!--[if lt IE 9]>
@@ -65,28 +67,28 @@
 <body>
 	<div id="header-wrap">
         <div class="mainHeader panel">
-		    <header>
-			    <hgroup>
-				    <h1>
-					    <a href="/" title="benjii.me" rel="home">benjii.me</a>
-				    </h1>
-			    </hgroup>			
-		    </header>
-								
 		    <div id="secondary" class="widget-area">
 			    <aside id="me" class="widget">
-				    <div class="info">					
-					    <img class="grav" src='http://www.gravatar.com/avatar/49a0dce3926e3d18a757f2a73ac08d23.png' alt="Ben Cull" />
-                    					
-					    <div class="about">
-						    <strong><a title="Ben Cull is on Google+" rel="author" href="https://plus.google.com/117762830922865070946?rel=author" alt="Ben Cull">Ben Cull</a></strong>
-						    <p>Brisbane, Australia</p>
-					    </div>
-				    </div>
-				    <div class="short-info">
-					    A programming blog by <strong>Ben Cull</strong>
-				    </div>
-				    <ul>
+			        <div class="info">					
+			            <img class="grav" src='http://www.gravatar.com/avatar/49a0dce3926e3d18a757f2a73ac08d23.png' alt="Ben Cull" />
+			            <a href="/" class="sweetas-logo">
+			                <span class="m1 big">Ben</span><span class="m2 big">Cull's</span><span class="m3 big">Blog</span>
+			            </a>                    					
+			        </div>
+			        <div class="jobfork">
+			            <h3>Clients don't pay me on time. So I built this.</h3>
+			            <a href="http://www.skycollect.com/?utm_source=benjiime&utm_medium=sidebar&utm_campaign=blogs" target="_blank">
+			                <img src="http://i.imgur.com/PVBI8I2.png" />
+			                <h4>www.skycollect.com</h4>
+			            </a>
+			            <p>
+			                Free automatic invoice chasing, complete with a payment portal.
+			            </p>
+			        </div>
+                    <div class="about">
+                        More from me at <strong><a title="BenCull.com" rel="author" href="https://bencull.com" alt="Ben Cull">BenCull.com</a></strong>
+                    </div>
+				    <div>
                         <a class="twitter-follow-button"
                            href="https://twitter.com/BenWhoLikesBeer"
                            data-show-count="true"
@@ -102,14 +104,9 @@
 							    Subscribe
 						    </a>
 					    </li>-->
-				    </ul>
+				    </div>
 				
-    <!--				<div class="jobfork">
-					    <h4><a href="http://jobfork.com.au/?utm_source=benjiime&utm_medium=sidebar&utm_campaign=blogs" target="_blank">JobFork.com.au</a></h4>
-					    <p>
-						    Awesome job board for Australian developers - built by me.
-					    </p>
-				    </div>-->
+
 
 			    </aside>
 		    </div>
@@ -122,15 +119,18 @@
         </div>-->
 	</div>
 				
-	<div id="primary">
-		<div id="content">
-			{{ content }}
-		</div>				
+    <div id="primary">
+        <div id="content">
+            {{ content }}
+        </div>				
         
-		<footer>
-			<small>powered by <a href="https://github.com/code52/pretzel">pretzel</a> / <a href="https://github.com/mojombo/jekyll">jekyll</a> and living on <a href="https://github.com">github</a></small>
-		</footer>
-	</div>
+        <footer>
+            <small>powered by <a href="https://github.com/code52/pretzel">pretzel</a> / <a href="https://github.com/mojombo/jekyll">jekyll</a> and living on <a href="https://github.com">github</a></small>
+        </footer>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/velocity/0.0.22/jquery.velocity.min.js"></script>
+    <script src="/js/animate-logo.js"></script>
 
 </body>
 </html>

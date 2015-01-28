@@ -167,26 +167,34 @@ a:link { -webkit-tap-highlight-color: #FF5E99; }
  *
  */
 
+.sweetas-logo {
+  -webkit-perspective: 250px;
+  perspective: 250px;
+  display: inline-block;
+  font-family: Roboto, Impact;
+  font-size: 5em;
+  font-weight: bold;
+  text-decoration: none;
+  letter-spacing: -.05em;
+}
+.sweetas-logo span { display: inline-block; }
+.m1 { color: #EC644B; }
+.m2 { color: #bec3c9 ; }
+
 #header-wrap
 {
-	position:fixed;
-	top:0;
-	left:0;
 	color:#333;
     /*border:2px dashed #999;*/
-    border-left:0;
 }
 
 #header-wrap .panel {
 	overflow:hidden;
 	padding:10px 10px 10px 10px;
-    margin-top:40px;
-    box-shadow:0px 0px 15px rgba(0, 0, 0, 1);
+    box-shadow:0px 0px 5px rgba(0, 0, 0, 0.25);
     border-radius:0px 10px 10px 0px;
 }
 
 #header-wrap .mainHeader {
-    width:230px;
 }
 
 #header-wrap .currentPostComments {
@@ -210,6 +218,16 @@ a:link { -webkit-tap-highlight-color: #FF5E99; }
     line-height:48px;
     margin:0 0 0 10px;
 }
+
+/*#header-wrap h4
+{
+	color: #96968E;
+	font-size: 0.875em;
+	text-transform: uppercase;
+	
+	padding:0 0 5px 3px;
+	margin:0;
+}*/
 
 header h1 {
 	font-size: 3em;
@@ -243,7 +261,7 @@ header h1  a:hover {
  
 #content
 {
-	margin:63px 40px 0 80px;
+	margin:63px auto 0;
 	max-width:1100px;
 }
 
@@ -288,7 +306,6 @@ footer {
 /* CUSTOM YO */
 #primary
 {
-	margin-left:240px;
 	margin-top:10px;
     position:relative;
 }
@@ -346,31 +363,29 @@ footer {
 	padding:3px;
 }
 
-#header-wrap h4
-{
-	color: #96968E;
-	font-size: 0.875em;
-	text-transform: uppercase;
-	
-	padding:0 0 5px 3px;
-	margin:0;
-}
-
-#me {
+#me .info {
+    overflow:hidden;
+    float:left;
+    padding:10px 50px 10px 10px;
 }
 #me .grav
 {
     box-shadow:0px 0px 10px rgba(0, 0, 0, 0.75);
-    border-radius:5px;
+    border-radius:40px;
     width:80px;
     float:left;
 }
 
-#me .about
+#me .sweetas-logo
 {
-    margin-left:5px;
-    float:right;
+    margin-left:15px;
+    float:left;
 }
+
+    #me .about {
+        clear:both;
+        margin:10px 0;
+    }
 
 .short-info
 {
@@ -380,7 +395,6 @@ footer {
 #me strong
 {
 	padding:5px 0 3px 0;
-	display:block;
 }
 
 #me p
@@ -606,24 +620,28 @@ footer {
 
 .jobfork
 {
-	margin-top:10px;
 	padding:10px 0;
-	border-top:1px solid #333;
-	border-bottom:1px solid #333;
+    float:right;
 }
 
 .jobfork h4
 {
 	padding:0 !important;
+    margin:0;
 }
 
-.jobfork h4 a
+.jobfork a h4
 {
 	font-size:14px;
 	text-transform:none;
 	/*color: #AC170E;*/
-	color: #FE2215;
 }
+
+    .jobfork a img {
+        height:70px;
+        float:left;
+        margin-right: 10px;
+    }
 
 .jobfork h4 a:hover
 {
@@ -639,3 +657,4 @@ footer {
 .gist .line-numbers {
     line-height:normal;
 }
+

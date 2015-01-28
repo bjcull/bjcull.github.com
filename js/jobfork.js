@@ -37,59 +37,59 @@
     };
 })(jQuery);
 
-(function(){
-    var title = "Hey there fellow developer!";
-	var message = "You should check out <strong><a href='https://eventdebit.com/?utm_source=benjiime&utm_medium=flash&utm_campaign=blogs' target='_blank'>EventDebit.com</a></strong> - my new website for custom forms and payments";
+//(function(){
+//    var title = "Hey there fellow developer!";
+//	var message = "You should check out <strong><a href='https://www.skycollect.com/?utm_source=benjiime&utm_medium=flash&utm_campaign=blogs' target='_blank'>www.skycollect.com</a></strong> - my new website for automatically chasing overdue invoices";
 	
-	function showAlert() {
-		//todo check close cookie
+//	function showAlert() {
+//		//todo check close cookie
 		
-		if(!$.cookie('jobfork_closed')) {		
-			var bar = "<div class='messagebar'><span class='title'>" + title + "</span><span class='message'>" + message + "</span><a class='close-message'>X</a></div>";
-			$("body").prepend(bar);
+//		if(!$.cookie('jobfork_closed')) {		
+//			var bar = "<div class='messagebar'><span class='title'>" + title + "</span><span class='message'>" + message + "</span><a class='close-message'>X</a></div>";
+//			$("body").prepend(bar);
 			
-			bindAlertEvents();
-		}
-	}
+//			bindAlertEvents();
+//		}
+//	}
 	
-	function bindAlertEvents() {
-		$(".close-message").click(function () {
-			$.cookie('jobfork_closed', 'true', { expires: 60, path: '/' });
+//	function bindAlertEvents() {
+//		$(".close-message").click(function () {
+//			$.cookie('jobfork_closed', 'true', { expires: 60, path: '/' });
 			
-			$(this).parent().animate({
-				height: 0,
-				opacity:0
-			}, 150);
-			$("body").animate({
-				"paddingTop" :0
-			}, 150);
-		});
+//			$(this).parent().animate({
+//				height: 0,
+//				opacity:0
+//			}, 150);
+//			$("body").animate({
+//				"paddingTop" :0
+//			}, 150);
+//		});
 
-		$(".messagebar").animate({
-			height: 30,
-			opacity:100
-		}, 150);
+//		$(".messagebar").animate({
+//			height: 30,
+//			opacity:100
+//		}, 150);
 
-	}
+//	}
 	
-	function getCountry() {
-		if($.cookie('country')) {
-			if($.cookie('country') === "AU") 
-				showAlert();
-		} else {
-			$.getJSON( "http://smart-ip.net/geoip-json?callback=?",
-				function(data){
-					$.cookie('country', data.countryCode, { expires: 30, path: '/' });
+//	function getCountry() {
+//		if($.cookie('country')) {
+//			if($.cookie('country') === "AU") 
+//				showAlert();
+//		} else {
+//			$.getJSON( "http://smart-ip.net/geoip-json?callback=?",
+//				function(data){
+//					$.cookie('country', data.countryCode, { expires: 30, path: '/' });
 				
-					if(data.countryCode === "AU") 
-						showAlert();
-				}
-			);
-		}
-	}
+//					if(data.countryCode === "AU") 
+//						showAlert();
+//				}
+//			);
+//		}
+//	}
 	
-	$(function(){
-		showAlert();
-	});
+//	$(function(){
+//		showAlert();
+//	});
 	
-})();
+//})();
