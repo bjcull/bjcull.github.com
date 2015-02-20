@@ -47,6 +47,6 @@ To Summarize:
 
 ## What's with the video?
 
-Notice how the video seemed to be aimed at a few people I named, and not the wider internet? That's becuase this is a "Done" video that I'd like to share with you all. It's something you create when you finish a task and would like to convey what you've done to your fellow developers, and more importantly your product owner. See the following SSW Rule for more information: [Do you go beyond 'Done' and follow a 'Definition of Done'?](http://rules.ssw.com.au/Management/RulesToSuccessfulProjects/Pages/Done-DefinitionOfDone.aspx)
+Notice how the video seemed to be aimed at a few people I named, and not the wider internet? That's because this is a "Done" video that I'd like to share with you all. It's something you create when you finish a task and would like to convey what you've done to your fellow developers, and more importantly your product owner. See the following SSW Rule for more information: [Do you go beyond 'Done' and follow a 'Definition of Done'?](http://rules.ssw.com.au/Management/RulesToSuccessfulProjects/Pages/Done-DefinitionOfDone.aspx)
 
 For more great Scrum tips see [SSW's Rules to Better Scrum](http://rules.ssw.com.au/Management/RulesToBetterScrumUsingTFS/Pages/Default.aspx)
