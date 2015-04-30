@@ -47,7 +47,9 @@ Here I'm adding `127.0.0.1       mycustomdomain.com`
 
 *Figure: Adding the line to my hosts file*
 
-Lastly, update your iisexpress config with the new bindings. You can usually find your IISExpress Application config here: C:\Users\YOUR_USERNAME\Documents\IISExpress\config\applicationhost.config
+Lastly, update your iisexpress config with the new bindings. You can usually find your IISExpress Application config here: `C:\Users\YOUR_USERNAME\Documents\IISExpress\config\applicationhost.config`
+
+**Update 2015-04-30** As of Visual Studio 2015 your applicationhost.config can now be found inside your solution folder: `~\.vs\config\applicationhost.config`
 
 **Important: Make a backup of your config file. You can really screw things here.**
 
