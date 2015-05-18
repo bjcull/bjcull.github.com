@@ -263,6 +263,7 @@ header h1  a:hover {
 {
 	margin:63px auto 0;
 	max-width:1100px;
+    padding:0 20px;
 }
 
 #archive
@@ -306,7 +307,6 @@ footer {
 /* CUSTOM YO */
 #primary
 {
-	margin-top:10px;
     position:relative;
 }
 
@@ -618,43 +618,91 @@ footer {
 	text-decoration:underline;
 }
 
-.jobfork
-{
-	padding:10px 0;
-    float:right;
+.more-header {
+    margin-top:23px;
 }
 
-.jobfork h4
+    .more-header .about {
+        display:inline-block;
+    }
+
+.product-update
+{
+    overflow:hidden;
+    clear:both;
+    box-shadow: 0px 0px 35px 10px rgba(0, 0, 0, 0.25);
+    padding:5px 20px;
+}
+
+    .product-update .product-content {
+	    margin:0 auto 0;
+	    max-width:1100px;
+        border-bottom:1px dashed #ddd;
+        overflow:hidden;
+        padding:5px 0;
+    }
+    .product-update .product-content:last-child {
+        border-bottom:0;
+    }
+
+    .product-update .link-content {
+        overflow:hidden;
+        float:left;
+        min-width:500px;
+    }
+
+    .product-update .update-content {
+        overflow:hidden;
+        float:right;
+    }
+
+    .product-update .update-content h4 {
+        line-height:70px;
+    }
+
+.product-update h4
 {
 	padding:0 !important;
     margin:0;
 }
 
-.jobfork a h4
+.product-update a h4
 {
 	font-size:14px;
 	text-transform:none;
+    margin-top:16px;
 	/*color: #AC170E;*/
 }
 
-    .jobfork a img {
+    .product-update a img {
         height:70px;
         float:left;
         margin-right: 10px;
     }
+    .product-update a img.round {
+        border-radius:35px;
+    }
 
-.jobfork h4 a:hover
+    .product-update a p {
+        font-size: 12px !important;
+        color:#999;
+    }
+
+.product-update h4 a:hover
 {
 	color: #FE2215;
 	text-decoration: underline;
 }
 
-.jobfork p 
-{
-	font-size:12px !important;
-}
 
 .gist .line-numbers {
     line-height:normal;
 }
 
+
+@media screen and (max-width: 800px) 
+{
+    .sweetas-logo {
+        font-size:2em;
+    }
+}
