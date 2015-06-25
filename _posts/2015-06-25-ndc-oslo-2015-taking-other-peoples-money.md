@@ -1,6 +1,6 @@
 ---
 title: NDC Oslo 2015 - Taking Other People's Money
-date: 2015-05-20
+date: 2015-06-25
 layout: post
 published: true
 ---
