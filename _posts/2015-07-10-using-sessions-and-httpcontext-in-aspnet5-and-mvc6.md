@@ -49,7 +49,7 @@ Next, we'll tell OWIN to use a Memory Cache to store the session data. Add the `
     });
 
 ## Where's the Session variable gone?  
-Relax it's still there, just not where you think it is. You can now find the seesion object by using `Context.Session`. Context is just the current HttpContext exposed to you by the Controller class.
+Relax it's still there, just not where you think it is. You can now find the session object by using `Context.Session`. Context is just the current HttpContext exposed to you by the Controller class.
 
 If you're not in a controller, you can still access the HttpContext by injecting `IHttpContextAccessor`.
 
@@ -127,11 +127,11 @@ I've got you covered here too. Here's a quick JSON storage extension to let you 
 Now you can store your complex objects like so:
 
     var myComplexObject = new MyClass();
-    _session.SetObjectAsJson("Test", myComplexObject);
+    Context.Session.SetObjectAsJson("Test", myComplexObject);
 
 and retrieve them just as easily:
 
-    var myComplexObject = _session.GetObjectFromJson<MyClass>("Test");
+    var myComplexObject = Context.Session.GetObjectFromJson<MyClass>("Test");
 
 
 Since the API's are still in beta at the time of writing, you should keep an eye on the [ASP.NET Session Repository](https://github.com/aspnet/Session) for any changes.
