@@ -49,29 +49,50 @@ Next, we'll tell OWIN to use a Memory Cache to store the session data. Add the `
     });
 
 ## Where's the Session variable gone?  
-Controllers no longer have an exposed property for Session. You now have to use dependency injection to get at the Session object. Let's add it to our Home Controller. You may also notice that this is the correct way to access the HttpContext, regardless of what type of web server you're running.
+Relax it's still there, just not where you think it is. You can now find the seesion object by using `Context.Session`. Context is just the current HttpContext exposed to you by the Controller class.
+
+If you're not in a controller, you can still access the HttpContext by injecting `IHttpContextAccessor`.
+
+Let's go ahead and add sessions to our Home Controller:
 
     public class HomeController : Controller
     {
-        private readonly IHttpContextAccessor _httpContextAccessor;
-        private ISessionCollection _session => _httpContextAccessor.HttpContext.Session;
-
-        public HomeController(IHttpContextAccessor httpContextAccessor)
-        {
-            _httpContextAccessor = httpContextAccessor;
-        }
-
         public IActionResult Index()
-        {
-            _session.SetString("Test", "Ben Rules!");
+        { 
+            Context.Session.SetString("Test", "Ben Rules!");
             return View();
         }
 
         public IActionResult About()
         {
-            ViewBag.Message = _session.GetString("Test");
+            ViewBag.Message = Context.Session.GetString("Test");
 
             return View();
+        }
+    }
+
+You'll see the `Index()` and `About()` methods making use of the Session object. It's pretty easy here, just use one of the `Set()` methods to store your data and one of the `Get()` methods to retrieve it.
+
+Just for fun, let's inject the context into a random class:
+
+    public class SomeOtherClass
+    {
+        private readonly IHttpContextAccessor _httpContextAccessor;
+        private ISessionCollection _session => _httpContextAccessor.HttpContext.Session;
+
+        public SomeOtherClass(IHttpContextAccessor httpContextAccessor)
+        {
+            _httpContextAccessor = httpContextAccessor;
+        }
+
+        public void TestSet()
+        {
+            _session.SetString("Test", "Ben Rules!");
+        }
+
+        public void TestGet()
+        {
+            var message = _session.GetString("Test");
         }
     }
 
@@ -83,7 +104,7 @@ Next I'm adding a convenience variable as a shortcut directly to the session. No
 
 Moving to the contructor you can see that I'm injecting the IHttpContextAccessor and assigning it to my private variable. If you're not sure about this whole dependency injection thing, don't worry, it's not hard to get the hang of (especially constructor injection like I'm using here) and it will improve your code by forcing you to write it in a modular way.
 
-Next you'll see the `Index()` and `About()` methods making use of the Session object. It's pretty easy here, just use one of the `Set()` methods to store your data. But wait a minute, how do I store a complex object?
+But wait a minute, how do I store a complex object?
 
 ## How do I store a complex object?  
 I've got you covered here too. Here's a quick JSON storage extension to let you store complex objects nice and simple.
