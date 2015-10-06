@@ -1,6 +1,6 @@
 ---
 layout : layout
-title : Benjii.Me
+title : Ben Cull's Blog
 ---
 
 <ul id="archive">
