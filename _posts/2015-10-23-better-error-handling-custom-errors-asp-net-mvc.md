@@ -26,7 +26,7 @@ I achieve this by creating a new GUID and simply adding it to the properties of 
 
     // Track Exception with Reference
     var exceptionReferenceGuid = Guid.NewGuid().ToString();
-    telemetryClient.TrackException(filterContext.Exception, new Dictionary<string, string> {{"exceptionReference", exceptionReferenceGuid}});
+    telemetryClient.TrackException(filterContext.Exception, new Dictionary<string, string> { {"exceptionReference", exceptionReferenceGuid} });
 
 Please note that `telemetryClient` is an instance of `Microsoft.ApplicationInsights.TelemetryClient`. See [Getting Started with Application Insights](https://azure.microsoft.com/en-us/documentation/articles/app-insights-start-monitoring-app-health-usage/) for more information about setting yourself up.
 
