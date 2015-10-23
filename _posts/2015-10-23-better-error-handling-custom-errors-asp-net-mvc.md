@@ -7,7 +7,9 @@ published: true
 
 Improve your Error Handling and Custom Errors screen in one fell swoop by using the SSW.ErrorHandler nuget package for ASP.NET MVC websites.
 
-[SSW.ErrorHandler on Nuget](https://www.nuget.org/packages/SSW.ErrorHandler/)
+Get it here: [SSW.ErrorHandler on Nuget](https://www.nuget.org/packages/SSW.ErrorHandler/)
+
+In this video I also show you how to trace your exceptions using a reference in Application Insights.
 
 <iframe width="560" height="315" src="//www.youtube.com/embed/OhVYTOKCsWI" frameborder="0" allowfullscreen="allowfullscreen">&nbsp;</iframe>
 
