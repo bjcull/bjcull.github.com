@@ -52,6 +52,7 @@ Next, let's build our services container and tell ASP.NET to use it.
     }
     
 Let's break down what's happening here:
+
  - You have to change the return type from `void` to `IServiceProvider`. This lets ASP.NET know to use your container instead of the built in one.
  - Entity Framework, Identity and MVC are added using the built in methods. Note that the context is set up as `InstancePerRequest` for you.
  - I've left the transient email and sms sender services there just to show you that you can mix the built-in container and your own. (Thanks to builder.Populate).
