@@ -104,11 +104,11 @@ Finally we can access our settings from within our controllers. We'll be using d
     
 There are a few important things to note here:  
 
-The class were are injecting is of type `IOptions<AppSettings>`. If you try to inject AppSettings directly it wont work. 
+The class we are injecting is of type `IOptions<AppSettings>`. If you try to inject AppSettings directly it won't work. 
 
 Instead of using the IOptions class throughout the code, instead I set the private variable to just AppSettings and assign it in the constructor using the `.Value` property of the IOptions class.
 
-The IOptions<AppSettings> class is essentially a singleton. The instance we create during startup is the same throughout the lifetime of the application.
+By the way, the IOptions<AppSettings> class is essentially a singleton. The instance we create during startup is the same throughout the lifetime of the application.
 
 While this is a lot more setup than the old way of doing things, I think it forces developers to code in a cleaner and more modular way.
 
