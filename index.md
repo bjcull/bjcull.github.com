@@ -3,6 +3,17 @@ layout : layout
 title : Ben Cull's Blog
 ---
 
+<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<!-- Above Blog Post -->
+<ins class="adsbygoogle"
+     style="display:block"
+     data-ad-client="ca-pub-9830260905637575"
+     data-ad-slot="6090557647"
+     data-ad-format="auto"></ins>
+<script>
+(adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+
 <ul id="archive">
     {% for post in site.posts %}
 		<li>
