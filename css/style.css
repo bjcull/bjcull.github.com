@@ -31,7 +31,7 @@ blockquote, q { quotes:none; }
 blockquote:before, blockquote:after,
 q:before, q:after { content:''; content:none; }
 a { margin:0; padding:0; font-size:100%; vertical-align:baseline; background:transparent; }
-ins { background-color:#ff9; color:#000; text-decoration:none; }
+ins { background-color:#fff; color:#000; text-decoration:none; }
 mark { background-color:#ff9; color:#000; font-style:italic; font-weight:bold; }
 del { text-decoration: line-through; }
 abbr[title], dfn[title] { border-bottom:1px dotted; cursor:help; }
@@ -179,7 +179,8 @@ a:link { -webkit-tap-highlight-color: #FF5E99; }
 }
 .sweetas-logo span { display: inline-block; }
 .m1 { color: #EC644B; }
-.m2 { color: #bec3c9 ; }
+.m2 { color: #bec3c9 ; }
+
 
 #header-wrap
 {
@@ -259,9 +260,13 @@ header h1  a:hover {
  *
  */
  
+ .ad
+ {
+    margin:10px 0 20px 0;
+ }
 #content
 {
-	margin:63px auto 0;
+	margin:10px auto 0;
 	max-width:1100px;
     padding:0 20px;
 }
