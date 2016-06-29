@@ -7,6 +7,8 @@ published: true
 
 Entity Framework migrations for ASP.NET Core are a little different. Here are the basic commands and a workaround to get Entity Framework migrations working for a Class Libary project.
 
+**UPDATE 2016-06-29:** ASP.NET Core 1.0.0 RTM also has this bug so you'll need this workaround for the forseeable future. You can find my RTM specific workaround here: [Entity Framework Core Migrations for Class Library Projects](http://benjii.me/2016/06/entity-framework-core-migrations-for-class-library-projects/) 
+
 The Class Library problem currently affects ASP.NET Core RC2, but I'll update the post until migrations are working as expected.
 
 ## The Basic Commands  
