@@ -11,38 +11,38 @@ Ever wonder why the angular-cli creates those index.ts files and shared folders?
 A barrel is a way of wrapping up a bunch of modules into a single module that the rest of your application can reference instead. It helps consolidate your imports into something a lot more readable. 
 
 It's how you turn this:
-```
-import {TransfersComponent} from './transfers/transfers.component';
-import {TransfersService} from './transfers/transfers.service';
-import {TransferDetailComponent} from './transfers/transfer-detail.component';
-```
+
+    import {TransfersComponent} from './transfers/transfers.component';
+    import {TransfersService} from './transfers/transfers.service';
+    import {TransferDetailComponent} from './transfers/transfer-detail.component';
+
 
 Into this:
-```
-import { TransfersComponent, TransfersService, TransferDetailComponent } from './transfers';
-```
+
+    import { TransfersComponent, TransfersService, TransferDetailComponent } from './transfers';
+
 
 ## Create a Barrel manually  
 Let's take a look at an example from a real application of mine.
 
 **\src\app\app.component.ts**
-```
-import {HeaderComponent} from './header/header.component';
-import {SidebarComponent} from './sidebar/sidebar.component';
-import {PayersComponent} from './payers/payers.component';
-import {PayerDetailComponent} from './payers/payer-detail.component';
-import {PayersService} from './payers/payers.service';
-import {PaymentsService} from './payments/payments.service';
-import {UserSettingsComponent} from './profile/user-settings.component';
-import {MerchantSettingsComponent} from './profile/merchant-settings.component';
-import {ApiKeysComponent} from './profile/api-keys.component';
-import {AuthenticatedHttpService} from './auth/authenticated-http.service';
-import {UserService} from './profile/user.service';
-import {PaymentsComponent} from './payments/payments.component';
-import {TransfersComponent} from './transfers/transfers.component';
-import {TransfersService} from './transfers/transfers.service';
-import {TransferDetailComponent} from './transfers/transfer-detail.component';
-``` 
+
+    import {HeaderComponent} from './header/header.component';
+    import {SidebarComponent} from './sidebar/sidebar.component';
+    import {PayersComponent} from './payers/payers.component';
+    import {PayerDetailComponent} from './payers/payer-detail.component';
+    import {PayersService} from './payers/payers.service';
+    import {PaymentsService} from './payments/payments.service';
+    import {UserSettingsComponent} from './profile/user-settings.component';
+    import {MerchantSettingsComponent} from './profile/merchant-settings.component';
+    import {ApiKeysComponent} from './profile/api-keys.component';
+    import {AuthenticatedHttpService} from './auth/authenticated-http.service';
+    import {UserService} from './profile/user.service';
+    import {PaymentsComponent} from './payments/payments.component';
+    import {TransfersComponent} from './transfers/transfers.component';
+    import {TransfersService} from './transfers/transfers.service';
+    import {TransferDetailComponent} from './transfers/transfer-detail.component';
+ 
 
 Here you can see that my app component references a whole bunch of my applications components individually. We want to reduce the number of imports. Let's start by focussing in on just the transfers feature, which is the last three lines from above.
 
@@ -57,32 +57,32 @@ To add our Barrel, we simply add an `index.ts` to the folder.
 **Figure: Now with added index.ts**
 
 **\src\app\transfers\index.ts**
-```
-export * from './transfers.service';
-export * from './transfer-detail.component';
-export * from './transfers.component';
-```
+
+    export * from './transfers.service';
+    export * from './transfer-detail.component';
+    export * from './transfers.component';
+
 
 We then fill it with everything we want to export. Once this is done we can update our original app.component with a consolidated version of our imports. Here's what it looks like once I added barrels to each component.
 
 **\src\app\app.component.ts**
-```
-import {HeaderComponent} from './header/header.component';
-import {SidebarComponent} from './sidebar/sidebar.component';
-import {PayersComponent, PayerDetailComponent, PayerDetailComponent} from './payers';
-import {UserSettingsComponent, MerchantSettingsComponent, ApiKeysComponent, UserService} from './profile';
-import {AuthenticatedHttpService} from './auth';
-import {PaymentsService, PaymentsComponent} from './payments';
-import {TransfersComponent, TransfersService, TransferDetailComponent} from './transfers';
-```
+
+    import {HeaderComponent} from './header/header.component';
+    import {SidebarComponent} from './sidebar/sidebar.component';
+    import {PayersComponent, PayerDetailComponent, PayerDetailComponent} from './payers';
+    import {UserSettingsComponent, MerchantSettingsComponent, ApiKeysComponent, UserService} from './profile';
+    import {AuthenticatedHttpService} from './auth';
+    import {PaymentsService, PaymentsComponent} from './payments';
+    import {TransfersComponent, TransfersService, TransferDetailComponent} from './transfers';
+
 
 ## What about the shared folder?  
 The shared folder takes the concept one step futher by consolidating all of the shared resources within an individual feature. Let's use the transfers feature again as an example.
 
 We use the `transfers.service.ts` service in both of our transfers components, referenced like so:
-```
-import {ITransfer, TransfersService} from './transfers.service';
-``` 
+
+    import {ITransfer, TransfersService} from './transfers.service';
+ 
 
 As per the [style guide for shared resources](https://angular.io/docs/ts/latest/guide/style-guide.html#!#04-07) we should put our service (and any other shared resources) into a shared folder. Let's update our folder structure now.
 
@@ -92,29 +92,29 @@ As per the [style guide for shared resources](https://angular.io/docs/ts/latest/
 Here I've moved the service into the shared folder and I've also separated out my models into their own file to reduce clutter in my service file. I've also added a barrel to the shared folder as well. Let's look at the code.
 
 **\src\app\transfers\shared\index.ts**
-```
-export * from './transfers.service';
-export * from './transfers.models';
-```
+
+    export * from './transfers.service';
+    export * from './transfers.models';
+
 
 Now in my transfer component I can import any shared resource by using:
-```
-import {ITransfer, ITransferDetails, TransfersService} from './shared';
-```
+
+    import {ITransfer, ITransferDetails, TransfersService} from './shared';
+
 
 The only remaining thing to do is update our transfers barrel from:
-```
-export * from './transfers.service';
-export * from './transfer-detail.component';
-export * from './transfers.component';
-``` 
+
+    export * from './transfers.service';
+    export * from './transfer-detail.component';
+    export * from './transfers.component';
+ 
 
 to:
-```
-export * from './shared';
-export * from './transfer-detail.component';
-export * from './transfers.component';
-```
+
+    export * from './shared';
+    export * from './transfer-detail.component';
+    export * from './transfers.component';
+
 
 Don't worry, the top level app.component imports remain the same.
 
