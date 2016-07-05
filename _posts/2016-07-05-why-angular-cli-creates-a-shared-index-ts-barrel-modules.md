@@ -99,10 +99,14 @@ Here I've moved the service into the shared folder and I've also separated out m
 
 Now in my transfer component I can import any shared resource by using:
 
+**\src\app\transfers\transfers.component.ts**
+
     import {ITransfer, ITransferDetails, TransfersService} from './shared';
 
 
 The only remaining thing to do is update our transfers barrel from:
+
+**\src\app\transfers\index.ts**
 
     export * from './transfers.service';
     export * from './transfer-detail.component';
