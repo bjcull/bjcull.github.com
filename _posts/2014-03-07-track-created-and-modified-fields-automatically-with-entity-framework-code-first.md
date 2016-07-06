@@ -7,7 +7,7 @@ published: true
 
 Keep track of when your entities change automatically, by implementing a couple of quick changes.
 
-**UPDATE 2016-07-07:** Now includes async methods and improved null checking thanks to [Tymek Mejewski](https://www.linkedin.com/in/tymekm).
+**UPDATE 2016-07-07:** Now includes async methods and improved null checking thanks to [Tymek Majewski](https://www.linkedin.com/in/tymekm).
 
 ## Add fields using a Base Entity
 We'll add the `DateCreated`, `UserCreated`, `DateModified` and `UserModified` fields to each entity by creating a `BaseEntity.cs` class. Each entity that you want to contain these fields should inherit this class.
