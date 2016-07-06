@@ -7,6 +7,8 @@ published: true
 
 Keep track of when your entities change automatically, by implementing a couple of quick changes.
 
+**UPDATE 2016-07-07:** Now includes async methods and improved null checking thanks to [Tymek Mejewski](https://www.linkedin.com/in/tymekm).
+
 ## Add fields using a Base Entity
 We'll add the `DateCreated`, `UserCreated`, `DateModified` and `UserModified` fields to each entity by creating a `BaseEntity.cs` class. Each entity that you want to contain these fields should inherit this class.
 
@@ -35,9 +37,21 @@ In this step we'll intercept entites as they are saved and update their created 
 
         public override int SaveChanges()
         {
+            AddTimestamps();
+            return base.SaveChanges();
+        }
+ 
+        public override async Task<int> SaveChangesAsync()
+        {
+            AddTimestamps();
+            return await base.SaveChangesAsync();
+        }
+
+        private void AddTimestamps()
+        {
             var entities = ChangeTracker.Entries().Where(x => x.Entity is BaseEntity && (x.State == EntityState.Added || x.State == EntityState.Modified));
 
-            var currentUsername = HttpContext.Current != null && HttpContext.Current.User != null
+            var currentUsername = !string.IsNullOrEmpty(System.Web.HttpContext.Current?.User?.Identity?.Name)
                 ? HttpContext.Current.User.Identity.Name
                 : "Anonymous";
 
@@ -45,15 +59,13 @@ In this step we'll intercept entites as they are saved and update their created 
             {
                 if (entity.State == EntityState.Added)
                 {
-                    ((BaseEntity)entity.Entity).DateCreated = DateTime.Now;
+                    ((BaseEntity)entity.Entity).DateCreated = DateTime.UtcNow;
                     ((BaseEntity)entity.Entity).UserCreated = currentUsername;
                 }
 
-                ((BaseEntity)entity.Entity).DateModified = DateTime.Now;
+                ((BaseEntity)entity.Entity).DateModified = DateTime.UtcNow;
                 ((BaseEntity)entity.Entity).UserModified = currentUsername;
             }
-
-            return base.SaveChanges();
         }
     }
 
