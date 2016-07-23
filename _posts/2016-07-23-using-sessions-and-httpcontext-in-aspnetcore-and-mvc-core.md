@@ -1,42 +1,28 @@
 ---
-title: Using Sessions and HttpContext in ASP.NET 5 and MVC6
-date: 2015-07-10
+title: Using Sessions and HttpContext in ASP.NET Core and MVC Core
+date: 2016-07-23
 layout: post
 published: true
 ---
 
-If you've started work on a new ASP.NET 5, MVC 6 application you may have noticed that Sessions don't quite work the way they did before. Here's how to get up and running the new way.
-
-**UPDATE: 2016-07-23 - ASP.NET Core 1.0**  
-Sessions have changed again for ASP.NET Core 1.0 RTM. This post is still super useful for anyone migrating an old project, or still working on any of the betas or RC1, but for the latest you should go to my updated post: [Using Sessions and HttpContext in ASP.NET Core and MVC Core](http://benjii.me/2016/07/using-sessions-and-httpcontext-in-aspnetcore-and-mvc-core/).  
-
-**UPDATE: 2015-11-05 - Beta8**  
-I've updated this post to suit beta8. I keep these beta posts up to date, but if you find something that doesn't work, be sure to use the links at the bottom for more information.
-
-## Remove DNX Core Reference  
-Many simple ASP.NET components aren't supported by the DNX Core Runtime. These usually surface with weird build errors. It's much easier to just remove it from your `project.json` file. If it's already not there, beautiful you don't need to do anything :)
-
-    "frameworks": {
-        "dnx451": { },
-        "dnxcore50": { } // <-- Remove this line
-    },
+If you're new to ASP.NET Core or MVC Core, you'll find that sessions don't work the way they used to. Here's how to get up and running the new way.
 
 ## Add Session NuGet Package  
-Add the `Microsoft.AspNet.Session` NuGet package to your project.
+Add the `Microsoft.AspNetCore.Session` NuGet package to your project.
 
-**VERSION WARNING:** If you're using ASP.NET 5 before RTM, make sure the beta version is the same across your whole project. Just look at your references and make sure they all end with beta8 (or whichever version you're using).
+**VERSION WARNING:** As you'll find with most Microsoft.* packages, you should make sure the versions all match. At RTM time as of writing, this means "1.0.0".
 
 ## Update startup.cs  
-Now that we have the Session nuget package installed, we can add sessions to the OWIN pipline.
+Now that we have the Session nuget package installed, we can add sessions to the ASP.NET Core pipeline.
 
-Open up `startup.cs` and add the `AddSession()` and `AddCaching()` lines to the `ConfigureServices(IServiceCollection services)`
+Open up `startup.cs` and add the `AddSession()` and `AddDistributedMemoryCache()` lines to the `ConfigureServices(IServiceCollection services)`
 
     // Add MVC services to the services container.
     services.AddMvc();
-    services.AddCaching(); // Adds a default in-memory implementation of IDistributedCache
+    services.AddDistributedMemoryCache(); // Adds a default in-memory implementation of IDistributedCache
     services.AddSession();
 
-Next, we'll tell OWIN to use a Memory Cache to store the session data. Add the `UseSession()` call below.
+Next, we'll tell ASP.NET Core to use a Memory Cache to store the session data. Add the `UseSession()` call below to the `Configure(IApplicationBulider app, ...)`
 
     // IMPORTANT: This session call MUST go before UseMvc()
     app.UseSession();
@@ -46,12 +32,9 @@ Next, we'll tell OWIN to use a Memory Cache to store the session data. Add the `
     {
         routes.MapRoute(
             name: "default",
-            template: "{controller}/{action}/{id?}",
-            defaults: new { controller = "Home", action = "Index" });
-
-        // Uncomment the following line to add a route for porting Web API 2 controllers.
-        // routes.MapWebApiRoute("DefaultApi", "api/{controller}/{id?}");
+            template: "{controller=Home}/{action=Index}/{id?}");
     });
+
 
 ## Where's the Session variable gone?  
 Relax it's still there, just not where you think it is. You can now find the session object by using `HttpContext.Session`. HttpContext is just the current HttpContext exposed to you by the Controller class.
@@ -59,6 +42,8 @@ Relax it's still there, just not where you think it is. You can now find the ses
 If you're not in a controller, you can still access the HttpContext by injecting `IHttpContextAccessor`.
 
 Let's go ahead and add sessions to our Home Controller:
+    
+    using Microsoft.AspNetCore.Http; // Needed for the SetString and GetString extension methods
 
     public class HomeController : Controller
     {
@@ -140,12 +125,12 @@ and retrieve them just as easily:
 
 
 ## Use a Redis or SQL Server Cache instead  
-Instead of using `services.AddCaching()` which implements the default in-memory cache, you can use either of the following.
+Instead of using `services.AddDistributedMemoryCache()` which implements the default in-memory cache, you can use either of the following.
 
-Firstly, install either one of these nuget packages:
+**SQL Server**  
+Firstly, install this nuget package:
 
- * `Microsoft.Framework.Caching.SqlServer`
- * `Microsoft.Framework.Caching.Redis` 
+ * `"Microsoft.Extensions.Caching.SqlServer": "1.0.0"`
 
 Secondly, add the appropriate code snippet below:
 
@@ -158,12 +143,15 @@ Secondly, add the appropriate code snippet below:
 		o.TableName = "Sessions";
 	});
 
-&nbsp;
+**Redis Cache**
+Unfortunately, the redis package does not support `netcoreapp1.0` at the moment. You can still use this if you're using `net451` or higher.
+
+ * `"Microsoft.Extensions.Caching.Redis": "1.0.0"`
 
 	// Redis implementation of IDistributedCache.
 	// This will override any previously registered IDistributedCache service.
 	services.AddSingleton<IDistributedCache, RedisCache>();
 
 ## Stay up to date
-Since the API's are still in beta at the time of writing, you should keep an eye on the [ASP.NET Session Repository](https://github.com/aspnet/Session) for any changes.
+Even though we've reached RTM, you should still keep an eye on the [ASP.NET Session Repository](https://github.com/aspnet/Session) for any changes.
 Here's a [direct link to the Sample code](https://github.com/aspnet/Session/blob/dev/samples/SessionSample/Startup.cs).
