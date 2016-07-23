@@ -148,8 +148,10 @@ Unfortunately, the redis package does not support `netcoreapp1.0` at the moment.
 
  * `"Microsoft.Extensions.Caching.Redis": "1.0.0"`
 
-	// Redis implementation of IDistributedCache.
-	// This will override any previously registered IDistributedCache service.
+&nbsp;
+
+    // Redis implementation of IDistributedCache.
+    // This will override any previously registered IDistributedCache service.
 	services.AddSingleton<IDistributedCache, RedisCache>();
 
 ## Stay up to date
