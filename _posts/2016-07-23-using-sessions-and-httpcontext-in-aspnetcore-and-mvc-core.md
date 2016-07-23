@@ -143,7 +143,7 @@ Secondly, add the appropriate code snippet below:
 		o.TableName = "Sessions";
 	});
 
-**Redis Cache**
+**Redis Cache**  
 Unfortunately, the redis package does not support `netcoreapp1.0` at the moment. You can still use this if you're using `net451` or higher.
 
  * `"Microsoft.Extensions.Caching.Redis": "1.0.0"`
