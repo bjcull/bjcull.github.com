@@ -7,7 +7,7 @@ published: true
 
 Get wizard style navigations tabs by adding this small bit of CSS to your project.
 
-**UPDATE 2016-09-27**: Thanks to Shaheen T for a great CSS update. The HTML syntax is now super simple. Just use your bootstrap pills navigation.
+**UPDATE 2016-09-27**: Thanks to [Talal Alenizi](https://twitter.com/Talal_AlEnizi) for a great CSS update. The HTML syntax is now super simple. Just use your bootstrap pills navigation.
 
 ## Demo
 
