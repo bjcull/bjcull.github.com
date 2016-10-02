@@ -29,6 +29,7 @@ Here is what you need to put into your `startup.cs` to get your Angular 2 app se
                 if (context.Response.StatusCode == 404 && !Path.HasExtension(context.Request.Path.Value))
                 {
                     context.Request.Path = "/app/index.html"; // Put your Angular root page here 
+                    context.Response.StatusCode = 200; // Make sure we update the status code, otherwise it returns 404
                     await next();
                 }
             });
