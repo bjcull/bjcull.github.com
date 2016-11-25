@@ -51,31 +51,23 @@ Jason Bell - URL Rewriting behind a load balancer - No link
 
 ## Get to the guts
 
-Ben's Magic Number - https://news.ycombinator.com/item?id=13011374
+[Ben's Magic Number](https://news.ycombinator.com/item?id=13011374) [Youtube timestamp](https://youtu.be/ImFTzxmCPkc?list=PL0M0zPgJ3HSftTAAHttA3JQU4vOjXFquF&t=2381)  
+
  - Uses a magic number to find appropriate bytes. Improved kestrel performance by 250,000 requests a second.
  - Pull request took months to merge, active discussion, good pull requests collaborate and aren't in a hurry.
 
-[Youtube timestamp](https://youtu.be/ImFTzxmCPkc?list=PL0M0zPgJ3HSftTAAHttA3JQU4vOjXFquF&t=2381)
+Versions are crazy, preview 3 for .net core, for vs2017 RC (MS Build tooling). Alpha quality. [Youtube timestamp](https://youtu.be/ImFTzxmCPkc?list=PL0M0zPgJ3HSftTAAHttA3JQU4vOjXFquF&t=2959)
 
-Versions are crazy, preview 3 for .net core, for vs2017 RC (MS Build tooling). Alpha quality.  
-[Youtube timestamp](https://youtu.be/ImFTzxmCPkc?list=PL0M0zPgJ3HSftTAAHttA3JQU4vOjXFquF&t=2959)
+Damian updated live.asp.net and live streamed it. Admits to sucking at coding :) [Youtube timestamp](https://youtu.be/ImFTzxmCPkc?list=PL0M0zPgJ3HSftTAAHttA3JQU4vOjXFquF&t=3052)
 
-Damian updated live.asp.net and live streamed it. Admits to sucking at coding :)  
-[Youtube timestamp](https://youtu.be/ImFTzxmCPkc?list=PL0M0zPgJ3HSftTAAHttA3JQU4vOjXFquF&t=3052)
-
-.NET Website Downloads are confusing.  
-[Youtube timestamp](https://youtu.be/ImFTzxmCPkc?list=PL0M0zPgJ3HSftTAAHttA3JQU4vOjXFquF&t=3200)
+.NET Website Downloads are confusing. [Youtube timestamp](https://youtu.be/ImFTzxmCPkc?list=PL0M0zPgJ3HSftTAAHttA3JQU4vOjXFquF&t=3200)
 
 ## Questions
 
-Difference bwtween .NET Core runtime and SDK - Devs need SDK. Servers need runtime (dotnet.exe)  
-[Youtube timestamp](https://youtu.be/ImFTzxmCPkc?list=PL0M0zPgJ3HSftTAAHttA3JQU4vOjXFquF&t=3446)
+Difference bwtween .NET Core runtime and SDK - Devs need SDK. Servers need runtime (dotnet.exe) [Youtube timestamp](https://youtu.be/ImFTzxmCPkc?list=PL0M0zPgJ3HSftTAAHttA3JQU4vOjXFquF&t=3446)
 
-A lot of Azure SDKs haven't moved to .NET Core. Don't worry they're coming.  
-[Youtube timestamp](https://youtu.be/ImFTzxmCPkc?list=PL0M0zPgJ3HSftTAAHttA3JQU4vOjXFquF&t=3660)
+A lot of Azure SDKs haven't moved to .NET Core. Don't worry they're coming. [Youtube timestamp](https://youtu.be/ImFTzxmCPkc?list=PL0M0zPgJ3HSftTAAHttA3JQU4vOjXFquF&t=3660)
 
-Does a .netcoreapp 1.0 run on 1.1? It's supposed to but it doesn't work magically, you have to use a workaround.  
-[Youtube timestamp](https://youtu.be/ImFTzxmCPkc?list=PL0M0zPgJ3HSftTAAHttA3JQU4vOjXFquF&t=3837)
+Does a .netcoreapp 1.0 run on 1.1? It's supposed to but it doesn't work magically, you have to use a workaround. [Youtube timestamp](https://youtu.be/ImFTzxmCPkc?list=PL0M0zPgJ3HSftTAAHttA3JQU4vOjXFquF&t=3837)
 
-Will the CSPROJ tooling be finalized ready for VS2017 RTM? At this stage yes :)  
-[Youtube timestamp](https://youtu.be/ImFTzxmCPkc?list=PL0M0zPgJ3HSftTAAHttA3JQU4vOjXFquF&t=3948)
+Will the CSPROJ tooling be finalized ready for VS2017 RTM? At this stage yes :) [Youtube timestamp](https://youtu.be/ImFTzxmCPkc?list=PL0M0zPgJ3HSftTAAHttA3JQU4vOjXFquF&t=3948)
