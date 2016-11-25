@@ -11,7 +11,7 @@ For those of you without enough time to watch the full ASP.NET Community Standup
 
 ## Show Notes, Community Links and Timestamps
 
-Aerial Spaces - https://aerialspac.es/
+[Aerial Spaces](https://aerialspac.es/)
 
 ## Community
 
