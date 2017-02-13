@@ -40,7 +40,7 @@ Things start to get interesting when you add Razor Template support. This let's 
         .Subject("woo nuget")
         .UsingTemplate(template, new { Name = "Luke", Compliment = "Awesome" });
 
-Firstly, we let Fluent Email know which renderer to use (you can even implement your own!). Next we provide a template, and lastly we provide a model so the tepmlate can be filled in.
+Firstly, we let Fluent Email know which renderer to use (you can even implement your own!). Next we provide a template, and lastly we provide a model so the template can be filled in.
 
 ## Embedding Templates as cshtml files
 
