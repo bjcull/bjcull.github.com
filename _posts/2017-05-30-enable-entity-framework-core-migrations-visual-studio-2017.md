@@ -5,7 +5,7 @@ layout: post
 published: true
 ---
 
-Entity Framework Core Migrations have changed once more thanks to Visual Studio 2017 and the .csproj format. In the third iteration of this series I once again show you how to enable migrations, this time including class libraries and multiple contexts.
+Entity Framework Core Migrations have changed once more thanks to Visual Studio 2017 and the .csproj format. In the third iteration of this series I once again show you how to enable migrations, this time including class libraries and multiple contexts. Bonus! There are examples for **ASP.NET Identity** and even **Identity Server 4**.
 
 ## Starting from File > New Project
 
@@ -17,13 +17,13 @@ If you're lucky enough to be starting a brand new project and it's relatively sm
 
 For the rest of us, especially those who appreciate good system architecture, we're going to be setting up a separate class library to hold our migrations and Database Context. Luckily, since quite recently, the steps to enabling migrations have been simplified (Don't worry there's still planty to do). These steps are roughly the same, regardless if you're upgrading to csproj project format or just creating a new class library.
 
-1. Create a new .NET Standard Class Library
+**1. Create a new .NET Standard Class Library**
 
 To hold our migrations and database context, we'll create a .NET Standard Class Library. I typically use "[SolutionName].Data".
 
 ![Class Library](/wp-content/uploads/2017/05/class_library.png)
 
-2. Add some Nuget Packages
+**2. Add some Nuget Packages**
 
 My example today will include ASP.NET Identity using Microsoft SQL Server, as I think this will cover the majority of use cases. If you don't need Identity, don't worry, you can just leave it out.
 
@@ -35,11 +35,11 @@ Start by adding the following Nuget Packages to your Data class library, using t
         <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="1.1.2" />
     </ItemGroup>
 
-**Note: Use the latest versions available to you at the current time.**
+Note: Use the latest versions available to you at the current time.
 
 These three packages add support for ASP.NET Identity using Entity Framework, EF Migrations tooling and EF SQL Server support respectively.
 
-3. (Optional) Would you prefer to use the dotnet cli to create migrations? (like me)
+**3. (Optional) Would you prefer to use the dotnet cli to create migrations? (like me)**
 
 Add the following code to your data project file (Right click project > "Edit [ProjectName]").
 
@@ -47,15 +47,15 @@ Add the following code to your data project file (Right click project > "Edit [P
         <DotNetCliToolReference Include="Microsoft.EntityFrameworkCore.Tools.DotNet" Version="1.0.0" />
     </ItemGroup>
 
-4. Create your User Entity
+**4. Create your User Entity**
 
-Create a new folder called entities and add a new class to it called `User.cs`. I normally create a separate project to hold my entities called "[SolutionName].Domain", but you can place this new class in your data project if you like. Here's the code:
+Create a new folder called `entities` and add a new class to it called `User.cs`. I normally create a separate project to hold my entities called "[SolutionName].Domain", but you can place this new class in your data project if you like. Here's the code:
 
     public class User : IdentityUser
     {
     }
 
-5. Create your Database Context
+**5. Create your Database Context**
 
 Add a new class to your data project called `[SolutionName]Context.cs`. I'm calling mine `EFMigrations2017Context.cs`. PS, if you're not using ASP.NET Identity then you'd inherit from `DbContext` instead of `IdentityDbContext<>`. Here's the code:
 
@@ -67,7 +67,7 @@ Add a new class to your data project called `[SolutionName]Context.cs`. I'm call
         }
     }
 
-6. Create Temporary Database Context Factory
+**6. Create Temporary Database Context Factory**
 
 This is what let's us self contain the class library, rather than relying on the configuration of the startup project. Whilst it's a little bit of a pain to add this, it's currently the most reliable way of ensuring migrations works for everyone.
 
@@ -84,7 +84,7 @@ Add the following `TemporaryDbContextFactory.cs` class to your data project:
         }
     }
 
-7. Enable Migrations using Package Manager Console or Dotnet CLI
+**7. Enable Migrations using Package Manager Console or Dotnet CLI**
 
 **Package Manager Console**  
 If you'd prefer to stay inside Visual Studio, you can enable migrations from the package manager console. Just run the following command (remembering to set the default project to your data project):
@@ -96,13 +96,14 @@ If you'd prefer to stay inside Visual Studio, you can enable migrations from the
 **Dotnet CLI**  
 If you prefer to keep a separate console window open to manage migrations, then open your terminal of choice in the directory of your data project and run the following command:
 
-PS C:\Data\Projects\EFMigrations2017\EFMigrations.Data> dotnet ef migrations add InitialMigration
+    PS C:\Data\Projects\EFMigrations2017\EFMigrations.Data> dotnet ef migrations add InitialMigration
 
 That's it! Migrations are now enabled.
 
 ![Powershell](/wp-content/uploads/2017/05/powershell.png)
 
 ![Solution](/wp-content/uploads/2017/05/solution.png)
+A migrations folder is added containing the new migrations.
 
 ## Migrations Commands
 
@@ -110,33 +111,32 @@ Now that you have migrations enabled, here are the important commands you'll nee
 
 **Package Manager Console**  
 You can find all commands listed here: [https://docs.microsoft.com/en-us/ef/core/miscellaneous/cli/powershell](https://docs.microsoft.com/en-us/ef/core/miscellaneous/cli/powershell)
+This command adds a new migration based on the state of your DbContext. 
 
     PM> Add-Migration MigrationName
 
-This command adds a new migration based on the state of your DbContext. 
+This command removes the latest migration. **Important:** Always use this command to remove a migration. Deleting a migration.cs file will result in a corrupted migrations model.
 
     PM> Remove-Migration
 
-This command removes the latest migration. **Important:** Always use this command to remove a migration. Deleting a migration.cs file will result in a corrupted migrations model.
+This command updates the database to the latest version. You can also optionally specify a target migration to migrate up or down to that migration.
 
     PM> Update-Database [[-Migration] MigrationName]
 
-This command updates the database to the latest version. You can also optionally specify a target migration to migrate up or down to that migration.
 
-**Dotnet CLI**
+**Dotnet CLI**  
 You can find all commands listed here: [https://docs.microsoft.com/en-us/ef/core/miscellaneous/cli/dotnet](https://docs.microsoft.com/en-us/ef/core/miscellaneous/cli/dotnet)
+This command adds a new migration based on the state of your DbContext. 
 
     PS C:\> dotnet ef migrations add MigrationName
 
-This command adds a new migration based on the state of your DbContext. 
+This command removes the latest migration. **Important:** Always use this command to remove a migration. Deleting a migration.cs file will result in a corrupted migrations model.
 
     PS C:\> dotnet ef migrations remove
 
-This command removes the latest migration. **Important:** Always use this command to remove a migration. Deleting a migration.cs file will result in a corrupted migrations model.
+This command updates the database to the latest version. You can also optionally specify a target migration to migrate up or down to that migration.
 
     PS C:\> dotnet ef database update [MigrationName]
-
-This command updates the database to the latest version. You can also optionally specify a target migration to migrate up or down to that migration.
 
 ## How do I run these migrations automatically?
 
@@ -170,17 +170,20 @@ If you noticed, I also like to seed the database at this point as well as it wil
 
 Here's a lovely bit of bonus content. The best way I can think of to demonstrate how to use multiple contexts, happens to be one of my most asked questions. How do I connect Identity Server 4 to Entity Framework and use migrations? Well! Let's go through what you need to do to get up and running.
 
-The following instructions will build upon the Context we've already created, using it as our main database. We're also going to be using ASP.NET Identity as our User authentication system, so we're keeping the IdentityUser and the IdentityDbContext<> intact.
+The following instructions will build upon the Context we've already created, using it as our main database. We're also going to be using ASP.NET Identity as our User authentication system, so we're keeping the `IdentityUser` and the `IdentityDbContext<>` intact.
 
 The **Web Project** refers to our web application that we'll be installing Identity Server 4 into.  
 The **Data Project** referes to the Data class library we created above.
 
-1. To your **Data Project**, add the following Nuget Package:
+**1. To your Data Project, add the following Nuget Package:**
 
+```
     <PackageReference Include="IdentityServer4.EntityFramework" Version="1.0.1" />
+```
 
-2. Add the following to your `TemporaryDbContextFactory.cs`
+**2. Add the following to your `TemporaryDbContextFactory.cs`**
 
+```
     public class TemporaryDbContextFactoryScopes : IDbContextFactory<PersistedGrantDbContext>
     {
         public PersistedGrantDbContext Create(DbContextFactoryOptions options)
@@ -203,10 +206,11 @@ The **Data Project** referes to the Data class library we created above.
             return new ConfigurationDbContext(builder.Options, new ConfigurationStoreOptions());
         }
     }
+```
 
 I'm pointing the two Identity Server 4 Database Contexts at the same database as my main context so all data is in the same database. You can choose to split this up if you'd like.
 
-3. Run Add Migrations for both contexts
+**3. Run Add Migrations for both contexts**
 
 Much like we did for our main context, this time we need to specify which context we want to use. I'm using the dotnet cli, but you can use the package manager if you like. See the reference for the correct command to use. Run the following commands from the data project folder:
 
@@ -216,7 +220,7 @@ Much like we did for our main context, this time we need to specify which contex
 
 You should now see two folders inside your migrations folder, containing the new migrations.
 
-4. Set up Identity Server inside the **Web Project** startup.cs
+**4. Set up Identity Server inside the Web Project startup.cs**
 
 I'm not going to go through the entire set up process of Identity Server 4, that is outside the scope of this post. Great samples already exist here: [IdentityServer4.Samples/Quickstarts](https://github.com/IdentityServer/IdentityServer4.Samples/tree/release/Quickstarts). Especially the AspNetIdentity and EntityFrameworkStorage projects.
 
@@ -238,7 +242,7 @@ Next you can see we're hooking up the Configuration and Operational database con
 
 Finally we tell Identity Server 4, where we're keeping our User information so it can hook into it automatically.
 
-5. You're good to go!
+**5. You're good to go!**
 
 You now know mostly everything there is to know about using migrations. Until it changes again of course :P
 
