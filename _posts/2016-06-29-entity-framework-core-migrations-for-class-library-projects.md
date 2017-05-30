@@ -9,6 +9,8 @@ Entity Framework Core 1.0.0 RTM still does not support migrations for class libr
 
 Be sure to subscribe to this github issue to keep up to date with the progress of this problem. [CLI Commands: support targeting .NET Core class library projects #5320](https://github.com/aspnet/EntityFramework/issues/5320#issuecomment-229415778)  
 
+**UPDATE May 2017:** There are slight improvements to the workaround. I've written a much bigger post here: [Enable Entity Framework Core Migrations in Visual Studio 2017](http://benjii.me/2017/05/enable-entity-framework-core-migrations-visual-studio-2017/).
+
 ## The Workaround  
 We need to pretend our class library is actually a .NET Core app. The trickery begins by updating our class library's project.json with the following updates:
 
