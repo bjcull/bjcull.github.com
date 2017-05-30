@@ -110,12 +110,13 @@ A migrations folder is added containing the new migrations.
 Now that you have migrations enabled, here are the important commands you'll need day to day.
 
 **Package Manager Console**  
-You can find all commands listed here: [https://docs.microsoft.com/en-us/ef/core/miscellaneous/cli/powershell](https://docs.microsoft.com/en-us/ef/core/miscellaneous/cli/powershell)
+You can find all commands listed here: [https://docs.microsoft.com/en-us/ef/core/miscellaneous/cli/powershell](https://docs.microsoft.com/en-us/ef/core/miscellaneous/cli/powershell)  
 This command adds a new migration based on the state of your DbContext. 
 
     PM> Add-Migration MigrationName
 
-This command removes the latest migration. **Important:** Always use this command to remove a migration. Deleting a migration.cs file will result in a corrupted migrations model.
+This command removes the latest migration.  
+**Important:** Always use this command to remove a migration. Deleting a migration.cs file will result in a corrupted migrations model.
 
     PM> Remove-Migration
 
@@ -125,12 +126,13 @@ This command updates the database to the latest version. You can also optionally
 
 
 **Dotnet CLI**  
-You can find all commands listed here: [https://docs.microsoft.com/en-us/ef/core/miscellaneous/cli/dotnet](https://docs.microsoft.com/en-us/ef/core/miscellaneous/cli/dotnet)
+You can find all commands listed here: [https://docs.microsoft.com/en-us/ef/core/miscellaneous/cli/dotnet](https://docs.microsoft.com/en-us/ef/core/miscellaneous/cli/dotnet)  
 This command adds a new migration based on the state of your DbContext. 
 
     PS C:\> dotnet ef migrations add MigrationName
 
-This command removes the latest migration. **Important:** Always use this command to remove a migration. Deleting a migration.cs file will result in a corrupted migrations model.
+This command removes the latest migration.  
+**Important:** Always use this command to remove a migration. Deleting a migration.cs file will result in a corrupted migrations model.
 
     PS C:\> dotnet ef migrations remove
 
@@ -173,7 +175,7 @@ Here's a lovely bit of bonus content. The best way I can think of to demonstrate
 The following instructions will build upon the Context we've already created, using it as our main database. We're also going to be using ASP.NET Identity as our User authentication system, so we're keeping the `IdentityUser` and the `IdentityDbContext<>` intact.
 
 The **Web Project** refers to our web application that we'll be installing Identity Server 4 into.  
-The **Data Project** referes to the Data class library we created above.
+The **Data Project** refers to the Data class library we created above.
 
 **1. To your Data Project, add the following Nuget Package:**
 
@@ -230,17 +232,17 @@ In your **Web Project** `startup.cs`, update the services configuration like so:
 
     services.AddIdentityServer()
         .AddDeveloperSigningCredential()
-        .AddConfigurationStore(o => o.UseSqlServer(Configuration["Data:WebdevContext:ConnectionString"],
+        .AddConfigurationStore(o => o.UseSqlServer(Configuration["Data:EFMigrations2017Context:ConnectionString"],
             options => options.MigrationsAssembly(typeof(EFMigrations2017Context).GetTypeInfo().Assembly.GetName().Name)))
-        .AddOperationalStore(o => o.UseSqlServer(Configuration["Data:WebdevContext:ConnectionString"],
+        .AddOperationalStore(o => o.UseSqlServer(Configuration["Data:EFMigrations2017Context:ConnectionString"],
             options => options.MigrationsAssembly(typeof(EFMigrations2017Context).GetTypeInfo().Assembly.GetName().Name)))
         .AddAspNetIdentity<User>();
 
-Here you can see I'm still using the DeveloperSigningCredential for this example. Be sure to use a certificate instead, as soon as you want to deploy this.
+Here you can see I'm still using the DeveloperSigningCredential for this example. Be sure to use a certificate instead as soon as you want to deploy this.
 
 Next you can see we're hooking up the Configuration and Operational database contexts.
 
-Finally we tell Identity Server 4, where we're keeping our User information so it can hook into it automatically.
+Finally we tell Identity Server 4 where we're keeping our User information so it can hook into it automatically.
 
 **5. You're good to go!**
 
