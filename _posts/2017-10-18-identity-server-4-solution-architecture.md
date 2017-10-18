@@ -63,7 +63,7 @@ An example API endpoint looks like this:
     }
 
 **Pinch.Auth**  
-This contains the actual implementation of Identity Server. I'm using IdentityServer4.EntityFramework and IdentityServer4.AspNetIdentity to take advantage of the ASP.NET Identity authentication system, stored in a SQL Server using Entity Framework. This really takes the hassle out of storing passwords, and is HIGHLY recommended compared to rolling your own user authencation solution. Though, relying solely on third party authentication such as Microsoft, Facebook or Google is even better!
+This contains the actual implementation of Identity Server. I'm using IdentityServer4.EntityFramework and IdentityServer4.AspNetIdentity to take advantage of the ASP.NET Identity authentication system, stored in a SQL Server using Entity Framework. This really takes the hassle out of storing passwords, and is HIGHLY recommended compared to rolling your own user authentication solution. Though, relying solely on third party authentication such as Microsoft, Facebook or Google is even better!
 
 The important startup code I use here is:
 
@@ -105,7 +105,7 @@ This project contains virtually all of the Entities, Models, DTOs, Enums and any
 
 When deciding to split your application into multiple pieces, this is what you're splitting up first. Keep this in mind when designing how the classes in this project are connected.
 
-**Pinch.Sevices**  
+**Pinch.Services**  
 This project contains pretty much all of the business logic for the application. This is really where monoliths get their bad rep, since this one assembly can grow quite large and it's easy to tangle your logic together, making it difficult to split up later. If you're going to add tests to your solution, it'll be to test classes in here.
 
 This is the only project that should be using the DbContext directly. Pretty much all API calls route directly to a service.
