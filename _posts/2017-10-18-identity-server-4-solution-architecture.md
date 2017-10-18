@@ -101,7 +101,7 @@ This project contains my Entity Framework DbContext and all of the Entity Framew
 For more info, I've explained [how to setup migrations for multiple contexts](http://benjii.me/2017/05/enable-entity-framework-core-migrations-visual-studio-2017/) before.
 
 **Pinch.Domain**  
-This project contains virtually all of the Entities, Models, DTOs, Enums and any other classes designed to just hold data. It's at the top of the architecture tree because it's the model of the entire application. This is one of the core tenants of Domain Driven Design, everything starts here.
+This project contains virtually all of the Entities, Models, DTOs, Enums and any other classes designed to just hold data. It's at the top of the architecture tree because it's the model of the entire application. This is one of the core tenets of Domain Driven Design, everything starts here.
 
 When deciding to split your application into multiple pieces, this is what you're splitting up first. Keep this in mind when designing how the classes in this project are connected.
 
@@ -111,7 +111,7 @@ This project contains pretty much all of the business logic for the application.
 This is the only project that should be using the DbContext directly. Pretty much all API calls route directly to a service.
 
 **Pinch.Web**  
-This is another ASP.NET Core MVC Application, but it contains only one route pointing at an Angular2+ application. It talks to Identity Server using Microsoft.AspNetCore.Authentication.OpenIdConnect. It fetches tokens from Identity Server, on the server side, and passes down the token to the Angular app using ViewComponent. This way, the refresh token is never exposed to the client and anyone sniffing an access_token will only have access until the token expires.
+This is another ASP.NET Core MVC Application, but it contains only one route pointing at an Angular2+ application. It talks to Identity Server using Microsoft.AspNetCore.Authentication.OpenIdConnect. It fetches tokens from Identity Server, on the server side, and passes down the token to the Angular app using a ViewComponent. This way, the refresh token is never exposed to the client and anyone sniffing an access token will only have access until the token expires.
 
 The important startup code here is:
 
@@ -163,10 +163,10 @@ The view component code that passes the token looks like this:
     }
 
 **In Summary**  
-There's a fair bit of code presented without context, some settings that are set due to my migration from the early dasy of Identity Server 4, and some unique architecture decisions presented in this post. If you're looking to understand how Identity Server works, I strongly recommend you check out the [Identity Server Quickstart Samples](https://github.com/IdentityServer/IdentityServer4.Samples/tree/release/Quickstarts). These are kept up to date, and are the best way of starting your solution. Once you have played around with the configuration and figured out how Identity Server best fits your needs, you can start to design a more robust architecture.
+There's a fair bit of code presented without context, some settings that are set due to my migration from the early days of Identity Server 4, and some unique architecture decisions presented in this post. If you're looking to understand how Identity Server works, I strongly recommend you check out the [Identity Server Quickstart Samples](https://github.com/IdentityServer/IdentityServer4.Samples/tree/release/Quickstarts). These are kept up to date, and are the best way of starting your solution. Once you have played around with the configuration and figured out how Identity Server best fits your needs, you can start to design a more robust architecture.
 
 Hopefully this quick overview has given you some more insight into how to design an architecture. If you have any questions about what I've presented here, or about Identity Server in general, hit me up on twitter at [@BenWhoLikesBeer](https://twitter.com/BenWhoLikesBeer).
 
-If you haven't already, you can check out my presentation of the above in my video: [Identity Server 4 from Basics to Brain Melt | Ben Cull at NDC Oslo 2017](https://bencull.com/identity-server-4-from-basics-to-brain-melt-ben-cull-at-ndc-oslo-2017/).
+If you haven't already, you can check out my presentation of the above in my video: [Identity Server 4 from Basics to Brain Melt - Ben Cull at NDC Oslo 2017](https://bencull.com/identity-server-4-from-basics-to-brain-melt-ben-cull-at-ndc-oslo-2017/).
 
 Cheers!
