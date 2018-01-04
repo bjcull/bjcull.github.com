@@ -86,7 +86,7 @@ Now the code above is just a normal readonly property (`public int myProp {get;}
 
 Expressions are the fundamental technology that allow Entity Framework to translate linq into sql queries in the first place, because it can read the blueprint all the way down and decide how best to turn it into SQL statements.
 
-A great example of a simple query broken down into it's expression components can be found here: https://stackoverflow.com/a/8315901/80013
+A great example of a simple query broken down into it's expression components can be found here: [https://stackoverflow.com/a/8315901/80013](https://stackoverflow.com/a/8315901/80013)
 
 ![Expression Tree Example](/wp-content/uploads/2017/11/expression_tree.png)
 
@@ -214,7 +214,7 @@ Firstly, mad props to the Entity Framework team for their tireless work getting 
         }
     }
 
-As you can see, the first projection class `VendorWithCategory` which is a projection of our entity `Vendor` contains a property that we also want to project: the `CategoryModel` which is a projection of `VendorCategory`. However since it's not a collection, we cant just pass our projection to a `.Select()` clause. Instead we create a new method called FromEntity that compiles and applies the projection for us.
+As you can see, the first projection class `VendorWithCategory` which is a projection of our entity `Vendor` contains a property that we also want to project: the `CategoryModel` which is a projection of `VendorCategory`. However since it's not a collection, we can't just pass our projection to a `.Select()` clause. Instead we create a new method called FromEntity that compiles and applies the projection for us.
 
 This used to break in EF Core 1.x, so it's a huge relief to be able to post this simple code and say GET GOING! But the problem with this code, and the reason it used to break before now is that it does not get translated into SQL. Instead, Entity Framework stops walking down this expression tree and applies the projection **after the query has been executed**. This results in some nice and neat code, but it doesn't help us remove unnecessary columns from our query. Let's take a look.
 
@@ -281,7 +281,7 @@ Next, we'll update our single element projection class. Update the `CategoryMode
         }
     }
 
-The only thing we did here was add the `ReplaceWithExpression` attribute to the FromEntity method, and that's all we need to do. Here's the udpated and lean sql that is generated:
+The only thing we did here was add the `ReplaceWithExpression` attribute to the FromEntity method, and that's all we need to do. Here's the updated and lean sql that is generated:
 
     SELECT [x].[Id], [x].[Name], [x].[CategoryId] AS [Id0], [x.Category].[CategoryName]
         FROM [Vendors] AS [x]
@@ -291,3 +291,79 @@ To quickly describe what's happening here before diving into the details in the 
 
 Phew! I suggest you try this code out for yourself, it's a really great exercise! Continue reading if you'd like to know how the underlying code works in a bit more detail :)
 
+## Expression Visitor - Explained
+
+OK Let's dig into the underlying code and follow what's going on.
+
+We'll start with `.AsExpandable()`.
+
+<script src="https://gist.github.com/bjcull/c53842df5056300859181fdf10cacab1.js?file=AsExpandableExtension.cs"></script>
+
+The main thing that this method does is take the existing IQueryable and wrap it with our own custom `ExtendableQueryProvider`. The actual type returned by the CreateQuery method is an `ExpandableQuery<T>`. It also does a check to see if our IQueryable is already an ExpandableQuery which means you can safely nest the call to `.AsExpandable()` if you build up your queries using multiple methods.
+
+I've purposely skipped over the `ExpandableQuery<T>` class, as it's basically just an empty wrapper on an IQueryable. Check out the repository if you want to take a look at it.
+
+Next, we'll look at what that `ExpandableQueryProvider` is doing.
+
+<script src="https://gist.github.com/bjcull/c53842df5056300859181fdf10cacab1.js?file=ExpandableQueryProvider.cs"></script>
+
+To start, the `CreateQuery()` methods create a new `ExpandableQuery<T>` with the current `ExpandableQueryProvider` substituted as the Query Provider. This means that when the query is executed, it will call one of our own Execute methods.
+
+Each of the `Execute()` methods wraps a call to the underlying query provider (Entity Framework) with one important difference. We call the `Visit()` method on the expression we pass in.
+
+The `Visit()` method creates a new `ExpandableVisitor`, forces the expression to be 'visited' and returns the resulting expression to the underlying query provider to be executed. It's this 'Visit' where the magic happens and it's inside our next class, `ExpandableVisitor`.
+
+<script src="https://gist.github.com/bjcull/c53842df5056300859181fdf10cacab1.js?file=ExpandableVisitor.cs"></script>
+
+This is where things get a little mind-bending, so here's my best explanation at what's going on.
+
+Overall, our `ExpandableVisitor` is an `ExpressionVisitor`, which is a class that handles 'walking down' the expression tree.
+
+Firstly, we'll look at the `VisitMethodCall()` method. This method is called when the visitor encounters a method in the tree (instead of another expression like a lambda, or just a plain old value). In our case this only happens when the `FromEntity()` method is encountered. You can safely ignore the first 13 lines of `VisitMethodCall()`, as this is extra support for a method of expansion that we did not look at in this blog post. Instead take a look at the line that creates the `replaceNodeAttribute` variable. Here, we're looking for our special `ReplaceWithExpression` attribute. Since we did add this attribute to our `FromEntity()` method, we fetch the attribute and continue.
+
+The next two if statements are basically the same, supporting either a replacement method, or in our case a replacement property since we used `PropertyName` in our attribute. We use reflection to fetch the Property that we referenced, in our case it's our Projection. Next since the projection is indeed a LamdaExpression, we pass the expression, along with the arguments from our Expression tree node to the `RegisterReplacementParameters()` method.
+
+Jumping down to the `RegisterReplacementParameters()` method, first we have a quick check to make sure that the number of arguments supplied matches the number of parameters that the Projection wants. This is usually just one for our projections (the entity being projected). If they do match, then we save the parameter/argument pair into a dictionary for use in the next step. We've now completed the `RegisterReplacementParameters()` method and the next line where we left off in the `VisitMethodCall()` method is `return Visit((replaceWith as LambdaExpression).Body);`. This is a recursive call to our ExpandableVisitor, but since this time the node we passed in is an Expression and not a method, it doesn't call `VisitMethodCall()`, instead it attempts to process the Projection, and during this processing we hit the next overridden method, `VisitParameter()`.
+
+`VisitParameter()` is hit each time the expression calls for a parameter. In our case this is the `x` in our projection, but cleverly, instead of parsing the parameter, it replaces it with the original argument passed to the `FromEntity()` method, which is a `MemberAccess` expression instead of a parameter expression. 
+
+This is a little complicated and I'm making up this syntax for clarity, but it means that we started with this:
+
+    .Select(x => new VendorWithCategory() 
+    {
+        Id = x.Id, 
+        Name = x.Name, 
+        Category = FromEntity(x.Category)
+    })
+
+then we replaced our method with an expression kind of like so:
+
+    .Select(x => new VendorWithCategory() 
+    {
+        Id = x.Id, 
+        Name = x.Name, 
+        Category = (y => new CategoryModel() 
+        {
+            Id = y.Id, 
+            CategoryName = y.CategoryName
+        })(x.Category)
+    })
+
+then we replaced our `y` parameters with member access expressions which compiles down to:
+
+    .Select(x => new VendorWithCategory() 
+    {
+        Id = x.Id, 
+        Name = x.Name, 
+        Category = new CategoryModel() 
+        {
+            Id = x.Category.Id, 
+            CategoryName = x.Category.CategoryName
+        }
+    })
+
+Phew! Hopefully this makes sense. I've got to tell you, even in the thick of writing this article I'm still learning the intricacies of expressions and how they're constructed and parsed.
+
+Hit me up on twitter if you have any questions or corrections :)
+
+Cheers!
