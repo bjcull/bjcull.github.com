@@ -24,13 +24,13 @@ There are currently three pieces of tech I use to get the full material design e
 Let's take a look at each.
 
 ### Material 2  
-- https://github.com/angular/material2
-- https://material.angular.io/
+- [https://github.com/angular/material2](https://github.com/angular/material2)
+- [https://material.angular.io/](https://material.angular.io/)
 
 Material 2 is the Angular team's implementation of Material Design components. These are ready to go immediately and are easy enough to install.
 
 **Installation**  
-I don't want to have to keep this post up to date with the changing installation process, but it's only a few steps. Check it out here: https://material.angular.io/guide/getting-started
+I don't want to have to keep this post up to date with the changing installation process, but it's only a few steps. Check it out here: [https://material.angular.io/guide/getting-started](https://material.angular.io/guide/getting-started)
 
 **Usage**  
 Best practice is to have a separate module to import just the components you want to use, like this:
@@ -55,7 +55,7 @@ and then boom, just use a directive. Here's a button example:
 
 
 ### Material Components Web
-- https://github.com/material-components/material-components-web
+- [https://github.com/material-components/material-components-web](https://github.com/material-components/material-components-web)
 
 **NOTE - May 14 2018** - The components don't work with Angular 6 yet. Just the layout.
 
@@ -111,17 +111,17 @@ If you're already in a padded container, or if you're nesting columns you can le
 ```
 
 ### Angular Flex Layout  
-- https://github.com/angular/flex-layout
+- [https://github.com/angular/flex-layout](https://github.com/angular/flex-layout)
 
 I use the flex layout system as a way to wrap a few components with a responsive layout. It also has some handy media-query/breakpoint code to help you dynamically change your UI from code as well as css. 
 
 The key advantage of this layout system is that you can bind sizes to angular properties, letting you gain huge control over the layout, especially when designing for both mobile and desktop at the same time.
 
 **Installation**  
-https://github.com/angular/flex-layout/wiki/Using-Angular-CLI
+[https://github.com/angular/flex-layout/wiki/Using-Angular-CLI](https://github.com/angular/flex-layout/wiki/Using-Angular-CLI)
 
 **Usage**  
-https://github.com/angular/flex-layout/wiki/Declarative-API-Overview
+[https://github.com/angular/flex-layout/wiki/Declarative-API-Overview](https://github.com/angular/flex-layout/wiki/Declarative-API-Overview)
 
 ```
 <div fxLayout='column' class="zero">
@@ -141,7 +141,7 @@ https://github.com/angular/flex-layout/wiki/Declarative-API-Overview
 
 
 For usage in code use the following:
-https://github.com/angular/flex-layout/wiki/API-Documentation
+[https://github.com/angular/flex-layout/wiki/API-Documentation](https://github.com/angular/flex-layout/wiki/API-Documentation)
 
 ```
 import {ObservableMedia} from '@angular/flex-layout';
