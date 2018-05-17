@@ -1,33 +1,19 @@
----
-layout: layout
----
-
-<div class="ad">
-    <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-    <!-- Above Blog Post -->
-    <ins class="adsbygoogle"
-         style="display:block"
-         data-ad-client="ca-pub-9830260905637575"
-         data-ad-slot="6090557647"
-         data-ad-format="auto"></ins>
-    <script>
-    (adsbygoogle = window.adsbygoogle || []).push({});
-    </script>
-</div>
+--- layout: layout ---
 
 <div id="post">
-	<h1> {{page.title}} </h1>
-	<div class="date">{{ post.date | date: "%d %B, %Y" }}</div>
-	
-	<article>
-		{{ content }}
-	</article>
+    <h1> {{page.title}} </h1>
+    <div class="date">{{ page.date | date: "%d %B, %Y" }}</div>
+
+    <article>
+        {{ content }}
+    </article>
 </div>
 
-	
-<div id="page-navigation"> 
-	<div class="left"> {% if page.previous.url %} <a href="{{page.previous.url}}" title="Previous Post: {{page.previous.title}}">&larr; {{page.previous.title}}</a> {% endif %} </div> 
-	<div class="right"> {% if page.next.url %} <a href="{{page.next.url}}" title="next Post: {{page.next.title}}">{{page.next.title}} &rarr; </a> {% endif %} </div> 
-	<div class="clear">&nbsp;</div>
-</div>
 
+<div id="page-navigation">
+    <div class="left"> {% if page.previous.url %}
+        <a href="{{page.previous.url}}" title="Previous Post: {{page.previous.title}}">&larr; {{page.previous.title}}</a> {% endif %} </div>
+    <div class="right"> {% if page.next.url %}
+        <a href="{{page.next.url}}" title="next Post: {{page.next.title}}">{{page.next.title}} &rarr; </a> {% endif %} </div>
+    <div class="clear">&nbsp;</div>
+</div>
