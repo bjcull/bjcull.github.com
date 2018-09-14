@@ -106,4 +106,6 @@ On top of that we feel we now have a better relationship with Xero and to be hon
 
 If you haven't heard of Pinch Payments before, we're a payments startup from Brissy, helping Xero customers get paid automatically. Check us out at [getpinch.com.au](https://getpinch.com.au) or feel free to hit me up on LinkedIn ([Ben Cull](https://www.linkedin.com/in/bencull/)) if you have any questions about the event!
 
+*Photos by [Andrew Hobbs Photography](http://andrewhobbs.com.au/)*
+
 <script async defer src="//www.instagram.com/embed.js"></script>
