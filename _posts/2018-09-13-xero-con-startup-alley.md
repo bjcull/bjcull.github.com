@@ -68,7 +68,7 @@ If there are any Xero people reading, this is where you should pay attention, be
 
 The booth is advertised at 5k. I didn't realise this would be ex GST, so add another 500. Once you've secured your place by paying the full amount, you're greeted with the exhibitors manual.
 
-In this wonderful manual you'll discover that nearly everything else costs money. Remember that back wall artwork? ~$300.00. Want any kind of media like a TV? Starts from ~$500.00. Even down to a second stool to sit on. $55. Rediculous.
+In this wonderful manual you'll discover that nearly everything else costs money. Remember that back wall artwork? ~$300.00. Want any kind of media like a TV? Starts from ~$500.00. Even down to a second stool to sit on. $55. Ridiculous.
 
 My expectations were that we'd have the basics covered by the exhibition cost, and that extras (like TVs, more power, etc...) would cost more. I felt very nickel and dimed by this part and it's such a shame since literally everything else was wonderful.
 
@@ -79,7 +79,7 @@ Keep in mind that you can only attend the startup alley once, so we're already s
 ## The Wrap Party  
 The wrap party was truly awesome. Located at Cloudland, the venue was transformed into an enormous (Bris)Vegas themed wonderland, complete with show girls, gladiators, a casino and more shimmering glitter than I've seen in a while.
 
-One of the main things that was driven home to us during the wrap party was our creative use of headwear. Walking past the queue to get into the venue, all we heard was "HEY PINCHY!". All throughout the night we couldn't walk 5 metres without someone asking, "Hey, what's with the hat?". After a quick description that our company is called Pinch and the logo is a lobster claw, they'd reply, "awesome, you guys are marketing geniuses!", before being swiftly interupted by the next curiuos person. And so the cycle continued!
+One of the main things that was driven home to us during the wrap party was our creative use of headwear. Walking past the queue to get into the venue, all we heard was "HEY PINCHY!". All throughout the night we couldn't walk 5 metres without someone asking, "Hey, what's with the hat?". After a quick description that our company is called Pinch and the logo is a lobster claw, they'd reply, "awesome, you guys are marketing geniuses!", before being swiftly interupted by the next curious person. And so the cycle continued!
 
 <div>
     <blockquote class="instagram-media" data-instgrm-captioned data-instgrm-permalink="https://www.instagram.com/p/BnsQZfCncpl/?utm_source=ig_embed_loading" data-instgrm-version="12" style=" background:#FFF; border:0; border-radius:3px; box-shadow:0 0 1px 0 rgba(0,0,0,0.5),0 1px 10px 0 rgba(0,0,0,0.15); margin: 1px; max-width:540px; min-width:326px; padding:0; width:99.375%; width:-webkit-calc(100% - 2px); width:calc(100% - 2px);">
