@@ -29,6 +29,7 @@ We were lucky enough to have the sage guidance of [Heather Smith](https://heathe
 There was some great emphasis on the follow up. Every man and their dog will be chasing attendees after the conference, so carefully plan your emails, calls and bring along some useful swag to be remembered by.
 
 ![Pinch Stubby Cooler](https://i.imgur.com/Cm8HIJw.png)
+*Figure: Stubby cooler design for XeroCon 2018 - Brisbane*
 
 We brought 300 stubby coolers as swag for the event and managed to give away 240. If we tried harder we could have left empty handed, especially since on the first night, beers were flowing naked as the day they were bottled. People were supremely grateful when we snuck up on them with a free stubby cooler.
 
