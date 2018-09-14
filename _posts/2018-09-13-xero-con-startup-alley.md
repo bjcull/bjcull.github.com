@@ -38,19 +38,22 @@ We landed on 300 as it was about 10% of the total attendance. In future we'd pro
 ##  Show me the booth!  
 Before the event started, I was very unsure about the space we were given as the only image I had was an abstract blueprint.
 
-![Startup Alley Blueprint](https://i.imgur.com/ATaoY99.png) 
+![Startup Alley Blueprint](https://i.imgur.com/ATaoY99.png)
+*Figure: The startup alley booth blueprint provided by event staff* 
 
 At all the conferences I've attended previously, exhibitors were sat behind a counter that you could approach to see what they had going on. In the blueprint, the counter was attached to the back wall and it made me feel a bit exposed. How was I supposed to demo my product effectively? Would we have enough room for the two of us? How much room is there between each stand?
 
 Unfortunately, none of these questions were sufficiently answered before the conference, but luckily my fears were unfounded. The counters being along the back wall really made it feel more welcoming for myself and attendees. We could have a nice conversation, easily interact with passers by, and if we needed to demo, there was just enough room to bring the attendee in closer for a better look on our laptops.
 
 ![Startup Alley Stands](https://i.imgur.com/LQBQdVs.jpg)
+*Figure: The startup alley stands in reality. Plus this goofy guy not watching the camera :)* 
 
 There was only barely enough room for everyone when times were busy, but it wasn't ever uncomfortable. One thing to note here is the artwork. Everyone needed to provide a logo header, but the backwall artwork was optional. Some people opted to mount a TV in place of the artwork. To be honest, whilst this worked pretty well for exhibitors with larger stands, in the startup alley it felt a little cramped and bland. I would opt for backwall artwork again in future.
 
 Just for good measure here's an example of the standard sized stands.
 
 ![Standard Stand](https://i.imgur.com/iTKnzzU.jpg)
+*Figure: An example of the standard sized stands* 
 
 ## Let's talk dollars  
 OK, let's get down to brass tacks. Let's break down what everything cost so you can decide if this is the right thing for you. 
@@ -94,6 +97,7 @@ We're also now trying to get more involved with community meetups and advisors i
 Finally, the Practice Ignition guys manged to put on a party with 1000+ people! If we can get one going with just a tenth of that number I'd be super stoked. But none of these thing will happen automatically, you've got to put the effort in!
 
 ![XeroCon](https://i.imgur.com/vRMvPLu.jpg)
+*Figure: Xero Store at XeroCon 2018 - Brisbane* 
 
 ## The Results  
 Here's the ROI. We managed to speak to and collect the contact details of **114 amazing people**. This is HUGE for us and we can't wait to start working with so many people in the Xero community.
